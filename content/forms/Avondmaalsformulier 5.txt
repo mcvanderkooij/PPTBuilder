@@ -1,0 +1,29 @@
+#template:Overzicht Formulier#
+<---
+Gemeente van onze Heer Jezus Christus,
+
+<i>Instelling<i> 
+
+We zijn hier bij elkaar om volgens het bevel van onze Heer zijn dood te verkondigen. Eerst horen we hoe de instelling van het avondmaal beschreven wordt in het heilig evangelie:
+<i>Toen ze aten nam Jezus een brood, sprak het zegengebed uit, brak het brood en gaf de leerlingen ervan met de woorden: ‘Neem, eet, dit is mijn lichaam.’<i>
+<---
+<i>En hij nam een beker, sprak het dankgebed uit en gaf hun de beker met de woorden: ‘Drink allen hieruit, dit is mijn bloed, het bloed van het verbond, dat voor velen wordt vergoten tot vergeving van zonden. Ik zeg jullie: vanaf vandaag zal ik niet meer van de vrucht van de wijnstok drinken tot de dag komt dat ik er met jullie opnieuw van zal drinken in het koninkrijk van mijn Vader.’<i>
+<---
+<i>Christus gedenken<i> 
+
+We gedenken dat de Heer Jezus aan het kruis zijn lichaam en zijn bloed gegeven heeft voor de zijnen. In grote liefde voor ons heeft hij zich geofferd, zodat wij niet zouden sterven maar leven. Het avondmaal richt onze aandacht op deze zelfovergave van de Heer. Het vervult ons met schaamte om onze zonden, maar ook met dankbaarheid om zijn verzoenende liefde.
+<---
+<i>Gemeenschap en verwachting<i>
+
+We beleven aan deze tafel samen de vreugdevolle eenheid met Christus en met elkaar. Vanuit de viering van het avondmaal willen we elkaar dienen in de gemeente. 
+Tegelijk verwachten we de terugkeer van onze Heer Jezus. Aan het avondmaal mogen we alvast iets proeven van de blijdschap die de bruiloft van het Lam geeft. Straks zal onze Heer met ons opnieuw wijn drinken in het koninkrijk van zijn Vader.
+<---
+Daarom mogen we het avondmaal ook niet achteloos en zonder oprecht geloof vieren. We moeten dat juist doen met eerbied voor God en in heilige, gespannen verwachting. Straks zal de Heer alle tranen uit onze ogen wissen en zal aan alle gebrokenheid en nood een einde gekomen zijn. En hij zal over alles en allen regeren.
+<---
+#template:%Bidden%#
+<---
+#template:%Geloofsbelijdenis%#
+<---
+#template:Overzicht Formulier#
+<---
+#template:SUBS#

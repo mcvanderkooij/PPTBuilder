@@ -1,0 +1,30 @@
+#template:Overzicht Formulier#
+<---
+Gemeente van onze Heer Jezus Christus,
+
+<i>Instelling<i> 
+
+We zijn hier bijeen om in opdracht van onze Heer zijn dood te verkondigen.
+In het heilig evangelie wordt de instelling van het avondmaal als volgt beschreven:
+<i>Toen ze verder aten nam Jezus een brood, sprak het zegengebed uit, brak het brood en gaf de leerlingen ervan met de woorden:<i>
+<---
+<i>‘Neem, eet, dit is mijn lichaam.’ En hij nam een beker, sprak het dankgebed uit en gaf hun de beker met de woorden: ‘Drink allen hieruit, dit is mijn bloed, het bloed van het verbond, dat voor velen wordt vergoten tot vergeving van zonden. Ik zeg jullie: vanaf vandaag zal ik niet meer van de vrucht van de wijnstok drinken tot de dag komt dat ik er met jullie opnieuw van zal drinken in het koninkrijk van mijn Vader.<i>
+<---
+<i>Gedachtenis<i> 
+
+In het avondmaal gedenken we hoe onze Heer Jezus aan het kruis zijn lichaam en bloed voor ons offerde. Dit offer verzekert ons van zijn grote liefde, want hij gaf zich over in de dood voor zondaars die oprecht belijden dat ze nietig zijn voor God. Dat maakt ons blij en dankbaar, want door zijn dood ontvangen wij het leven.
+<---
+Als broers en zusters van één huisgezin vieren we ons geluk met dit geestelijke feestmaal. Aan tafel worden we door Christus gevoed en bemoedigd en wordt onze verlossing zichtbaar gemaakt. Hij versterkt ons geloof door de heilige Geest. Met des te meer blijdschap en dankbaarheid zullen we de Heer dienen in ons leven van elke dag.
+<---
+<i>Uitnodiging en terugwijzing<i>
+
+Het avondmaal is vol van vergeving en vreugde, maar we mogen het niet achteloos of zonder geloof gebruiken. De Heer vraagt van ons een oprecht besef van schuld en maakt zich boos over ons, als we ons niet dagelijks van harte tot hem bekeren. Als we dan toch deelnemen aan de viering  halen we alleen maar grotere toorn over ons. 
+Ga daarom bij uzelf na hoe u het avondmaal viert. Kom aan tafel met een oprecht hart. Ontvang het brood en de wijn en verheug u over uw redding door Christus.
+<---
+#template:%Bidden%#
+<---
+#template:%Geloofsbelijdenis%#
+<---
+#template:Overzicht Formulier#
+<---
+#template:SUBS#

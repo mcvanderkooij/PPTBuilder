@@ -1,0 +1,252 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{94A93979-835D-4FCD-AEF1-8A92117643EB}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>VCL</FrameworkType>
+			<MainSource>PPTBuilder.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+			<Base_Win64>true</Base_Win64>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;bindengine;soaprtl;CustomIPTransport;dsnap;fmxase;IndyCore;inet;fmxobj;inetdbxpress;fmxdae;IPIndyImpl;dbexpress;$(DCC_UsePackage)</DCC_UsePackage>
+			<Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+			<DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<DCC_UsePackage>vclimg;vclactnband;vcldb;vcldsnap;bindcompvcl;vclie;vcltouch;websnap;VclSmp;vcl;dsnapcon;vclx;webdsnap;$(DCC_UsePackage)</DCC_UsePackage>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<DCC_UsePackage>TMSCloudPkgDXE2;vcldbx;RSVclSVG;TeeDB;MPCommonLibDXE2;JVCL_XE2;Rave100VCL;vclib;Tee;inetdbbde;RSFMXSVG;svnui;ibxpress;vclimg;fmi;intrawebdb_120_160;mbColorLibD10;TeeUI;FMXTee;vclactnband;vcldb;vcldsnap;bindcompvcl;vclie;pckAmClock;vcltouch;Intraweb_120_160;websnap;MPCommonLibDXE2D;PngComponents;TMSCloudPkgDEDXE2;vclribbon;VclSmp;EasyListviewDXE2D;vcl;RSCommon;CloudService;FmxTeeUI;dsnapcon;EasyListviewDXE2;RSVML;vclx;webdsnap;svn;GR32_DSGN_RSXE2;GR32_RSXE2;bdertl;RSVclCommon;adortl;PrintPreview_2009;$(DCC_UsePackage)</DCC_UsePackage>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<DCC_RemoteDebug>true</DCC_RemoteDebug>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.1.1;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Build>1</VerInfo_Build>
+			<VerInfo_Release>1</VerInfo_Release>
+			<Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
+			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p Eendenkooij8 /d "PTT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
+$(PostBuildEvent)]]></PostBuildEvent>
+			<DCC_Define>SIMPLE;$(DCC_Define)</DCC_Define>
+			<DCC_UnitSearchPath>D:\Data\Projects\Delphi\graphics32\Lines;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_ExeOutput>D:\Projects\Delphi\PPTBuilder\bin-dev\</DCC_ExeOutput>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<DCC_DcuOutput>D:\temp\DCUXE2_32\PPTBuilder\</DCC_DcuOutput>
+			<DCC_RemoteDebug>false</DCC_RemoteDebug>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="$(MainSource)">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\..\source\UfrmPPTView.pas">
+				<Form>frmPPTViewer</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\PowerPoint_TLB.pas"/>
+			<DCCReference Include="..\..\source\Office_TLB.pas"/>
+			<DCCReference Include="..\..\source\VBIDE_TLB.pas"/>
+			<DCCReference Include="..\..\source\USlideLayout.pas"/>
+			<DCCReference Include="..\..\source\USlide.pas"/>
+			<DCCReference Include="..\..\source\USourcePPT.pas"/>
+			<DCCReference Include="..\..\source\TeeGenericTree.pas"/>
+			<DCCReference Include="..\..\source\UfrmMain.pas">
+				<Form>frmMain</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\USlideTemplate.pas"/>
+			<DCCReference Include="..\..\source\UUtilsStrings.pas"/>
+			<DCCReference Include="..\..\source\UfrmPictureSelector.pas">
+				<Form>frmPictureSelector</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UUtils.pas"/>
+			<DCCReference Include="..\..\source\UBuildPowerpoint.pas"/>
+			<DCCReference Include="..\..\source\UProject.pas"/>
+			<DCCReference Include="..\..\source\UfrmMemoDlg.pas">
+				<Form>frmMemoDlg</Form>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UUtilsForms.pas"/>
+			<DCCReference Include="..\..\source\gnugettext.pas"/>
+			<DCCReference Include="..\..\source\UfrmListBoxDlg.pas">
+				<Form>frmListBoxDlg</Form>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UFastKeys.pas"/>
+			<DCCReference Include="..\..\source\UFastKeysSS.pas"/>
+			<DCCReference Include="..\..\source\UTempActions.pas"/>
+			<DCCReference Include="..\..\source\UFastKeysSO.pas"/>
+			<DCCReference Include="..\..\source\UOverview.pas"/>
+			<DCCReference Include="..\..\source\URibbon.pas"/>
+			<DCCReference Include="..\..\source\UfrmEditExtSlide.pas">
+				<Form>frmEditExtSlide</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UfrmEditText.pas">
+				<Form>frmEditText</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\USplitBibleVerses.pas"/>
+			<DCCReference Include="..\..\source\UfrmPictureDescription.pas">
+				<Form>frmPictureDescription</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UfrmEditSong.pas">
+				<Form>frmEditSong</Form>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UfrmEditSinglePage.pas">
+				<Form>frmEditSinglePage</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UStringLogicalComparer.pas"/>
+			<DCCReference Include="..\..\source\USettings.pas"/>
+			<DCCReference Include="..\..\source\skushell.pas"/>
+			<DCCReference Include="..\..\source\ULiturgy.pas"/>
+			<DCCReference Include="..\..\source\URegexReplaceProperties.pas"/>
+			<DCCReference Include="..\..\source\USourceInfo.pas"/>
+			<DCCReference Include="..\..\source\UfrmBrowseFTP.pas">
+				<Form>frmBrowseFTP</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\USlideVariables.pas"/>
+			<DCCReference Include="..\..\source\UfrmEditVariables.pas">
+				<Form>frmEditVariables</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UUtilsFeedback.pas"/>
+			<DCCReference Include="..\..\source\UfrmSettings.pas">
+				<Form>frmSettings</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UUtilsJSON.pas"/>
+			<DCCReference Include="..\..\source\UfrmSelectString.pas">
+				<Form>frmSelectString</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UBrowseFTP.pas"/>
+			<DCCReference Include="..\..\source\UfrmQuickStart.pas">
+				<Form>frmQuickStart</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\..\source\UMRUList.pas"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1043</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Source>
+						<Source Name="MainSource">PPTBuilder.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Deployment/>
+				<Platforms>
+					<Platform value="Win64">False</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<PropertyGroup Condition="'$(Config)'=='Debug' And '$(Platform)'=='Win32'">
+			<PreBuildEvent/>
+			<PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+			<PreLinkEvent/>
+			<PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+			<PostBuildEvent>C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p Eendenkooij8 /d &quot;PTT Builder&quot; /du &quot;http://www.gemeenteleven.nl/&quot; $(OUTPUTPATH)</PostBuildEvent>
+			<PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+		</PropertyGroup>
+	</Project>

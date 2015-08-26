@@ -1,0 +1,187 @@
+#  Doesn't have any letters
+#. frmMain..MainMenu1..mniFile..N2..Caption
+#: UfrmMain.dfm:258
+#. frmMain..MainMenu1..mniFile..N1..Caption
+#: UfrmMain.dfm:265
+msgid "-"
+msgstr ""
+
+#  Doesn't have any letters
+#. frmSettings..edtPassword..PasswordChar
+#: UfrmSettings.dfm:67
+msgid "*"
+msgstr ""
+
+#  Doesn't have any letters
+#. frmMain..btnSpeakerSelect..Caption
+#: UfrmMain.dfm:155
+#. frmMain..btnCollecte1Select..Caption
+#: UfrmMain.dfm:187
+#. frmMain..btnCollecte2Select..Caption
+#: UfrmMain.dfm:219
+msgid "..."
+msgstr ""
+
+#  Looks like a file extension or file mask
+#. frmMain..OpenDialogProject..DefaultExt
+#: UfrmMain.dfm:275
+#. frmMain..SaveDialogProject..DefaultExt
+#: UfrmMain.dfm:281
+msgid ".ppb"
+msgstr ""
+
+#  Looks like a file extension or file mask
+#. frmMain..SaveDialogPPT..DefaultExt
+#: UfrmMain.dfm:287
+msgid ".ppt"
+msgstr ""
+
+#  Doesn't have any letters
+#. frmMain..btnSpeakerAdd..Caption
+#: UfrmMain.dfm:139
+#. frmMain..btnCollecte1Add..Caption
+#: UfrmMain.dfm:171
+#. frmMain..btnCollecte2Add..Caption
+#: UfrmMain.dfm:203
+msgid "+"
+msgstr ""
+
+#  Doesn't have any letters
+#. frmEditText..btnInsertSlide..Caption
+#: UfrmEditText.dfm:109
+msgid "<--->"
+msgstr ""
+
+#  Doesn't look like text
+#. frmMain..CategoryPanelGroup1..CategoryPanel1..Caption
+#: UfrmMain.dfm:129
+msgid "CategoryPanel1"
+msgstr ""
+
+#. frmListBoxDlg..Caption
+#: UfrmListBoxDlg.dfm:4
+msgid "frmListBoxDlg"
+msgstr ""
+
+#. frmMemoDlg..Caption
+#: UfrmMemoDlg.dfm:5
+msgid "frmMemoDlg"
+msgstr ""
+
+#. frmPPTViewer..Caption
+#: UfrmPPTView.dfm:4
+msgid "frmPPTViewer"
+msgstr ""
+
+#: UFastKeysSO.pas:61
+#: UFastKeysSS.pas:53
+msgid "Index out of bounds"
+msgstr ""
+
+#. frmPPTViewer..lblPPTFile..Caption
+#: UfrmPPTView.dfm:26
+msgid "lblPPTFile"
+msgstr ""
+
+#  Doesn't look like text
+#. frmBrowseFTP..Panel2..Caption
+#: UfrmBrowseFTP.dfm:51
+msgid "Panel2"
+msgstr ""
+
+#  Doesn't look like text
+#. frmBrowseFTP..Panel2..Panel3..Caption
+#: UfrmBrowseFTP.dfm:77
+msgid "Panel3"
+msgstr ""
+
+#  Seems like a Font.Name extract
+#. frmBrowseFTP..Font.Name
+#: UfrmBrowseFTP.dfm:11
+#. frmEditExtSlide..Font.Name
+#: UfrmEditExtSlide.dfm:12
+#. frmEditExtSlide..lbVerses..Font.Name
+#: UfrmEditExtSlide.dfm:84
+#. frmEditSinglePage..Font.Name
+#: UfrmEditSinglePage.dfm:12
+#. frmEditSong..Font.Name
+#: UfrmEditSong.dfm:12
+#. frmEditSong..lbVerses..Font.Name
+#: UfrmEditSong.dfm:85
+#. frmEditText..Font.Name
+#: UfrmEditText.dfm:13
+#. frmEditVariables..Font.Name
+#: UfrmEditVariables.dfm:11
+#. frmListBoxDlg..Font.Name
+#: UfrmListBoxDlg.dfm:13
+#. frmMain..Font.Name
+#: UfrmMain.dfm:11
+#. frmMain..lbSlides..Font.Name
+#: UfrmMain.dfm:73
+#. frmMain..CategoryPanelGroup1..HeaderFont.Name
+#: UfrmMain.dfm:123
+#. frmMain..btnSpeakerAdd..Font.Name
+#: UfrmMain.dfm:143
+#. frmMain..btnSpeakerSelect..Font.Name
+#: UfrmMain.dfm:159
+#. frmMain..btnCollecte1Add..Font.Name
+#: UfrmMain.dfm:175
+#. frmMain..btnCollecte1Select..Font.Name
+#: UfrmMain.dfm:191
+#. frmMain..btnCollecte2Add..Font.Name
+#: UfrmMain.dfm:207
+#. frmMain..btnCollecte2Select..Font.Name
+#: UfrmMain.dfm:223
+#. frmMemoDlg..Font.Name
+#: UfrmMemoDlg.dfm:14
+#. frmMemoDlg..mmoMessage..Font.Name
+#: UfrmMemoDlg.dfm:125
+#. frmPictureDescription..Font.Name
+#: UfrmPictureDescription.dfm:11
+#. frmPictureSelector..Font.Name
+#: UfrmPictureSelector.dfm:12
+#. frmPPTViewer..Font.Name
+#: UfrmPPTView.dfm:11
+#. frmQuickStart..Font.Name
+#: UfrmQuickStart.dfm:12
+#. frmSelectString..Font.Name
+#: UfrmSelectString.dfm:12
+#. frmSettings..Font.Name
+#: UfrmSettings.dfm:12
+msgid "Tahoma"
+msgstr ""
+
+#. frmEditExtSlide..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditExtSlide.dfm:127
+#. frmEditSinglePage..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditSinglePage.dfm:53
+#. frmEditSinglePage..PageControlContent..tsPicture..ImgViewPicture..Bitmap.ResamplerClassName
+#: UfrmEditSinglePage.dfm:144
+#. frmEditSong..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditSong.dfm:128
+#. frmEditText..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditText.dfm:58
+#. frmPictureDescription..ImgView321..Bitmap.ResamplerClassName
+#: UfrmPictureDescription.dfm:29
+#. frmPictureSelector..ImgViewSelection..Bitmap.ResamplerClassName
+#: UfrmPictureSelector.dfm:38
+#. frmPPTViewer..ImgView321..Bitmap.ResamplerClassName
+#: UfrmPPTView.dfm:64
+msgid "TNearestResampler"
+msgstr ""
+
+#. frmEditSinglePage..PageControlContent..tsMemo..Caption
+#: UfrmEditSinglePage.dfm:117
+msgid "tsMemo"
+msgstr ""
+
+#. frmEditSinglePage..PageControlContent..tsPicture..Caption
+#: UfrmEditSinglePage.dfm:134
+msgid "tsPicture"
+msgstr ""
+
+#. frmEditSinglePage..PageControlContent..tsText..Caption
+#: UfrmEditSinglePage.dfm:102
+msgid "tsText"
+msgstr ""
+

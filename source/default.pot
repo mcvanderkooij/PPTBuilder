@@ -1,0 +1,505 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-08-23 21:14\n"
+"PO-Revision-Date: 2015-08-23 21:14\n"
+"Last-Translator: Somebody <your.email@address.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: dxgettext 1.2.2\n"
+
+#. frmBrowseFTP..Caption
+#: UfrmBrowseFTP.dfm:4
+msgid "Browse Server"
+msgstr ""
+
+#. frmBrowseFTP..Panel1..btnOK..Caption
+#: UfrmBrowseFTP.dfm:29
+#. frmEditExtSlide..btnOK..Caption
+#: UfrmEditExtSlide.dfm:52
+#. frmEditSinglePage..btnOK..Caption
+#: UfrmEditSinglePage.dfm:79
+#. frmEditSong..btnOK..Caption
+#: UfrmEditSong.dfm:53
+#. frmEditText..btnOK..Caption
+#: UfrmEditText.dfm:76
+#. frmEditVariables..Panel1..btnOK..Caption
+#: UfrmEditVariables.dfm:45
+#. frmPictureDescription..btnOK..Caption
+#: UfrmPictureDescription.dfm:53
+#. frmSelectString..btnOK..Caption
+#: UfrmSelectString.dfm:70
+#. frmSettings..btnOK..Caption
+#: UfrmSettings.dfm:39
+msgid "OK"
+msgstr ""
+
+#. frmBrowseFTP..Panel1..btnCancel..Caption
+#: UfrmBrowseFTP.dfm:40
+#. frmEditExtSlide..btnCancel..Caption
+#: UfrmEditExtSlide.dfm:63
+#. frmEditSinglePage..btnCancel..Caption
+#: UfrmEditSinglePage.dfm:90
+#. frmEditSong..btnCancel..Caption
+#: UfrmEditSong.dfm:64
+#. frmEditText..btnCancel..Caption
+#: UfrmEditText.dfm:88
+#. frmEditVariables..Panel1..btnCancel..Caption
+#: UfrmEditVariables.dfm:35
+#. frmListBoxDlg..pnlButtons..btnCancel..Caption
+#: UfrmListBoxDlg.dfm:83
+#. frmMemoDlg..pnlButtons..btnCancel..Caption
+#: UfrmMemoDlg.dfm:84
+#. frmPictureDescription..btnCancel..Caption
+#: UfrmPictureDescription.dfm:65
+#. frmPictureSelector..btnCancel..Caption
+#: UfrmPictureSelector.dfm:55
+#. frmPPTViewer..btnCancel..Caption
+#: UfrmPPTView.dfm:82
+#. frmSelectString..btnCancel..Caption
+#: UfrmSelectString.dfm:81
+#. frmSettings..btnCancel..Caption
+#: UfrmSettings.dfm:51
+msgid "Cancel"
+msgstr ""
+
+#. frmEditExtSlide..Caption
+#: UfrmEditExtSlide.dfm:5
+msgid "Edit External Slide"
+msgstr ""
+
+#. frmEditExtSlide..Label2..Caption
+#: UfrmEditExtSlide.dfm:25
+#. frmEditSinglePage..Label2..Caption
+#: UfrmEditSinglePage.dfm:25
+#. frmPictureSelector..lblFooterText..Caption
+#: UfrmPictureSelector.dfm:30
+msgid "Footer text:"
+msgstr ""
+
+#. frmEditExtSlide..Label3..Caption
+#: UfrmEditExtSlide.dfm:32
+#. frmEditSinglePage..Label3..Caption
+#: UfrmEditSinglePage.dfm:32
+#. frmEditSong..Label3..Caption
+#: UfrmEditSong.dfm:33
+#. frmEditText..Label3..Caption
+#: UfrmEditText.dfm:37
+msgid "Picto:"
+msgstr ""
+
+#. frmEditExtSlide..Label4..Caption
+#: UfrmEditExtSlide.dfm:39
+#. frmEditSong..Label4..Caption
+#: UfrmEditSong.dfm:40
+msgid "Verses:"
+msgstr ""
+
+#. frmEditExtSlide..btnVerseAdd..Caption
+#: UfrmEditExtSlide.dfm:99
+#. frmEditSong..btnVerseAdd..Caption
+#: UfrmEditSong.dfm:100
+#. frmSelectString..btnAdd..Caption
+#: UfrmSelectString.dfm:43
+msgid "Add"
+msgstr ""
+
+#. frmEditExtSlide..btnEdit..Caption
+#: UfrmEditExtSlide.dfm:108
+#. frmEditSong..btnVerseEdit..Caption
+#: UfrmEditSong.dfm:109
+#. frmSelectString..btnEdit..Caption
+#: UfrmSelectString.dfm:52
+#: UfrmSelectString.pas:116
+msgid "Edit"
+msgstr ""
+
+#. frmEditExtSlide..btnDelete..Caption
+#: UfrmEditExtSlide.dfm:117
+#. frmEditSong..btnVerseDelete..Caption
+#: UfrmEditSong.dfm:118
+#. frmMain..ppmSlides..mniSlidesDelete..Caption
+#: UfrmMain.dfm:302
+#. frmSelectString..btnDelete..Caption
+#: UfrmSelectString.dfm:61
+msgid "Delete"
+msgstr ""
+
+#. frmEditExtSlide..btnSelectPictoNone..Caption
+#: UfrmEditExtSlide.dfm:144
+#. frmEditSinglePage..btnSelectPictoNone..Caption
+#: UfrmEditSinglePage.dfm:70
+#. frmEditSong..btnSelectPictoNone..Caption
+#: UfrmEditSong.dfm:179
+#. frmEditText..btnSelectPictoNone..Caption
+#: UfrmEditText.dfm:172
+#: USlideTemplate.pas:1009
+msgid "None"
+msgstr ""
+
+#. frmEditSinglePage..Caption
+#: UfrmEditSinglePage.dfm:5
+msgid "Edit Single"
+msgstr ""
+
+#. frmEditSong..Caption
+#: UfrmEditSong.dfm:5
+msgid "Edit Song Slide"
+msgstr ""
+
+#. frmEditSong..Label2..Caption
+#: UfrmEditSong.dfm:26
+#. frmEditText..Label2..Caption
+#: UfrmEditText.dfm:30
+msgid "Overview name:"
+msgstr ""
+
+#. frmEditSong..btnVerseCopy..Caption
+#: UfrmEditSong.dfm:145
+#. frmMain..ppmSlides..mniSlidesCopy..Caption
+#: UfrmMain.dfm:297
+msgid "Copy"
+msgstr ""
+
+#. frmEditSong..btnInternet..Caption
+#: UfrmEditSong.dfm:154
+#. frmEditText..btnInternet..Caption
+#: UfrmEditText.dfm:137
+#. frmPPTViewer..btnOpenInternet..Caption
+#: UfrmPPTView.dfm:109
+msgid "Internet"
+msgstr ""
+
+#. frmEditSong..cbxShowInOverview..Caption
+#: UfrmEditSong.dfm:163
+#. frmEditText..cbxShowInOverview..Caption
+#: UfrmEditText.dfm:164
+msgid "Show In Overview"
+msgstr ""
+
+#. frmEditSong..cbxPartOfForm..Caption
+#: UfrmEditSong.dfm:171
+#. frmEditText..cbxPartOfForm..Caption
+#: UfrmEditText.dfm:156
+msgid "Part Of Form"
+msgstr ""
+
+#. frmEditText..Caption
+#: UfrmEditText.dfm:4
+msgid "Edit Text Slide"
+msgstr ""
+
+#. frmEditText..btnPaste..Caption
+#: UfrmEditText.dfm:119
+msgid "Paste"
+msgstr ""
+
+#. frmEditText..cbxAutomaticSmallNumbers..Caption
+#: UfrmEditText.dfm:128
+msgid "Automatic small numbers"
+msgstr ""
+
+#. frmEditText..btnFill..Caption
+#: UfrmEditText.dfm:147
+#. frmEditVariables..Caption
+#: UfrmEditVariables.dfm:4
+msgid "Fill"
+msgstr ""
+
+#. frmListBoxDlg..pnlButtons..btnYes..Caption
+#: UfrmListBoxDlg.dfm:56
+#. frmMemoDlg..pnlButtons..btnYes..Caption
+#: UfrmMemoDlg.dfm:57
+msgid "Yes"
+msgstr ""
+
+#. frmListBoxDlg..pnlButtons..btnNo..Caption
+#: UfrmListBoxDlg.dfm:65
+#. frmMemoDlg..pnlButtons..btnNo..Caption
+#: UfrmMemoDlg.dfm:66
+msgid "No"
+msgstr ""
+
+#. frmListBoxDlg..pnlButtons..btnOk..Caption
+#: UfrmListBoxDlg.dfm:74
+#. frmMemoDlg..pnlButtons..btnOk..Caption
+#: UfrmMemoDlg.dfm:75
+msgid "Ok"
+msgstr ""
+
+#. frmMain..Caption
+#: UfrmMain.dfm:4
+#: UfrmMain.pas:723
+msgid "Powerpoint Builder"
+msgstr ""
+
+#. frmMain..Label1..Caption
+#: UfrmMain.dfm:32
+msgid "Add Slide"
+msgstr ""
+
+#. frmMain..Label2..Caption
+#: UfrmMain.dfm:41
+msgid "Speaker:"
+msgstr ""
+
+#. frmMain..Label3..Caption
+#: UfrmMain.dfm:50
+msgid "Collecte 1:"
+msgstr ""
+
+#. frmMain..Label4..Caption
+#: UfrmMain.dfm:59
+msgid "Collecte 2:"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..Caption
+#: UfrmMain.dfm:234
+msgid "File"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileNew..Caption
+#: UfrmMain.dfm:237
+#. frmQuickStart..btnNew..Caption
+#: UfrmQuickStart.dfm:91
+#: UfrmSelectString.pas:87
+msgid "New"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileOpen..Caption
+#: UfrmMain.dfm:241
+#. frmQuickStart..btnOpenRecent..Caption
+#: UfrmQuickStart.dfm:82
+msgid "Open"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileSave..Caption
+#: UfrmMain.dfm:246
+msgid "Save"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileSaveAs..Caption
+#: UfrmMain.dfm:251
+msgid "Save as"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileRecentlyUsed..Caption
+#: UfrmMain.dfm:255
+msgid "Recently Used"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniSettings..Caption
+#: UfrmMain.dfm:261
+#. frmSettings..Caption
+#: UfrmSettings.dfm:5
+msgid "Settings"
+msgstr ""
+
+#. frmMain..MainMenu1..mniFile..mniFileBuildPPT..Caption
+#: UfrmMain.dfm:268
+msgid "Build Powerpoint"
+msgstr ""
+
+#. frmMain..OpenDialogProject..Filter
+#: UfrmMain.dfm:276
+#. frmMain..SaveDialogProject..Filter
+#: UfrmMain.dfm:282
+msgid "Powerpoint Builder Files (*.ppb)|*.ppb"
+msgstr ""
+
+#. frmMain..SaveDialogPPT..Filter
+#: UfrmMain.dfm:288
+msgid "Powerpoint (*.ppt)|*.ppt"
+msgstr ""
+
+#. frmPictureDescription..Caption
+#: UfrmPictureDescription.dfm:4
+msgid "Picture Description"
+msgstr ""
+
+#. frmPictureSelector..Caption
+#: UfrmPictureSelector.dfm:4
+msgid "Picture Selector"
+msgstr ""
+
+#. frmPictureSelector..btnSelect..Caption
+#: UfrmPictureSelector.dfm:65
+#. frmPPTViewer..btnSelect..Caption
+#: UfrmPPTView.dfm:92
+msgid "Select"
+msgstr ""
+
+#. frmPPTViewer..lblDescription..Caption
+#: UfrmPPTView.dfm:33
+msgid "Description:"
+msgstr ""
+
+#. frmPPTViewer..btnOpenComputer..Caption
+#: UfrmPPTView.dfm:40
+msgid "Computer"
+msgstr ""
+
+#. frmPPTViewer..OpenDialog1..Filter
+#: UfrmPPTView.dfm:114
+msgid "Powerpoint|*.ppt;*.pptx|All|*.*"
+msgstr ""
+
+#. frmQuickStart..Caption
+#: UfrmQuickStart.dfm:5
+msgid "Quick Start"
+msgstr ""
+
+#. frmQuickStart..Label1..Caption
+#: UfrmQuickStart.dfm:24
+msgid "Create New Project:"
+msgstr ""
+
+#. frmQuickStart..Label2..Caption
+#: UfrmQuickStart.dfm:31
+msgid "Open Existing Project:"
+msgstr ""
+
+#. frmQuickStart..Label3..Caption
+#: UfrmQuickStart.dfm:38
+msgid "Recently Opened Files"
+msgstr ""
+
+#. frmQuickStart..btnOpenExisting..Caption
+#: UfrmQuickStart.dfm:45
+msgid "Select..."
+msgstr ""
+
+#. frmQuickStart..btnClose..Caption
+#: UfrmQuickStart.dfm:55
+msgid "Close"
+msgstr ""
+
+#. frmSelectString..Caption
+#: UfrmSelectString.dfm:5
+msgid "Select String"
+msgstr ""
+
+#. frmSelectString..Label1..Caption
+#: UfrmSelectString.dfm:26
+msgid "Filter:"
+msgstr ""
+
+#. frmSettings..Label1..Caption
+#: UfrmSettings.dfm:25
+msgid "Website Username"
+msgstr ""
+
+#. frmSettings..Label2..Caption
+#: UfrmSettings.dfm:32
+msgid "Website Password"
+msgstr ""
+
+#: UBuildPowerpoint.pas:418
+msgid "Create Powerpoint..."
+msgstr ""
+
+#. shape.Export(strTempFile, ppShapeFormatPNG, round(shape.Width), round(shape.Height), ppScaleToFit);     //ppScaleToFit
+#: UfrmEditSong.pas:150
+#: UfrmEditSong.pas:176
+#: UfrmEditSong.pas:188
+msgid "verse"
+msgstr ""
+
+#: UfrmEditSong.pas:178
+#: UfrmEditSong.pas:238
+#: UfrmEditText.pas:188
+#. todo content translation
+#: UOverview.pas:191
+msgid "Singing"
+msgstr ""
+
+#: UfrmEditSong.pas:178
+#: UfrmEditSong.pas:238
+#: UfrmSelectString.pas:87
+#: UfrmSelectString.pas:116
+msgid "Enter text"
+msgstr ""
+
+#: UfrmEditSong.pas:178
+#: UfrmEditSong.pas:191
+#: UfrmEditSong.pas:238
+#: UfrmEditSong.pas:244
+msgid "Sub text"
+msgstr ""
+
+#: UfrmEditText.pas:189
+#. todo content translation
+#: UOverview.pas:82
+#. todo content translation
+#: UOverview.pas:188
+msgid "Reading"
+msgstr ""
+
+#: UfrmEditText.pas:190
+#. todo content translation
+#: UOverview.pas:86
+#. todo content translation
+#: UOverview.pas:189
+msgid "Text"
+msgstr ""
+
+#: UfrmMain.pas:166
+msgid "Select Collecte 1"
+msgstr ""
+
+#: UfrmMain.pas:185
+msgid "Select Collecte 2"
+msgstr ""
+
+#: UfrmMain.pas:204
+msgid "Select Speaker"
+msgstr ""
+
+#: UfrmMain.pas:247
+msgid "Do you want to save changes?"
+msgstr ""
+
+#: UfrmMain.pas:725
+msgid "(changed)"
+msgstr ""
+
+#: UfrmPPTView.pas:264
+msgid "Select Slide"
+msgstr ""
+
+#: UfrmPPTView.pas:265
+msgid "Select Picture from Slide"
+msgstr ""
+
+#: UUtilsFeedback.pas:59
+msgid "Initializing"
+msgstr ""
+
+#. update at the max of xxx ms
+#: UUtilsFeedback.pas:96
+msgid "(%d of %d)"
+msgstr ""
+
+#: UUtilsForms.pas:51
+msgid "Warning"
+msgstr ""
+
+#: UUtilsForms.pas:52
+msgid "Error"
+msgstr ""
+
+#: UUtilsForms.pas:53
+msgid "Information"
+msgstr ""
+
+#: UUtilsForms.pas:54
+msgid "Confirmation"
+msgstr ""
+
