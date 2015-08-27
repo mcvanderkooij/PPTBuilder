@@ -21,7 +21,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir=D:\Dropbox\Dropbox\PPTBuilder\Setup
+OutputDir=D:\Projects\Delphi\PPTBuilder\Setup
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes
@@ -35,9 +35,9 @@ Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Dropbox\Dropbox\PPTBuilder\bin-dev\PPTBuilder.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "D:\Dropbox\Dropbox\PPTBuilder\bin-dev\locale\*"; DestDir: "{app}\bin\locale"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\Dropbox\Dropbox\PPTBuilder\content\*"; DestDir: "{app}\content"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Projects\Delphi\PPTBuilder\bin-dev\PPTBuilder.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "D:\Projects\Delphi\PPTBuilder\bin-dev\locale\*"; DestDir: "{app}\bin\locale"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\Projects\Delphi\PPTBuilder\content\*"; DestDir: "{app}\content"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
