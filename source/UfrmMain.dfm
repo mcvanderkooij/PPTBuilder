@@ -270,6 +270,19 @@ object frmMain: TfrmMain
         OnClick = mniFileBuildPPTClick
       end
     end
+    object mniEdit: TMenuItem
+      Caption = 'Edit'
+      object mniEditUndo: TMenuItem
+        Caption = 'Undo'
+        ShortCut = 16474
+        OnClick = mniEditUndoClick
+      end
+      object mniEditRedo: TMenuItem
+        Caption = 'Redo'
+        ShortCut = 16466
+        OnClick = mniEditRedoClick
+      end
+    end
   end
   object OpenDialogProject: TOpenDialog
     DefaultExt = '.ppb'

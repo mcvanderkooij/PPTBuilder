@@ -48,7 +48,8 @@ uses
   UfrmSelectString in '..\..\source\UfrmSelectString.pas' {frmSelectString},
   UBrowseFTP in '..\..\source\UBrowseFTP.pas',
   UfrmQuickStart in '..\..\source\UfrmQuickStart.pas' {frmQuickStart},
-  UMRUList in '..\..\source\UMRUList.pas';
+  UMRUList in '..\..\source\UMRUList.pas',
+  USnapshot in '..\..\source\USnapshot.pas';
 
 {$R *.res}
 

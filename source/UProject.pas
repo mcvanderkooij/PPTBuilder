@@ -3,7 +3,7 @@ unit UProject;
 interface
 
 uses
-  Classes, UFastKeysSS, UUtilsJSON, Data.DBXJSON;
+  Classes, UFastKeysSS, UUtilsJSON, Data.DBXJSON, USnapshot;
 
 type
   TProject = class(TJSONPersistent)
@@ -26,6 +26,16 @@ type
     property Properties: TFastKeyValuesSS read FProperties;
 
     property AfterCollecte: string read FAfterCollecte write FAfterCollecte;
+  end;
+
+  TSnapshotProject = class(TSnapshot)
+  protected
+    FAsString: string;
+    function GetAsString: string; override;
+    procedure SetAsString(const Value: string); override;
+  public
+    constructor Create(oProject: TProject); virtual;
+    procedure RestoreSnapshot(oProject: TProject); virtual;
   end;
 
 implementation
@@ -115,6 +125,29 @@ begin
   if FSlides.Text <> Value.Text then begin
     FSlides.Text := Value.Text;
   end;
+end;
+
+{ TSnapshotProject }
+
+constructor TSnapshotProject.Create(oProject: TProject);
+begin
+  inherited Create;
+  FAsString := oProject.AsJSon;
+end;
+
+function TSnapshotProject.GetAsString: string;
+begin
+  Result := FAsString;
+end;
+
+procedure TSnapshotProject.RestoreSnapshot(oProject: TProject);
+begin
+  oProject.AsJSon := FAsString;
+end;
+
+procedure TSnapshotProject.SetAsString(const Value: string);
+begin
+  FAsString := Value;
 end;
 
 end.

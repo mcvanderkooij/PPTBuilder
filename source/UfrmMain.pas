@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ButtonGroup, Vcl.Menus,
-  UProject, Vcl.ExtCtrls, Vcl.AppEvnts, UFastKeysSO;
+  UProject, Vcl.ExtCtrls, Vcl.AppEvnts, UFastKeysSO, USnapshot;
 
 type
   TfrmMain = class(TForm)
@@ -43,6 +43,9 @@ type
     btnCollecte2Add: TButton;
     btnCollecte2Select: TButton;
     mniFileRecentlyUsed: TMenuItem;
+    mniEdit: TMenuItem;
+    mniEditUndo: TMenuItem;
+    mniEditRedo: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure ButtonGroupNewSlideButtonClicked(Sender: TObject; Index: Integer);
@@ -76,6 +79,8 @@ type
     procedure btnCollecte1SelectClick(Sender: TObject);
     procedure btnCollecte2SelectClick(Sender: TObject);
     procedure mniFileClick(Sender: TObject);
+    procedure mniEditUndoClick(Sender: TObject);
+    procedure mniEditRedoClick(Sender: TObject);
   private
     { Private declarations }
     FStartingPoint: TPoint;
@@ -103,6 +108,14 @@ type
     function CreateProjectHash: string;
     function CheckChanged: boolean;
     procedure SetHasChanged(const Value: boolean);
+  protected
+    FSnapshotList: TSnapshotList;
+    function GetHasUndo: boolean;
+    function GetHasRedo: boolean;
+    procedure DoUndo;
+    procedure DoRedo;
+    procedure AddSnapshot;
+    procedure StartSnapshot;
   public
     procedure DoShowQuickStart;
     procedure ProjectToForm(project: TProject);
@@ -137,6 +150,21 @@ uses
   GnuGetText, UUtils, UUtilsForms, USlide, USlideTemplate, UBuildPowerpoint, UMRUList,
   ULiturgy, USourceInfo, UfrmSettings, USettings, UfrmSelectString, UfrmQuickStart;
 
+procedure TfrmMain.AddSnapshot;
+var
+  project: TProject;
+begin
+  if FSnapshotList.Active then begin
+    project := nil;
+    try
+      ProjectFromForm(project);
+      FSnapshotList.ActionDo(TSnapshotProject.Create(project));
+    finally
+      project.Free;
+    end;
+  end;
+end;
+
 procedure TfrmMain.ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
 begin
   HasChanged := FLastProjectHash <> FSavedProjectHash;
@@ -144,6 +172,9 @@ begin
   btnSpeakerAdd.Enabled := (edtSpeaker.Text <> '') and (GetSettings.Speakers.IndexOf(edtSpeaker.Text) = -1);
   btnCollecte1Add.Enabled := (edtCollecte1.Text <> '') and (GetSettings.Collecte1.IndexOf(edtCollecte1.Text) = -1);
   btnCollecte2Add.Enabled := (edtCollecte2.Text <> '') and (GetSettings.Collecte2.IndexOf(edtCollecte2.Text) = -1);
+
+  mniEditUndo.Enabled := GetHasUndo;
+  mniEditRedo.Enabled := GetHasRedo;
 
   if FShowQuickstart then begin
     FShowQuickstart := False;
@@ -217,6 +248,8 @@ var
   template: TSlideTemplate;
   iInsertPos: integer;
 begin
+  AddSnapshot;
+
   iInsertPos := lbSlides.ItemIndex;
   if iInsertPos = -1 then begin
     iInsertPos := lbSlides.Items.Count;
@@ -238,6 +271,8 @@ begin
       end;
     end;
   end;
+
+  AddSnapshot;
 end;
 
 function TfrmMain.CheckChanged: boolean;
@@ -278,6 +313,7 @@ procedure TfrmMain.DoBuild;
 var
   project: TProject;
 begin
+  AddSnapshot;
   if SaveDialogPPT.Execute then begin
     project := nil;
     ProjectFromForm(project);
@@ -307,12 +343,31 @@ begin
       ProjectToForm(project);
       FSavedProjectHash := project.CreateHash;
       FLastProjectHash := FSavedProjectHash;
+
+      StartSnapshot;
     finally
       project.Free;
     end;
     Result := '';
   end else
     Result := FFileName;
+end;
+
+procedure TfrmMain.DoRedo;
+var
+  oSnapshot: TSnapshotProject;
+  project: TProject;
+begin
+  oSnapshot := FSnapshotList.ActionRedo as TSnapshotProject;
+  if Assigned(oSnapshot) then begin
+    project := TProject.Create;
+    try
+      oSnapshot.RestoreSnapshot(project);
+      ProjectToForm(project);
+    finally
+      project.Free;
+    end;
+  end;
 end;
 
 function TfrmMain.DoOpen(strFileName: string): string;
@@ -353,6 +408,7 @@ end;
 
 procedure TfrmMain.DoSlideCopy;
 begin
+  AddSnapshot;
   if lbSlides.ItemIndex <> -1 then begin
     lbSlides.Items.AddObject(
        lbSlides.Items[lbSlides.ItemIndex],
@@ -360,14 +416,34 @@ begin
     );
     FLastProjectHash := CreateProjectHash;
   end;
+  AddSnapshot;
 end;
 
 procedure TfrmMain.DoSlideDelete;
 begin
+  AddSnapshot;
   if lbSlides.ItemIndex <> -1 then begin
     lbSlides.Items.Objects[lbSlides.ItemIndex].Free;
     lbSlides.Items.Delete(lbSlides.ItemIndex);
     FLastProjectHash := CreateProjectHash;
+  end;
+  AddSnapshot;
+end;
+
+procedure TfrmMain.DoUndo;
+var
+  oSnapshot: TSnapshotProject;
+  project: TProject;
+begin
+  oSnapshot := FSnapshotList.ActionUndo as TSnapshotProject;
+  if Assigned(oSnapshot) then begin
+    project := TProject.Create;
+    try
+      oSnapshot.RestoreSnapshot(project);
+      ProjectToForm(project);
+    finally
+      project.Free;
+    end;
   end;
 end;
 
@@ -391,10 +467,13 @@ begin
   FillLiturgies;
 
   FPictos := TFastKeyValuesSO.Create;
+  FSnapshotList := TSnapshotList.Create;
+  FSnapshotList.Clear;
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
+  FreeAndNil(FSnapshotList);
   ClearSlides;
   FPictos.Free;
 end;
@@ -410,6 +489,16 @@ begin
     ShowSettings;
   end;
   FShowQuickstart := True;
+end;
+
+function TfrmMain.GetHasRedo: boolean;
+begin
+  Result := Assigned(FSnapshotList) and FSnapshotList.HasRedo;
+end;
+
+function TfrmMain.GetHasUndo: boolean;
+begin
+  Result := Assigned(FSnapshotList) and FSnapshotList.HasUndo;
 end;
 
 procedure TfrmMain.FillLiturgies;
@@ -498,6 +587,7 @@ var
   template: TSlideTemplate;
 begin
   if lbSlides.ItemIndex <> -1 then begin
+    AddSnapshot;
     slide := lbSlides.Items.Objects[lbSlides.ItemIndex] as TSlide;
     if Assigned(slide) then begin
       templates := GetSlideTemplates;
@@ -508,6 +598,7 @@ begin
       end;
     end;
     FLastProjectHash := CreateProjectHash;
+    AddSnapshot;
   end;
 end;
 
@@ -519,6 +610,8 @@ var
   strSlide: string;
   oSlide: TObject;
 begin
+  AddSnapshot;
+
   DropPoint.X := X;
   DropPoint.Y := Y;
   with Source as TListBox do begin
@@ -543,6 +636,7 @@ begin
       FLastProjectHash := CreateProjectHash;
     end;
   end;
+  AddSnapshot;
 end;
 
 procedure TfrmMain.lbSlidesDragOver(Sender, Source: TObject; X, Y: Integer;
@@ -601,6 +695,16 @@ procedure TfrmMain.lbSlidesMouseDown(Sender: TObject; Button: TMouseButton;
 begin
   FStartingPoint.X := X;
   FStartingPoint.Y := Y;
+end;
+
+procedure TfrmMain.mniEditRedoClick(Sender: TObject);
+begin
+  DoRedo;
+end;
+
+procedure TfrmMain.mniEditUndoClick(Sender: TObject);
+begin
+  DoUndo;
 end;
 
 procedure TfrmMain.mniFileBuildPPTClick(Sender: TObject);
@@ -681,6 +785,8 @@ begin
       ProjectToForm(project);
       FSavedProjectHash := project.CreateHash;
       FLastProjectHash := FSavedProjectHash;
+
+      StartSnapshot;
       Result := strFileName;
     finally
       project.Free;
@@ -791,6 +897,13 @@ begin
   finally
     slSlides.Free;
   end;
+end;
+
+procedure TfrmMain.StartSnapshot;
+begin
+  FSnapshotList.Clear;
+  FSnapshotList.Active := True;
+  AddSnapshot;
 end;
 
 { TPictoObject }
