@@ -254,36 +254,6 @@ begin
   template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Wet - 10 geboden', 'Liturgisch', 'Content3-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'De wet');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\geboden.png');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\geboden.png');
-  template.SelectContentSubDir := 'pictos';
-  template.EditPossibilities := [epFixed];
-
-  inc(iMenuOrder, 10);
-  oSources := TSourceInfos.Create;
-  for i := 1 to 10 do begin
-    source := TSourceInfo.Create;
-    source.SourceType := sitPPT;
-    source.Description := 'vers ' + intToStr(i);
-    source.Text := '';
-    source.FileName := '<content>ppts\Gz 176b.ppt';
-    source.SlideName := 'Slide'+intToStr(i+1);
-    source.ShapeName := '';
-    oSources.Add(source);
-  end;
-  template := gl_SlideTemplates.Add('Wet Gezongen Gz 176b Mannen en vrouwen', 'Liturgisch', 'Content-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, '');
-  template.AreaData.AddSlideItem('content', ctExtSlide, oSources);
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
-  template.OverviewType := otSong;
-  template.OverviewName := 'Gz 176 b';
-  template.EditPossibilities := [epSongIsPPT, epIsSong];
-  template.SelectContentSubDir := 'ppts';
-
-  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Preek', 'Liturgisch', 'Content3-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, '');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\preek.png');
@@ -392,6 +362,16 @@ begin
   template.EditPossibilities := [epSongIsPPT, epIsSong];
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Zingen-bidden-PPT', 'Zingen', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, '');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingend bidden.png');
+  template.OverviewType := otSong;
+  template.EditPossibilities := [epSongIsPPT, epIsSong];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zingen-plaatjes', 'Zingen', 'Songs-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, '');
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
@@ -449,6 +429,59 @@ begin
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Gebed en gezongen Onze Vader.png');
   template.SelectContentSubDir := 'pictos';
   template.EditPossibilities := [epFixed];
+
+  // Wet
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Wet - 10 geboden', 'Wet', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'De wet');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\geboden.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\geboden.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  oSources := TSourceInfos.Create;
+  for i := 1 to 10 do begin
+    source := TSourceInfo.Create;
+    source.SourceType := sitPPT;
+    source.Description := 'vers ' + intToStr(i);
+    source.Text := '';
+    source.FileName := '<content>ppts\Gz 176b.ppt';
+    source.SlideName := 'Slide'+intToStr(i+1);
+    source.ShapeName := '';
+    oSources.Add(source);
+  end;
+  template := gl_SlideTemplates.Add('Wet Gezongen Gz 176b Mannen en vrouwen', 'Wet', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, '');
+  template.AreaData.AddSlideItem('content', ctExtSlide, oSources);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\wet zingen.png');
+  template.OverviewType := otSong;
+  template.OverviewName := 'Gz 176 b';
+  template.EditPossibilities := [epSongIsPPT, epIsSong];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  oSources := TSourceInfos.Create;
+  for i := 2 to 12 do begin
+    source := TSourceInfo.Create;
+    source.SourceType := sitPPT;
+    source.Description := 'vers ' + intToStr(i-1);
+    source.Text := '';
+    source.FileName := '<content>ppts\10_geboden_in_beeld_en_lied.ppt';
+    source.SlideName := 'Slide'+intToStr(i);
+    source.ShapeName := '';
+    oSources.Add(source);
+  end;
+  template := gl_SlideTemplates.Add('Wet Gezongen Het lied van de tien woorden', 'Wet', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, '');
+  template.AreaData.AddSlideItem('content', ctExtSlide, oSources);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\wet zingen.png');
+  template.OverviewType := otSong;
+  template.OverviewName := 'Het lied van de tien woorden';
+  template.EditPossibilities := [epSongIsPPT, epIsSong];
+  template.SelectContentSubDir := 'ppts';
+
 
   // Kinderen
   iMenuOrder := 70000;
