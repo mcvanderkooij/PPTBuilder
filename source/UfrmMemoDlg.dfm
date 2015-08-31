@@ -86,7 +86,25 @@ object frmMemoDlg: TfrmMemoDlg
       TabOrder = 3
     end
   end
-  object pnlFooterMessage: TPanel
+  object mmoMessage: TRichEdit
+    Left = 0
+    Top = 41
+    Width = 595
+    Height = 175
+    Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    ScrollBars = ssBoth
+    TabOrder = 1
+    WantTabs = True
+    WordWrap = False
+    ExplicitHeight = 216
+  end
+  object pnlRemark: TPanel
     Left = 0
     Top = 257
     Width = 595
@@ -94,6 +112,36 @@ object frmMemoDlg: TfrmMemoDlg
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitLeft = 8
+    ExplicitTop = 222
+    object lblRemark: TLabel
+      Left = 0
+      Top = 0
+      Width = 218
+      Height = 41
+      Align = alLeft
+      Alignment = taRightJustify
+      AutoSize = False
+      Layout = tlCenter
+      WordWrap = True
+    end
+    object edtRemarkText: TEdit
+      Left = 224
+      Top = 10
+      Width = 361
+      Height = 22
+      TabOrder = 0
+    end
+  end
+  object pnlFooterMessage: TPanel
+    Left = 0
+    Top = 216
+    Width = 595
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 4
+    ExplicitTop = 257
     object lblFooter: TLabel
       Left = 0
       Top = 0
@@ -112,22 +160,5 @@ object frmMemoDlg: TfrmMemoDlg
       Height = 22
       TabOrder = 0
     end
-  end
-  object mmoMessage: TRichEdit
-    Left = 0
-    Top = 41
-    Width = 595
-    Height = 216
-    Align = alClient
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    ScrollBars = ssBoth
-    TabOrder = 1
-    WantTabs = True
-    WordWrap = False
   end
 end

@@ -19,12 +19,14 @@ type
     FText: string;
     FSlideName: string;
     FSourceType: TSourceInfoType;
+    FRemark: string;
   protected
     function GetAsJSonObject: TJSONObject; override;
     procedure SetAsJSonObject(const Value: TJSONObject); override;
   public
     property SourceType: TSourceInfoType read FSourceType write FSourceType;
     property Description: string read FDescription write FDescription;
+    property Remark: string read FRemark write FRemark;
     property Text: string read FText write FText;
     property FileName: string read FFileName write FFileName;
     property SlideName: string read FSlideName write FSlideName;
@@ -174,6 +176,7 @@ constructor TSourceInfo.CreateAsFileName(strFileName: string;
 begin
   SourceType := sitFileName;
   Description := '';
+  Remark := '';
   Text := '';
   FileName := strFileName;
   SlideName := '';
@@ -186,6 +189,7 @@ constructor TSourceInfo.CreateAsPPT(strFilename, strSlide, strShape: string;
 begin
   SourceType := sitPPT;
   Description := '';
+  Remark := '';
   Text := '';
   FileName := strFilename;
   SlideName := strSlide;
@@ -206,6 +210,7 @@ constructor TSourceInfo.CreateAsTemplate(strTemplateName: string;
 begin
   SourceType := sitTemplate;
   Description := '';
+  Remark := '';
   Text := strTemplateName;
   FileName := '';
   SlideName := '';
@@ -218,6 +223,7 @@ begin
   Result := TSourceInfo.Create;
   Result.SourceType := SourceType;
   Result.Description := Description;
+  Result.Remark := Remark;
   Result.Text := Text;
   Result.FileName := GetSettings.DirExplode(FileName);
   Result.SlideName := SlideName;
@@ -236,6 +242,7 @@ begin
   strFileName := GetSettings.DirImplode(FFileName);
   Result.AddPair('SourceType', TJSONNumber.Create(ord(FSourceType)));
   Result.AddPair('Description', EscapeString(FDescription));
+  Result.AddPair('Remark', EscapeString(FRemark));
   Result.AddPair('Text', EscapeString(FText));
   Result.AddPair('FileName', EscapeString(strFileName));
   Result.AddPair('SlideName', EscapeString(FSlideName));
@@ -248,6 +255,7 @@ begin
   inherited SetAsJSonObject(Value);
   FSourceType := TSourceInfoType(UUtilsJSON.GetAsInteger(Value, 'SourceType', 0));
   FDescription := UUtilsJSON.GetAsString(Value, 'Description');
+  FRemark := UUtilsJSON.GetAsString(Value, 'Remark');
   FText := UUtilsJSON.GetAsString(Value, 'Text');
   FFileName := GetSettings.DirExplode(UUtilsJSON.GetAsString(Value, 'FileName'));
   FSlideName := UUtilsJSON.GetAsString(Value, 'SlideName');

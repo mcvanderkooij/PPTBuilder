@@ -2,7 +2,7 @@ object frmPPTViewer: TfrmPPTViewer
   Left = 0
   Top = 0
   Caption = 'frmPPTViewer'
-  ClientHeight = 538
+  ClientHeight = 545
   ClientWidth = 907
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +15,7 @@ object frmPPTViewer: TfrmPPTViewer
   OnDestroy = FormDestroy
   DesignSize = (
     907
-    538)
+    545)
   PixelsPerInch = 96
   TextHeight = 13
   object lblPPTFile: TLabel
@@ -27,10 +27,19 @@ object frmPPTViewer: TfrmPPTViewer
   end
   object lblDescription: TLabel
     Left = 8
-    Top = 510
-    Width = 57
+    Top = 489
+    Width = 53
     Height = 13
-    Caption = 'Description:'
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Description'
+  end
+  object lblRemark: TLabel
+    Left = 8
+    Top = 517
+    Width = 89
+    Height = 13
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Remark / Antiphon'
   end
   object btnOpenComputer: TButton
     Left = 89
@@ -45,7 +54,7 @@ object frmPPTViewer: TfrmPPTViewer
     Left = 8
     Top = 39
     Width = 161
-    Height = 456
+    Height = 441
     Anchors = [akLeft, akTop, akBottom]
     HideSelection = False
     Indent = 19
@@ -54,12 +63,13 @@ object frmPPTViewer: TfrmPPTViewer
     ReadOnly = True
     TabOrder = 2
     OnClick = TreeView1DblClick
+    ExplicitHeight = 434
   end
   object ImgView321: TImgView32
     Left = 175
     Top = 39
     Width = 724
-    Height = 456
+    Height = 441
     Anchors = [akLeft, akTop, akRight, akBottom]
     Bitmap.ResamplerClassName = 'TNearestResampler'
     BitmapAlign = baCustom
@@ -71,35 +81,40 @@ object frmPPTViewer: TfrmPPTViewer
     ScrollBars.Visibility = svAuto
     OverSize = 0
     TabOrder = 3
+    ExplicitHeight = 434
   end
   object btnCancel: TButton
     Left = 824
-    Top = 505
+    Top = 512
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
     Caption = 'Cancel'
     ModalResult = 2
-    TabOrder = 6
+    TabOrder = 7
+    ExplicitTop = 505
   end
   object btnSelect: TButton
     Left = 743
-    Top = 505
+    Top = 512
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = 'Select'
     Default = True
     ModalResult = 1
-    TabOrder = 5
+    TabOrder = 6
+    ExplicitTop = 505
   end
   object edtDescription: TEdit
-    Left = 89
-    Top = 507
-    Width = 288
+    Left = 113
+    Top = 486
+    Width = 456
     Height = 21
+    Anchors = [akLeft, akRight, akBottom]
     TabOrder = 4
+    ExplicitTop = 479
   end
   object btnOpenInternet: TButton
     Left = 8
@@ -110,6 +125,15 @@ object frmPPTViewer: TfrmPPTViewer
     TabOrder = 0
     OnClick = btnOpenInternetClick
   end
+  object edtRemark: TEdit
+    Left = 113
+    Top = 514
+    Width = 456
+    Height = 21
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 5
+    ExplicitTop = 507
+  end
   object OpenDialog1: TOpenDialog
     Filter = 'Powerpoint|*.ppt;*.pptx|All|*.*'
     Left = 176
@@ -118,6 +142,6 @@ object frmPPTViewer: TfrmPPTViewer
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle
     Left = 392
-    Top = 504
+    Top = 424
   end
 end

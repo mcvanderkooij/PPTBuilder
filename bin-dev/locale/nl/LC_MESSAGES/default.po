@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2015-08-23 21:14\n"
-"PO-Revision-Date: 2015-08-23 21:18+0100\n"
+"POT-Creation-Date: 2015-08-31 21:10\n"
+"PO-Revision-Date: 2015-08-31 21:14+0100\n"
 "Last-Translator: Martijn van der Kooij <MCvanderKooij@solcon.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -33,7 +33,7 @@ msgstr "Browse Server"
 #. frmSettings..btnOK..Caption
 #: UfrmBrowseFTP.dfm:29 UfrmEditExtSlide.dfm:52 UfrmEditSinglePage.dfm:79
 #: UfrmEditSong.dfm:53 UfrmEditText.dfm:76 UfrmEditVariables.dfm:45
-#: UfrmPictureDescription.dfm:53 UfrmSelectString.dfm:70 UfrmSettings.dfm:39
+#: UfrmPictureDescription.dfm:69 UfrmSelectString.dfm:70 UfrmSettings.dfm:39
 msgid "OK"
 msgstr "OK"
 
@@ -52,8 +52,8 @@ msgstr "OK"
 #. frmSettings..btnCancel..Caption
 #: UfrmBrowseFTP.dfm:40 UfrmEditExtSlide.dfm:63 UfrmEditSinglePage.dfm:90
 #: UfrmEditSong.dfm:64 UfrmEditText.dfm:88 UfrmEditVariables.dfm:35
-#: UfrmListBoxDlg.dfm:83 UfrmMemoDlg.dfm:84 UfrmPictureDescription.dfm:65
-#: UfrmPictureSelector.dfm:55 UfrmPPTView.dfm:82 UfrmSelectString.dfm:81
+#: UfrmListBoxDlg.dfm:83 UfrmMemoDlg.dfm:84 UfrmPictureDescription.dfm:82
+#: UfrmPictureSelector.dfm:63 UfrmPPTView.dfm:93 UfrmSelectString.dfm:81
 #: UfrmSettings.dfm:51
 msgid "Cancel"
 msgstr "Annuleren"
@@ -65,9 +65,7 @@ msgstr "Bewerk Externe Slide"
 
 #. frmEditExtSlide..Label2..Caption
 #. frmEditSinglePage..Label2..Caption
-#. frmPictureSelector..lblFooterText..Caption
 #: UfrmEditExtSlide.dfm:25 UfrmEditSinglePage.dfm:25
-#: UfrmPictureSelector.dfm:30
 msgid "Footer text:"
 msgstr "Voettekst:"
 
@@ -95,9 +93,10 @@ msgstr "Toevoegen"
 
 #. frmEditExtSlide..btnEdit..Caption
 #. frmEditSong..btnVerseEdit..Caption
+#. frmMain..MainMenu1..mniEdit..Caption
 #. frmSelectString..btnEdit..Caption
-#: UfrmEditExtSlide.dfm:108 UfrmEditSong.dfm:109 UfrmSelectString.dfm:52
-#: UfrmSelectString.pas:116
+#: UfrmEditExtSlide.dfm:108 UfrmEditSong.dfm:109 UfrmMain.dfm:274
+#: UfrmSelectString.dfm:52 UfrmSelectString.pas:116
 msgid "Edit"
 msgstr "Bewerken"
 
@@ -105,7 +104,7 @@ msgstr "Bewerken"
 #. frmEditSong..btnVerseDelete..Caption
 #. frmMain..ppmSlides..mniSlidesDelete..Caption
 #. frmSelectString..btnDelete..Caption
-#: UfrmEditExtSlide.dfm:117 UfrmEditSong.dfm:118 UfrmMain.dfm:302
+#: UfrmEditExtSlide.dfm:117 UfrmEditSong.dfm:118 UfrmMain.dfm:315
 #: UfrmSelectString.dfm:61
 msgid "Delete"
 msgstr "Verwijder"
@@ -115,7 +114,7 @@ msgstr "Verwijder"
 #. frmEditSong..btnSelectPictoNone..Caption
 #. frmEditText..btnSelectPictoNone..Caption
 #: UfrmEditExtSlide.dfm:144 UfrmEditSinglePage.dfm:70 UfrmEditSong.dfm:179
-#: UfrmEditText.dfm:172 USlideTemplate.pas:1009
+#: UfrmEditText.dfm:172 USlideTemplate.pas:1047
 msgid "None"
 msgstr "Geen"
 
@@ -137,14 +136,14 @@ msgstr "Overzicht naam:"
 
 #. frmEditSong..btnVerseCopy..Caption
 #. frmMain..ppmSlides..mniSlidesCopy..Caption
-#: UfrmEditSong.dfm:145 UfrmMain.dfm:297
+#: UfrmEditSong.dfm:145 UfrmMain.dfm:310
 msgid "Copy"
 msgstr "Kopieren"
 
 #. frmEditSong..btnInternet..Caption
 #. frmEditText..btnInternet..Caption
 #. frmPPTViewer..btnOpenInternet..Caption
-#: UfrmEditSong.dfm:154 UfrmEditText.dfm:137 UfrmPPTView.dfm:109
+#: UfrmEditSong.dfm:154 UfrmEditText.dfm:137 UfrmPPTView.dfm:124
 msgid "Internet"
 msgstr "Internet"
 
@@ -200,7 +199,7 @@ msgid "Ok"
 msgstr "OK"
 
 #. frmMain..Caption
-#: UfrmMain.dfm:4 UfrmMain.pas:723
+#: UfrmMain.dfm:4 UfrmMain.pas:829
 msgid "Powerpoint Builder"
 msgstr "Powerpoint Bouwer"
 
@@ -267,14 +266,24 @@ msgstr "Instellingen"
 msgid "Build Powerpoint"
 msgstr "Bouw Powerpoint"
 
+#. frmMain..MainMenu1..mniEdit..mniEditUndo..Caption
+#: UfrmMain.dfm:276
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#. frmMain..MainMenu1..mniEdit..mniEditRedo..Caption
+#: UfrmMain.dfm:281
+msgid "Redo"
+msgstr "Herhalen"
+
 #. frmMain..OpenDialogProject..Filter
 #. frmMain..SaveDialogProject..Filter
-#: UfrmMain.dfm:276 UfrmMain.dfm:282
+#: UfrmMain.dfm:289 UfrmMain.dfm:295
 msgid "Powerpoint Builder Files (*.ppb)|*.ppb"
 msgstr "Powerpoint Bouwer Bestanden (*.ppb)|*.ppb"
 
 #. frmMain..SaveDialogPPT..Filter
-#: UfrmMain.dfm:288
+#: UfrmMain.dfm:301
 msgid "Powerpoint (*.ppt)|*.ppt"
 msgstr "Powerpoint (*.ppt)|*.ppt"
 
@@ -283,29 +292,47 @@ msgstr "Powerpoint (*.ppt)|*.ppt"
 msgid "Picture Description"
 msgstr "Plaatje Omschrijving"
 
+#. frmPictureDescription..Label1..Caption
+#. frmPPTViewer..lblDescription..Caption
+#: UfrmPictureDescription.dfm:29 UfrmPPTView.dfm:34
+msgid "Description"
+msgstr "Omschrijving"
+
+#. frmPictureDescription..Label2..Caption
+#. frmPPTViewer..lblRemark..Caption
+#: UfrmPictureDescription.dfm:37 UfrmPPTView.dfm:42 UfrmEditSong.pas:182
+#: UfrmEditSong.pas:196 UfrmEditSong.pas:248 UfrmEditSong.pas:256
+msgid "Remark / Antiphon"
+msgstr "Opmerking / Beurtzang"
+
 #. frmPictureSelector..Caption
 #: UfrmPictureSelector.dfm:4
 msgid "Picture Selector"
 msgstr "Plaatje Kiezen"
 
+#. frmPictureSelector..lblFooterText..Caption
+#: UfrmPictureSelector.dfm:30
+msgid "Footer"
+msgstr "Voettekst"
+
+#. frmPictureSelector..lblRemarkText..Caption
+#: UfrmPictureSelector.dfm:38
+msgid "Remark / Antiphon:"
+msgstr "Opmerking / Beurtzang:"
+
 #. frmPictureSelector..btnSelect..Caption
 #. frmPPTViewer..btnSelect..Caption
-#: UfrmPictureSelector.dfm:65 UfrmPPTView.dfm:92
+#: UfrmPictureSelector.dfm:74 UfrmPPTView.dfm:104
 msgid "Select"
 msgstr "Kiezen"
 
-#. frmPPTViewer..lblDescription..Caption
-#: UfrmPPTView.dfm:33
-msgid "Description:"
-msgstr "Omschrijving:"
-
 #. frmPPTViewer..btnOpenComputer..Caption
-#: UfrmPPTView.dfm:40
+#: UfrmPPTView.dfm:49
 msgid "Computer"
 msgstr "Computer"
 
 #. frmPPTViewer..OpenDialog1..Filter
-#: UfrmPPTView.dfm:114
+#: UfrmPPTView.dfm:138
 msgid "Powerpoint|*.ppt;*.pptx|All|*.*"
 msgstr "Powerpoint|*.ppt;*.pptx|Alles|*.*"
 
@@ -359,28 +386,28 @@ msgstr "Website Gebruikersnaam"
 msgid "Website Password"
 msgstr "Website Wachtwoord"
 
-#: UBuildPowerpoint.pas:418
+#: UBuildPowerpoint.pas:442
 msgid "Create Powerpoint..."
 msgstr "Bouw Powerpoint..."
 
 #. shape.Export(strTempFile, ppShapeFormatPNG, round(shape.Width), round(shape.Height), ppScaleToFit);     //ppScaleToFit
-#: UfrmEditSong.pas:150 UfrmEditSong.pas:176 UfrmEditSong.pas:188
+#: UfrmEditSong.pas:151 UfrmEditSong.pas:179 UfrmEditSong.pas:193
 msgid "verse"
 msgstr "vers"
 
 #. todo content translation
-#: UfrmEditSong.pas:178 UfrmEditSong.pas:238 UfrmEditText.pas:188
+#: UfrmEditSong.pas:182 UfrmEditSong.pas:248 UfrmEditText.pas:188
 #: UOverview.pas:191
 msgid "Singing"
 msgstr "Zingen"
 
-#: UfrmEditSong.pas:178 UfrmEditSong.pas:238 UfrmSelectString.pas:87
+#: UfrmEditSong.pas:182 UfrmEditSong.pas:248 UfrmSelectString.pas:87
 #: UfrmSelectString.pas:116
 msgid "Enter text"
 msgstr "Voer tekst in"
 
-#: UfrmEditSong.pas:178 UfrmEditSong.pas:191 UfrmEditSong.pas:238
-#: UfrmEditSong.pas:244
+#: UfrmEditSong.pas:182 UfrmEditSong.pas:196 UfrmEditSong.pas:248
+#: UfrmEditSong.pas:256
 msgid "Sub text"
 msgstr "Onder tekst"
 
@@ -396,31 +423,31 @@ msgstr "Lezen"
 msgid "Text"
 msgstr "Tekst"
 
-#: UfrmMain.pas:166
+#: UfrmMain.pas:197
 msgid "Select Collecte 1"
 msgstr "Selecteer Collecte 1:"
 
-#: UfrmMain.pas:185
+#: UfrmMain.pas:216
 msgid "Select Collecte 2"
 msgstr "Selecteer Collecte 2:"
 
-#: UfrmMain.pas:204
+#: UfrmMain.pas:235
 msgid "Select Speaker"
 msgstr "Selecteer Voorganger"
 
-#: UfrmMain.pas:247
+#: UfrmMain.pas:282
 msgid "Do you want to save changes?"
 msgstr "Wilt u wijzigingen bewaren?"
 
-#: UfrmMain.pas:725
+#: UfrmMain.pas:831
 msgid "(changed)"
 msgstr "(gewijzigd)"
 
-#: UfrmPPTView.pas:264
+#: UfrmPPTView.pas:287
 msgid "Select Slide"
 msgstr "Kies Slide"
 
-#: UfrmPPTView.pas:265
+#: UfrmPPTView.pas:288
 msgid "Select Picture from Slide"
 msgstr "Kies Plaatje van Slide"
 

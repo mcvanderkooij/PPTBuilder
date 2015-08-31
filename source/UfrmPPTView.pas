@@ -22,6 +22,8 @@ type
     lblDescription: TLabel;
     edtDescription: TEdit;
     btnOpenInternet: TButton;
+    lblRemark: TLabel;
+    edtRemark: TEdit;
     procedure btnOpenComputerClick(Sender: TObject);
     procedure TreeView1DblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -50,6 +52,10 @@ type
     procedure SetSelection(const Value: TSourceInfo);
     procedure ValidateSelection;
     function GetSelection: TSourceInfo;
+    function GetRemark: string;
+    function GetShowRemark: boolean;
+    procedure SetRemark(const Value: string);
+    procedure SetShowRemark(const Value: boolean);
   public
     procedure OpenFile(strFileName: string);
 
@@ -60,6 +66,8 @@ type
     property SelectionMulti: TSourceInfos read GetSelectionMulti write SetSelectionMulti;
     property Description: string read GetDescription write SetDescription;
     property ShowDescription: boolean read GetShowDescription write SetShowDescription;
+    property Remark: string read GetRemark write SetRemark;
+    property ShowRemark: boolean read GetShowRemark write SetShowRemark;
     { Public declarations }
   end;
 
@@ -132,6 +140,11 @@ begin
   Result := tvPPT.MultiSelect;
 end;
 
+function TfrmPPTViewer.GetRemark: string;
+begin
+  Result := edtRemark.Text;
+end;
+
 function TfrmPPTViewer.GetSelection: TSourceInfo;
 begin
   Result := FSelection.DeepCopy;
@@ -181,6 +194,11 @@ begin
   Result := edtDescription.Visible;
 end;
 
+function TfrmPPTViewer.GetShowRemark: boolean;
+begin
+  Result := edtRemark.Visible;
+end;
+
 procedure TfrmPPTViewer.OpenFile(strFileName: string);
 var
   cachedPPT: TCachedPPT;
@@ -219,6 +237,11 @@ end;
 procedure TfrmPPTViewer.SetDoMultiSelection(const Value: boolean);
 begin
   tvPPT.MultiSelect := Value;
+end;
+
+procedure TfrmPPTViewer.SetRemark(const Value: string);
+begin
+  edtRemark.Text := Value;
 end;
 
 procedure TfrmPPTViewer.SetSelection(const Value: TSourceInfo);
@@ -279,6 +302,12 @@ procedure TfrmPPTViewer.SetShowDescription(const Value: boolean);
 begin
   lblDescription.Visible := Value;
   edtDescription.Visible := Value;
+end;
+
+procedure TfrmPPTViewer.SetShowRemark(const Value: boolean);
+begin
+  lblRemark.Visible := Value;
+  edtRemark.Visible := Value;
 end;
 
 procedure TfrmPPTViewer.TreeView1DblClick(Sender: TObject);

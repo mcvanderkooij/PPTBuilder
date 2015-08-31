@@ -2,7 +2,7 @@ object frmPictureSelector: TfrmPictureSelector
   Left = 0
   Top = 0
   Caption = 'Picture Selector'
-  ClientHeight = 536
+  ClientHeight = 541
   ClientWidth = 635
   Color = clBtnFace
   DragMode = dmAutomatic
@@ -18,22 +18,30 @@ object frmPictureSelector: TfrmPictureSelector
   OnShow = FormShow
   DesignSize = (
     635
-    536)
+    541)
   PixelsPerInch = 96
   TextHeight = 13
   object lblFooterText: TLabel
     Left = 8
-    Top = 508
-    Width = 59
+    Top = 488
+    Width = 32
     Height = 13
     Anchors = [akLeft, akBottom]
-    Caption = 'Footer text:'
+    Caption = 'Footer'
+  end
+  object lblRemarkText: TLabel
+    Left = 8
+    Top = 515
+    Width = 93
+    Height = 13
+    Anchors = [akLeft, akBottom]
+    Caption = 'Remark / Antiphon:'
   end
   object ImgViewSelection: TImgView32
     Left = 247
     Top = 8
     Width = 380
-    Height = 489
+    Height = 457
     Anchors = [akLeft, akTop, akRight, akBottom]
     Bitmap.ResamplerClassName = 'TNearestResampler'
     BitmapAlign = baCustom
@@ -47,42 +55,52 @@ object frmPictureSelector: TfrmPictureSelector
   end
   object btnCancel: TButton
     Left = 552
-    Top = 503
+    Top = 508
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
     Caption = 'Cancel'
     ModalResult = 2
-    TabOrder = 3
+    TabOrder = 5
+    ExplicitTop = 503
   end
   object btnSelect: TButton
     Left = 471
-    Top = 503
+    Top = 508
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = 'Select'
     Default = True
     ModalResult = 1
-    TabOrder = 2
+    TabOrder = 4
+    ExplicitTop = 503
   end
   object lbPictures: TListBox
     Left = 8
     Top = 8
     Width = 233
-    Height = 489
+    Height = 457
     Anchors = [akLeft, akTop, akBottom]
     ItemHeight = 13
     TabOrder = 0
   end
   object edtFooterText: TEdit
-    Left = 96
-    Top = 505
-    Width = 369
+    Left = 128
+    Top = 485
+    Width = 337
     Height = 21
     Anchors = [akLeft, akRight, akBottom]
-    TabOrder = 4
+    TabOrder = 2
+  end
+  object edtRemarkText: TEdit
+    Left = 128
+    Top = 512
+    Width = 337
+    Height = 21
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 3
   end
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle

@@ -16,6 +16,8 @@ type
     ApplicationEvents1: TApplicationEvents;
     lblFooterText: TLabel;
     edtFooterText: TEdit;
+    lblRemarkText: TLabel;
+    edtRemarkText: TEdit;
     procedure FormShow(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,12 @@ type
     procedure SetShowFooterText(const Value: boolean);
     function GetFooter: string;
     procedure SetFooter(const Value: string);
+    function GetRemark: string;
+    function GetRemarkText: string;
+    function GetShowRemarkText: boolean;
+    procedure SetRemark(const Value: string);
+    procedure SetRemarkText(const Value: string);
+    procedure SetShowRemarkText(const Value: boolean);
     { Private declarations }
   public
     property Selection: TSourceInfo read GetSelection write SetSelection;
@@ -42,6 +50,10 @@ type
     property Footer: string read GetFooter write SetFooter;
     property FooterText: string read GetFooterText write SetFooterText;
     property ShowFooterText: boolean read GetShowFooterText write SetShowFooterText;
+
+    property Remark: string read GetRemark write SetRemark;
+    property RemarkText: string read GetRemarkText write SetRemarkText;
+    property ShowRemarkText: boolean read GetShowRemarkText write SetShowRemarkText;
     { Public declarations }
   end;
 
@@ -113,6 +125,16 @@ begin
   Result := edtFooterText.Text;
 end;
 
+function TfrmPictureSelector.GetRemark: string;
+begin
+  Result := lblRemarkText.Caption;
+end;
+
+function TfrmPictureSelector.GetRemarkText: string;
+begin
+  Result := edtRemarkText.Text;
+end;
+
 function TfrmPictureSelector.GetSelection: TSourceInfo;
 begin
   Result := TSourceInfo.CreateAsFileName('');
@@ -125,6 +147,11 @@ begin
   Result := edtFooterText.Visible;
 end;
 
+function TfrmPictureSelector.GetShowRemarkText: boolean;
+begin
+  Result := edtRemarkText.Visible;
+end;
+
 procedure TfrmPictureSelector.SetFooter(const Value: string);
 begin
   lblFooterText.Caption := Value;
@@ -133,6 +160,16 @@ end;
 procedure TfrmPictureSelector.SetFooterText(const Value: string);
 begin
   edtFooterText.Text := Value;
+end;
+
+procedure TfrmPictureSelector.SetRemark(const Value: string);
+begin
+  lblRemarkText.Caption := Value;
+end;
+
+procedure TfrmPictureSelector.SetRemarkText(const Value: string);
+begin
+  edtRemarkText.Text := Value;
 end;
 
 procedure TfrmPictureSelector.SetSelection(const Value: TSourceInfo);
@@ -155,6 +192,12 @@ procedure TfrmPictureSelector.SetShowFooterText(const Value: boolean);
 begin
   edtFooterText.Visible := Value;
   lblFooterText.Visible := Value;
+end;
+
+procedure TfrmPictureSelector.SetShowRemarkText(const Value: boolean);
+begin
+  edtRemarkText.Visible := Value;
+  lblRemarkText.Visible := Value;
 end;
 
 end.

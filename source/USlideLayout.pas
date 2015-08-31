@@ -13,6 +13,8 @@ const
   CRibbonWidth = 45;
   CFooterHeight = 45;
   CFooterLeftWidth = 200;
+  CRemarkHeight = 60;
+  CRemarkMarge = 5;
 
   CFooterColor = TColor($0C0CB1);
 
@@ -31,6 +33,7 @@ type
     FUseBackground: boolean;
     FBackgroundColor: TColor;
     FAreaAlignment: TAreaAlignment;
+    FAutosize: boolean;
   protected
     function GetAsJSonObject: TJSONObject; override;
     procedure SetAsJSonObject(const Value: TJSONObject); override;
@@ -39,6 +42,7 @@ type
 
     function GetMaxRows(iFontSize: integer): integer;
     function TextFit(strText: string): boolean;
+    function TextWidth(strText: string): integer;
 
     property Visible: boolean read FVisible write FVisible;
     property Area: TRect read FArea write FArea;
@@ -47,6 +51,7 @@ type
     property AreaAlignment: TAreaAlignment read FAreaAlignment write FAreaAlignment;
     property UseBackground: boolean read FUseBackground write FUseBackground;
     property BackgroundColor: TColor read FBackgroundColor write FBackgroundColor;
+    property Autosize: boolean read FAutosize write FAutosize;
   end;
 
   TSlideLayout = class(TFastKeyValuesSO)
@@ -144,6 +149,20 @@ begin
   layout['ribbon'].AreaAlignment := alCenter;
 end;
 
+procedure AddRemark(layout: TSlideLayout);
+begin
+  // 45px
+  layout['remark'] := TLayoutItem.Create;
+  layout['remark'].Visible := true;
+  layout['remark'].Area := Rect(0, CScreenHeight-CFooterHeight - CRemarkHeight -CRemarkMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight - CRemarkMarge);
+  layout['remark'].AreaAlignment := alRight;
+  layout['remark'].FontColor := TColors.White;
+  layout['remark'].FontSize := 38;
+  layout['remark'].UseBackground := true;
+  layout['remark'].BackgroundColor := CFooterColor;
+  layout['remark'].Autosize := true;
+end;
+
 procedure FillSlideLayouts;
 var
   layout: TSlideLayout;
@@ -182,6 +201,7 @@ begin
   layout['content'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
   layout['content'].FontSize := 28;
+  AddRemark(layout);
 
   layout := gl_SlideLayouts.AddName('Center-layout');
   AddRibbon(layout);
@@ -294,6 +314,7 @@ begin
   FVisible := false;
   FUseBackground := false;
   FAreaAlignment := alLeft;
+  FAutoSize := false;
 end;
 
 function TLayoutItem.GetAsJSonObject: TJSONObject;
@@ -307,6 +328,7 @@ begin
   Result.AddPair(CreateBoolPair('UseBackground', FUseBackground));
   Result.AddPair('BackgroundColor', TJSONNumber.Create(ord(FBackgroundColor)));
   Result.AddPair('AreaAlignment', TJSONNumber.Create(ord(FAreaAlignment)));
+  Result.AddPair(CreateBoolPair('AutoSize', FAutoSize));
 end;
 
 function TLayoutItem.GetMaxRows(iFontSize: integer): integer;
@@ -336,6 +358,7 @@ begin
   FUseBackground := UUtilsJSON.GetAsBoolean(Value, 'UseBackground');
   FBackgroundColor := TColor(UUtilsJSON.GetAsInteger(Value, 'BackgroundColor'));
   FAreaAlignment := TAreaAlignment(UUtilsJSON.GetAsInteger(Value, 'AreaAlignment'));
+  FAutoSize := UUtilsJSON.GetAsBoolean(Value, 'AutoSize');
 end;
 
 function TLayoutItem.TextFit(strText: string): boolean;
@@ -362,6 +385,28 @@ begin
   finally
     bitmap.Free;
   end;
+end;
+
+function TLayoutItem.TextWidth(strText: string): integer;
+var
+  bitmap: TBitmap;
+  rectText: TRect;
+begin
+  bitmap := TBitmap.Create;
+  try
+    bitmap.Canvas.Font.Name := GetSettings.FontName;
+    bitmap.Canvas.Font.Size := round(FFontSize);
+
+    rectText.Left := 0;
+    rectText.Right := FArea.Width;
+    rectText.Top := 0;
+    rectText.Bottom := FArea.Height;
+    bitmap.Canvas.TextRect(rectText, strText, [tfSingleLine, tfCalcRect]);
+    Result := rectText.Width;
+  finally
+    bitmap.Free;
+  end;
+
 end;
 
 { TSlideLayouts }

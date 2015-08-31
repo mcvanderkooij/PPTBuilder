@@ -2,7 +2,7 @@ object frmPictureDescription: TfrmPictureDescription
   Left = 0
   Top = 0
   Caption = 'Picture Description'
-  ClientHeight = 468
+  ClientHeight = 491
   ClientWidth = 620
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,14 +17,30 @@ object frmPictureDescription: TfrmPictureDescription
   OnShow = FormShow
   DesignSize = (
     620
-    468)
+    491)
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 404
+    Width = 53
+    Height = 13
+    Anchors = [akLeft, akBottom]
+    Caption = 'Description'
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 431
+    Width = 89
+    Height = 13
+    Anchors = [akLeft, akBottom]
+    Caption = 'Remark / Antiphon'
+  end
   object ImgView321: TImgView32
     Left = 0
     Top = 0
     Width = 620
-    Height = 399
+    Height = 385
     Anchors = [akLeft, akTop, akRight, akBottom]
     Bitmap.ResamplerClassName = 'TNearestResampler'
     BitmapAlign = baCustom
@@ -37,38 +53,48 @@ object frmPictureDescription: TfrmPictureDescription
     TabOrder = 0
   end
   object edtDescription: TEdit
-    Left = 8
-    Top = 405
-    Width = 604
+    Left = 128
+    Top = 401
+    Width = 484
     Height = 21
     Anchors = [akLeft, akRight, akBottom]
     TabOrder = 1
   end
   object btnOK: TButton
     Left = 456
-    Top = 432
+    Top = 455
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = 'OK'
     Default = True
     ModalResult = 1
-    TabOrder = 2
+    TabOrder = 3
+    ExplicitTop = 432
   end
   object btnCancel: TButton
     Left = 537
-    Top = 432
+    Top = 455
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Cancel = True
     Caption = 'Cancel'
     ModalResult = 2
-    TabOrder = 3
+    TabOrder = 4
+    ExplicitTop = 432
+  end
+  object edtRemark: TEdit
+    Left = 128
+    Top = 428
+    Width = 484
+    Height = 21
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 2
   end
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle
-    Left = 48
-    Top = 432
+    Left = 80
+    Top = 288
   end
 end

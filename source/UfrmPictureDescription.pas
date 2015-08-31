@@ -13,6 +13,9 @@ type
     btnOK: TButton;
     btnCancel: TButton;
     ApplicationEvents1: TApplicationEvents;
+    edtRemark: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -21,10 +24,13 @@ type
     FOtherDescriptions: TStringList;
     function GetDescription: string;
     procedure SetDescription(const Value: string);
+    function GetRemark: string;
+    procedure SetRemark(const Value: string);
     { Private declarations }
   public
     property OtherDescriptions: TStringList read FOtherDescriptions;
     property Description: string read GetDescription write SetDescription;
+    property Remark: string read GetRemark write SetRemark;
     { Public declarations }
   end;
 
@@ -71,9 +77,19 @@ begin
   Result := edtDescription.Text;
 end;
 
+function TfrmPictureDescription.GetRemark: string;
+begin
+  Result := edtRemark.Text;
+end;
+
 procedure TfrmPictureDescription.SetDescription(const Value: string);
 begin
   edtDescription.Text := Value;
+end;
+
+procedure TfrmPictureDescription.SetRemark(const Value: string);
+begin
+  edtRemark.Text := Value;
 end;
 
 end.

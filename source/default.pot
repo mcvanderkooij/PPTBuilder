@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-23 21:14\n"
-"PO-Revision-Date: 2015-08-23 21:14\n"
+"POT-Creation-Date: 2015-08-31 21:10\n"
+"PO-Revision-Date: 2015-08-31 21:10\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgstr ""
 #. frmEditVariables..Panel1..btnOK..Caption
 #: UfrmEditVariables.dfm:45
 #. frmPictureDescription..btnOK..Caption
-#: UfrmPictureDescription.dfm:53
+#: UfrmPictureDescription.dfm:69
 #. frmSelectString..btnOK..Caption
 #: UfrmSelectString.dfm:70
 #. frmSettings..btnOK..Caption
@@ -58,11 +58,11 @@ msgstr ""
 #. frmMemoDlg..pnlButtons..btnCancel..Caption
 #: UfrmMemoDlg.dfm:84
 #. frmPictureDescription..btnCancel..Caption
-#: UfrmPictureDescription.dfm:65
+#: UfrmPictureDescription.dfm:82
 #. frmPictureSelector..btnCancel..Caption
-#: UfrmPictureSelector.dfm:55
+#: UfrmPictureSelector.dfm:63
 #. frmPPTViewer..btnCancel..Caption
-#: UfrmPPTView.dfm:82
+#: UfrmPPTView.dfm:93
 #. frmSelectString..btnCancel..Caption
 #: UfrmSelectString.dfm:81
 #. frmSettings..btnCancel..Caption
@@ -79,8 +79,6 @@ msgstr ""
 #: UfrmEditExtSlide.dfm:25
 #. frmEditSinglePage..Label2..Caption
 #: UfrmEditSinglePage.dfm:25
-#. frmPictureSelector..lblFooterText..Caption
-#: UfrmPictureSelector.dfm:30
 msgid "Footer text:"
 msgstr ""
 
@@ -115,6 +113,8 @@ msgstr ""
 #: UfrmEditExtSlide.dfm:108
 #. frmEditSong..btnVerseEdit..Caption
 #: UfrmEditSong.dfm:109
+#. frmMain..MainMenu1..mniEdit..Caption
+#: UfrmMain.dfm:274
 #. frmSelectString..btnEdit..Caption
 #: UfrmSelectString.dfm:52
 #: UfrmSelectString.pas:116
@@ -126,7 +126,7 @@ msgstr ""
 #. frmEditSong..btnVerseDelete..Caption
 #: UfrmEditSong.dfm:118
 #. frmMain..ppmSlides..mniSlidesDelete..Caption
-#: UfrmMain.dfm:302
+#: UfrmMain.dfm:315
 #. frmSelectString..btnDelete..Caption
 #: UfrmSelectString.dfm:61
 msgid "Delete"
@@ -140,7 +140,7 @@ msgstr ""
 #: UfrmEditSong.dfm:179
 #. frmEditText..btnSelectPictoNone..Caption
 #: UfrmEditText.dfm:172
-#: USlideTemplate.pas:1009
+#: USlideTemplate.pas:1047
 msgid "None"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 #. frmEditSong..btnVerseCopy..Caption
 #: UfrmEditSong.dfm:145
 #. frmMain..ppmSlides..mniSlidesCopy..Caption
-#: UfrmMain.dfm:297
+#: UfrmMain.dfm:310
 msgid "Copy"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 #. frmEditText..btnInternet..Caption
 #: UfrmEditText.dfm:137
 #. frmPPTViewer..btnOpenInternet..Caption
-#: UfrmPPTView.dfm:109
+#: UfrmPPTView.dfm:124
 msgid "Internet"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr ""
 
 #. frmMain..Caption
 #: UfrmMain.dfm:4
-#: UfrmMain.pas:723
+#: UfrmMain.pas:829
 msgid "Powerpoint Builder"
 msgstr ""
 
@@ -307,15 +307,25 @@ msgstr ""
 msgid "Build Powerpoint"
 msgstr ""
 
-#. frmMain..OpenDialogProject..Filter
+#. frmMain..MainMenu1..mniEdit..mniEditUndo..Caption
 #: UfrmMain.dfm:276
+msgid "Undo"
+msgstr ""
+
+#. frmMain..MainMenu1..mniEdit..mniEditRedo..Caption
+#: UfrmMain.dfm:281
+msgid "Redo"
+msgstr ""
+
+#. frmMain..OpenDialogProject..Filter
+#: UfrmMain.dfm:289
 #. frmMain..SaveDialogProject..Filter
-#: UfrmMain.dfm:282
+#: UfrmMain.dfm:295
 msgid "Powerpoint Builder Files (*.ppb)|*.ppb"
 msgstr ""
 
 #. frmMain..SaveDialogPPT..Filter
-#: UfrmMain.dfm:288
+#: UfrmMain.dfm:301
 msgid "Powerpoint (*.ppt)|*.ppt"
 msgstr ""
 
@@ -324,30 +334,53 @@ msgstr ""
 msgid "Picture Description"
 msgstr ""
 
+#. frmPictureDescription..Label1..Caption
+#: UfrmPictureDescription.dfm:29
+#. frmPPTViewer..lblDescription..Caption
+#: UfrmPPTView.dfm:34
+msgid "Description"
+msgstr ""
+
+#. frmPictureDescription..Label2..Caption
+#: UfrmPictureDescription.dfm:37
+#. frmPPTViewer..lblRemark..Caption
+#: UfrmPPTView.dfm:42
+#: UfrmEditSong.pas:182
+#: UfrmEditSong.pas:196
+#: UfrmEditSong.pas:248
+#: UfrmEditSong.pas:256
+msgid "Remark / Antiphon"
+msgstr ""
+
 #. frmPictureSelector..Caption
 #: UfrmPictureSelector.dfm:4
 msgid "Picture Selector"
 msgstr ""
 
+#. frmPictureSelector..lblFooterText..Caption
+#: UfrmPictureSelector.dfm:30
+msgid "Footer"
+msgstr ""
+
+#. frmPictureSelector..lblRemarkText..Caption
+#: UfrmPictureSelector.dfm:38
+msgid "Remark / Antiphon:"
+msgstr ""
+
 #. frmPictureSelector..btnSelect..Caption
-#: UfrmPictureSelector.dfm:65
+#: UfrmPictureSelector.dfm:74
 #. frmPPTViewer..btnSelect..Caption
-#: UfrmPPTView.dfm:92
+#: UfrmPPTView.dfm:104
 msgid "Select"
 msgstr ""
 
-#. frmPPTViewer..lblDescription..Caption
-#: UfrmPPTView.dfm:33
-msgid "Description:"
-msgstr ""
-
 #. frmPPTViewer..btnOpenComputer..Caption
-#: UfrmPPTView.dfm:40
+#: UfrmPPTView.dfm:49
 msgid "Computer"
 msgstr ""
 
 #. frmPPTViewer..OpenDialog1..Filter
-#: UfrmPPTView.dfm:114
+#: UfrmPPTView.dfm:138
 msgid "Powerpoint|*.ppt;*.pptx|All|*.*"
 msgstr ""
 
@@ -401,36 +434,36 @@ msgstr ""
 msgid "Website Password"
 msgstr ""
 
-#: UBuildPowerpoint.pas:418
+#: UBuildPowerpoint.pas:442
 msgid "Create Powerpoint..."
 msgstr ""
 
 #. shape.Export(strTempFile, ppShapeFormatPNG, round(shape.Width), round(shape.Height), ppScaleToFit);     //ppScaleToFit
-#: UfrmEditSong.pas:150
-#: UfrmEditSong.pas:176
-#: UfrmEditSong.pas:188
+#: UfrmEditSong.pas:151
+#: UfrmEditSong.pas:179
+#: UfrmEditSong.pas:193
 msgid "verse"
 msgstr ""
 
-#: UfrmEditSong.pas:178
-#: UfrmEditSong.pas:238
+#: UfrmEditSong.pas:182
+#: UfrmEditSong.pas:248
 #: UfrmEditText.pas:188
 #. todo content translation
 #: UOverview.pas:191
 msgid "Singing"
 msgstr ""
 
-#: UfrmEditSong.pas:178
-#: UfrmEditSong.pas:238
+#: UfrmEditSong.pas:182
+#: UfrmEditSong.pas:248
 #: UfrmSelectString.pas:87
 #: UfrmSelectString.pas:116
 msgid "Enter text"
 msgstr ""
 
-#: UfrmEditSong.pas:178
-#: UfrmEditSong.pas:191
-#: UfrmEditSong.pas:238
-#: UfrmEditSong.pas:244
+#: UfrmEditSong.pas:182
+#: UfrmEditSong.pas:196
+#: UfrmEditSong.pas:248
+#: UfrmEditSong.pas:256
 msgid "Sub text"
 msgstr ""
 
@@ -450,31 +483,31 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: UfrmMain.pas:166
+#: UfrmMain.pas:197
 msgid "Select Collecte 1"
 msgstr ""
 
-#: UfrmMain.pas:185
+#: UfrmMain.pas:216
 msgid "Select Collecte 2"
 msgstr ""
 
-#: UfrmMain.pas:204
+#: UfrmMain.pas:235
 msgid "Select Speaker"
 msgstr ""
 
-#: UfrmMain.pas:247
+#: UfrmMain.pas:282
 msgid "Do you want to save changes?"
 msgstr ""
 
-#: UfrmMain.pas:725
+#: UfrmMain.pas:831
 msgid "(changed)"
 msgstr ""
 
-#: UfrmPPTView.pas:264
+#: UfrmPPTView.pas:287
 msgid "Select Slide"
 msgstr ""
 
-#: UfrmPPTView.pas:265
+#: UfrmPPTView.pas:288
 msgid "Select Picture from Slide"
 msgstr ""
 

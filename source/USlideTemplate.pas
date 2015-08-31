@@ -347,6 +347,7 @@ begin
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.AreaData.AddSlideItemString('remark', ctText, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsPPT, epIsSong];
@@ -357,6 +358,7 @@ begin
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.AreaData.AddSlideItemString('remark', ctText, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek staand.png');
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsPPT, epIsSong];
@@ -367,6 +369,7 @@ begin
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.AreaData.AddSlideItemString('remark', ctText, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingend bidden.png');
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsPPT, epIsSong];
@@ -377,6 +380,7 @@ begin
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.AreaData.AddSlideItemString('remark', ctText, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
   template.SelectContentSubDir := 'songs';
   template.OverviewType := otSong;
@@ -388,6 +392,7 @@ begin
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.AreaData.AddSlideItemString('remark', ctText, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsMemo, epIsSong];
@@ -923,7 +928,7 @@ begin
       if Result and Assigned(areaTemplate) and (areaTemplate.ContentType = ctTextMemo) then begin
         for iContentIndex := 0 to slide[strAreaName].ContentSources.Count -1 do begin
           strText := slide[strAreaName].ContentSources[iContentIndex].Text;
-          Result := ShowMemoDlg(strAreaName, strText, 'Enter text', '');
+          Result := ShowMemoDlg(strAreaName, strText, 'Enter text', '', '');
           if Result then begin
             slide[strAreaName].ContentSources[iContentIndex] := TSourceInfo.CreateAsString(strText);
           end;

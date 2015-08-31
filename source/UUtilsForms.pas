@@ -11,15 +11,15 @@ function MessageDlg(const Msg: string; DlgType: TMsgDlgType; Buttons: TMsgDlgBut
 
 function Question(strQuestion: string): boolean;
 function QuestionYNC(strQuestion: string): TCachedBoolean;
-function ShowMemoDlg(strCaption, strMemoText, strMemoTextFileName, strHeader, strFooter: string; buttons: TMemoDlgBtn): integer; overload;
-function ShowMemoDlg(strCaption: string; var strMemoText: string; strHeader, strFooter: string): boolean; overload;
-function ShowMemoDlg(strCaption: string; var strMemoText: string; var strFooterText: string; strHeader, strFooter: string): boolean; overload;
+function ShowMemoDlg(strCaption, strMemoText, strMemoTextFileName, strHeader, strFooter, strRemark: string; buttons: TMemoDlgBtn): integer; overload;
+function ShowMemoDlg(strCaption: string; var strMemoText: string; strHeader, strFooter, strRemark: string): boolean; overload;
+function ShowMemoDlg(strCaption: string; var strMemoText: string; var strFooterText: string; var strRemarkText: string; strHeader, strFooter, strRemark: string): boolean; overload;
 function ShowListBoxDlg(strCaption, strHeader, strFooter: string;
   buttons: TMemoDlgBtn; selectionType: TSelectionType; slItems: TStrings;
   strStorageName: string; var strSelectedItem: string): integer;
 function SelectPicto(pictoName: TSourceInfo): TSourceInfo;
 function SelectPicture(pictoName: TSourceInfo; strSubdir: string): TSourceInfo;
-function SelectPictureWithFooter(var pictoName: TSourceInfo; var strFooterText: string; strSubdir, strFooter: string): boolean;
+function SelectPictureWithFooter(var pictoName: TSourceInfo; var strFooterText: string; var strRemarkText: string; strSubdir, strFooter, strRemark: string): boolean;
 
 implementation
 
@@ -121,7 +121,7 @@ begin
   end;
 end;
 
-function ShowMemoDlg(strCaption, strMemoText, strMemoTextFileName, strHeader, strFooter: string; buttons: TMemoDlgBtn): integer;
+function ShowMemoDlg(strCaption, strMemoText, strMemoTextFileName, strHeader, strFooter, strRemark: string; buttons: TMemoDlgBtn): integer;
 var
   frmMemoDlg: TfrmMemoDlg;
 begin
@@ -136,16 +136,18 @@ begin
       frmMemoDlg.MessageText.Text := strMemoText;
     frmMemoDlg.Header := strHeader;
     frmMemoDlg.Footer := strFooter;
+    frmMemoDlg.Remark := strRemark;
     frmMemoDlg.Buttons := buttons;
     frmMemoDlg.Messagereadonly := true;
     frmMemoDlg.ShowFooterText := false;
+    frmMemoDlg.ShowRemarkText := false;
     Result := frmMemoDlg.ShowModal;
   finally
     FreeAndNil(frmMemoDlg);
   end;
 end;
 
-function ShowMemoDlg(strCaption: string; var strMemoText: string; strHeader, strFooter: string): boolean;
+function ShowMemoDlg(strCaption: string; var strMemoText: string; strHeader, strFooter, strRemark: string): boolean;
 var
   frmMemoDlg: TfrmMemoDlg;
 begin
@@ -157,8 +159,10 @@ begin
     frmMemoDlg.MessageText.Text := strMemoText;
     frmMemoDlg.Header := strHeader;
     frmMemoDlg.Footer := strFooter;
+    frmMemoDlg.Remark := strRemark;
     frmMemoDlg.Buttons := mdOKCancel;
     frmMemoDlg.ShowFooterText := false;
+    frmMemoDlg.ShowRemarkText := false;
     frmMemoDlg.Messagereadonly := false;
     Result := frmMemoDlg.ShowModal = mrOk;
     if Result then
@@ -168,7 +172,7 @@ begin
   end;
 end;
 
-function ShowMemoDlg(strCaption: string; var strMemoText: string; var strFooterText: string; strHeader, strFooter: string): boolean;
+function ShowMemoDlg(strCaption: string; var strMemoText: string; var strFooterText: string; var strRemarkText: string; strHeader, strFooter, strRemark: string): boolean;
 var
   frmMemoDlg: TfrmMemoDlg;
 begin
@@ -179,15 +183,19 @@ begin
     frmMemoDlg.Title := strCaption;
     frmMemoDlg.MessageText.Text := strMemoText;
     frmMemoDlg.FooterText := strFooterText;
+    frmMemoDlg.RemarkText := strRemarkText;
     frmMemoDlg.Header := strHeader;
     frmMemoDlg.Footer := strFooter;
+    frmMemoDlg.Remark := strRemark;
     frmMemoDlg.Buttons := mdOKCancel;
     frmMemoDlg.Messagereadonly := false;
     frmMemoDlg.ShowFooterText := true;
+    frmMemoDlg.ShowRemarkText := true;
     Result := frmMemoDlg.ShowModal = mrOk;
     if Result then
       strMemoText := frmMemoDlg.MessageText.Text;
       strFooterText := frmMemoDlg.FooterText;
+      strRemarkText := frmMemoDlg.RemarkText;
   finally
     FreeAndNil(frmMemoDlg);
   end;
@@ -238,6 +246,7 @@ begin
     frmPictureSelector.SubDir := strSubdir;
     frmPictureSelector.StartDir := GetSettings.GetContentDir;
     frmPictureSelector.ShowFooterText := false;
+    frmPictureSelector.ShowRemarkText := false;
     if frmPictureSelector.ShowModal = mrOk then begin
       pictoName.Free;
       Result := frmPictureSelector.Selection;
@@ -247,7 +256,7 @@ begin
   end;
 end;
 
-function SelectPictureWithFooter(var pictoName: TSourceInfo; var strFooterText: string; strSubdir, strFooter: string): boolean;
+function SelectPictureWithFooter(var pictoName: TSourceInfo; var strFooterText: string; var strRemarkText: string; strSubdir, strFooter, strRemark: string): boolean;
 var
   frmPictureSelector: TfrmPictureSelector;
 begin
@@ -259,11 +268,15 @@ begin
     frmPictureSelector.ShowFooterText := true;
     frmPictureSelector.Footer := strFooter;
     frmPictureSelector.FooterText := strFooterText;
+    frmPictureSelector.ShowRemarkText := true;
+    frmPictureSelector.Remark := strRemark;
+    frmPictureSelector.RemarkText := strRemarkText;
     Result := frmPictureSelector.ShowModal = mrOk;
     if Result then begin
       pictoName.Free;
       pictoName := frmPictureSelector.Selection;
       strFooterText := frmPictureSelector.FooterText;
+      strRemarkText := frmPictureSelector.RemarkText
     end;
   finally
     frmPictureSelector.Free;

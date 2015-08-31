@@ -115,7 +115,7 @@ var
   strTempFile: string;
   template: TSlideTemplate;
 
-  strMemoText, strFooterText: string;
+  strMemoText, strFooterText, strRemark: string;
 begin
   template := GetSlideTemplates.FindByName(FSlideTemplateName);
   if Assigned(template) then begin
@@ -133,6 +133,7 @@ begin
       end;
       //FfrmPPTViewer.Description := 'vers ';
       FfrmPPTViewer.ShowDescription := false;
+      FfrmPPTViewer.ShowRemark := false;
       FfrmPPTViewer.DoMultiSelection := true;
       if FfrmPPTViewer.ShowModal = mrOK then begin
         selections := FfrmPPTViewer.SelectionMulti;
@@ -148,6 +149,7 @@ begin
                 //shape.Export(strTempFile, ppShapeFormatPNG, round(shape.Width), round(shape.Height), ppScaleToFit);     //ppScaleToFit
                 ViewPNG(strTempFile, frmPictureDescription.ImgView321.Bitmap);
                 frmPictureDescription.Description := _('verse') + ' ';
+                frmPictureDescription.Remark := '';
 
                 frmPictureDescription.OtherDescriptions.Clear;
                 for j := 0 to lbVerses.Items.Count -1 do begin
@@ -161,6 +163,7 @@ begin
 
                 if frmPictureDescription.ShowModal = mrOK then begin
                   selections[i].Description := frmPictureDescription.Description;
+                  selections[i].Remark := frmPictureDescription.Remark;
                   lbVerses.Items.Add(SourceInfoToString(selections[i], false));
                 end;
               end;
@@ -174,11 +177,13 @@ begin
       end;
     end else if (epSongIsMemo in template.EditPossibilities) then begin
       strFooterText := _('verse') + ' ';
+      strRemark := '';
       strMemoText := '';
-      if ShowMemoDlg(_('Singing'), strMemoText, strFooterText, _('Enter text'), _('Sub text')) then begin
+      if ShowMemoDlg(_('Singing'), strMemoText, strFooterText, strRemark, _('Enter text'), _('Sub text'), _('Remark / Antiphon')) then begin
         selection := TSourceInfo.CreateAsString(strMemoText);
         try
           selection.Description := strFooterText;
+          selection.Remark := strRemark;
           lbVerses.Items.Add(SourceInfoToString(selection, false));
         finally
           selection.Free;
@@ -188,8 +193,9 @@ begin
       strFooterText := _('verse') + ' ';
       selection := TSourceInfo.CreateAsFileName('');
       try
-        if SelectPictureWithFooter(selection, strFooterText, template.SelectContentSubDir, _('Sub text')) then begin
+        if SelectPictureWithFooter(selection, strFooterText, strRemark, template.SelectContentSubDir, _('Sub text'), _('Remark / Antiphon')) then begin
           selection.Description := strFooterText;
+          selection.Remark := strRemark;
           lbVerses.Items.Add(SourceInfoToString(selection, false));
         end;
       finally
@@ -214,7 +220,7 @@ var
   selectionStart, selectionOK: TSourceInfo;
 
   template: TSlideTemplate;
-  strMemoText, strFooterText: string;
+  strMemoText, strFooterText, strRemarkText: string;
 begin
   if lbVerses.ItemIndex <> -1 then begin
     template := GetSlideTemplates.FindByName(FSlideTemplateName);
@@ -225,26 +231,33 @@ begin
         if (epSongIsPPT in template.EditPossibilities) then begin
           FfrmPPTViewer.SelectionMode := smPicture;
           FfrmPPTViewer.Description := selectionStart.Description;
+          FfrmPPTViewer.Remark := selectionStart.Remark;
           FfrmPPTViewer.Selection := selectionStart;
           FfrmPPTViewer.ShowDescription := true;
+          FfrmPPTViewer.ShowRemark := true;
           FfrmPPTViewer.DoMultiSelection := false;
           if FfrmPPTViewer.ShowModal <> mrOK then
             Exit;
           selectionOK := FfrmPPTViewer.Selection;
           selectionOK.Description := FfrmPPTViewer.Description;
+          selectionOK.Remark := FfrmPPTViewer.Remark;
         end else if (epSongIsMemo in template.EditPossibilities) then begin
           strFooterText := selectionStart.Description;
+          strRemarkText := selectionStart.Remark;
           strMemoText := selectionStart.Text;
-          if ShowMemoDlg(_('Singing'), strMemoText, strFooterText, _('Enter text'), _('Sub text')) then begin
+          if ShowMemoDlg(_('Singing'), strMemoText, strFooterText, strRemarkText, _('Enter text'), _('Sub text'), _('Remark / Antiphon')) then begin
             selectionOK := TSourceInfo.CreateAsString(strMemoText);
             selectionOK.Description := strFooterText;
+            selectionOK.Remark := strRemarkText;
           end;
         end else if (epSongIsPicture in template.EditPossibilities) then begin
           strFooterText := selectionStart.Description;
-          if SelectPictureWithFooter(selectionStart, strFooterText, template.SelectContentSubDir, _('Sub text')) then begin
+          strRemarkText := selectionStart.Remark;
+          if SelectPictureWithFooter(selectionStart, strFooterText, strRemarkText, template.SelectContentSubDir, _('Sub text'), _('Remark / Antiphon')) then begin
             selectionOK := selectionStart;
             selectionStart := nil;
             selectionOK.Description := strFooterText;
+            selectionOK.Remark := strRemarkText;
             selectionOK.SlideName := '';
             selectionOK.ShapeName := '';
           end;
@@ -288,7 +301,7 @@ end;
 function TfrmEditSong.GetSlideAsString: string;
 var
   slide: TSlide;
-  slideItemContent, slideItemFooter, slideItemFooterLeft: TSlideItem;
+  slideItemContent, slideItemFooter, slideItemFooterLeft, slideItemRemark: TSlideItem;
   i: integer;
   selection: TSourceInfo;
   template: TSlideTemplate;
@@ -307,18 +320,25 @@ begin
     slideItemFooter := slide['footer'];
     slideItemFooterLeft := slide['footer-left'];
     slideItemContent := slide['content'];
+    slideItemRemark := slide['remark'];
 
     slideItemFooter.ContentSources.Clear;
     if Assigned(slideItemFooterLeft) then begin
       slideItemFooterLeft.ContentSources.Clear;
     end;
     slideItemContent.ContentSources.Clear;
+    if Assigned(slideItemRemark) then begin
+      slideItemRemark.ContentSources.Clear;
+    end;
 
     for i := 0 to lbVerses.Items.Count -1 do begin
       selection := SourceInfoFromString(lbVerses.Items[i]);
       slideItemFooter.ContentSources.Add(TSourceInfo.CreateAsString(RespaceOverviewName(edtOverviewName.Text, false)));
       if Assigned(slideItemFooterLeft) then begin
         slideItemFooterLeft.ContentSources.Add(TSourceInfo.CreateAsString(selection.Description));
+      end;
+      if Assigned(slideItemRemark) then begin
+        slideItemRemark.ContentSources.Add(TSourceInfo.CreateAsString(selection.Remark));
       end;
       slideItemContent.ContentSources.Add(selection);
     end;
@@ -377,10 +397,14 @@ procedure TfrmEditSong.lbVersesDrawItem(Control: TWinControl; Index: Integer;
   Rect: TRect; State: TOwnerDrawState);
 var
   selection: TSourceInfo;
+  strText: string;
 begin
   selection := SourceInfoFromString(lbVerses.Items[Index]);
   try
-    lbVerses.Canvas.TextRect(Rect, Rect.Left, Rect.Top, selection.Description);
+    strText := selection.Description;
+    if selection.Remark <> '' then
+      strText := strText + ' (' + selection.Remark + ')';
+    lbVerses.Canvas.TextRect(Rect, Rect.Left, Rect.Top, strText);
   finally
     selection.Free;
   end;

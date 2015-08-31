@@ -24,15 +24,15 @@ msgstr ""
 
 #  Looks like a file extension or file mask
 #. frmMain..OpenDialogProject..DefaultExt
-#: UfrmMain.dfm:275
+#: UfrmMain.dfm:288
 #. frmMain..SaveDialogProject..DefaultExt
-#: UfrmMain.dfm:281
+#: UfrmMain.dfm:294
 msgid ".ppb"
 msgstr ""
 
 #  Looks like a file extension or file mask
 #. frmMain..SaveDialogPPT..DefaultExt
-#: UfrmMain.dfm:287
+#: UfrmMain.dfm:300
 msgid ".ppt"
 msgstr ""
 
@@ -135,7 +135,7 @@ msgstr ""
 #. frmMemoDlg..Font.Name
 #: UfrmMemoDlg.dfm:14
 #. frmMemoDlg..mmoMessage..Font.Name
-#: UfrmMemoDlg.dfm:125
+#: UfrmMemoDlg.dfm:98
 #. frmPictureDescription..Font.Name
 #: UfrmPictureDescription.dfm:11
 #. frmPictureSelector..Font.Name
@@ -162,11 +162,11 @@ msgstr ""
 #. frmEditText..ImgViewPicto..Bitmap.ResamplerClassName
 #: UfrmEditText.dfm:58
 #. frmPictureDescription..ImgView321..Bitmap.ResamplerClassName
-#: UfrmPictureDescription.dfm:29
+#: UfrmPictureDescription.dfm:45
 #. frmPictureSelector..ImgViewSelection..Bitmap.ResamplerClassName
-#: UfrmPictureSelector.dfm:38
+#: UfrmPictureSelector.dfm:46
 #. frmPPTViewer..ImgView321..Bitmap.ResamplerClassName
-#: UfrmPPTView.dfm:64
+#: UfrmPPTView.dfm:74
 msgid "TNearestResampler"
 msgstr ""
 

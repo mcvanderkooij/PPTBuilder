@@ -160,6 +160,9 @@ var
   slideItemContent, slideItemArea: TSlideItem;
   layoutItem: TLayoutItem;
 
+  iTextWidth: integer;
+  rcArea: TRect;
+
   iAreaIndex: integer;
   strArea: string;
   rectDestination, rectSource: TRect;
@@ -315,19 +318,36 @@ begin
               end;
 
               iFontSizeNeeded := layoutItem.FontSize;
+              rcArea := layoutItem.Area;
+              if layoutItem.Autosize then begin
+                iTextWidth := layoutItem.TextWidth(strContentText);
+                case layoutItem.AreaAlignment of
+                  alCenter: begin
+                      rcArea.Left := layoutItem.Area.Left + iTextWidth div 2;
+                      rcArea.Width := iTextWidth;
+                    end;
+                  alRight: begin
+                      rcArea.Left := layoutItem.Area.Right - iTextWidth;
+                    end;
+                end;
+                rcArea.Width := iTextWidth;
+              end;
               if layoutItem.UseBackground then begin
                 pptShape := pptSlide.Shapes.AddShape(msoShapeRectangle,
-                  layoutItem.Area.Left, layoutItem.Area.Top,
-                  layoutItem.Area.Width, layoutItem.Area.Height);
+                  rcArea.Left, rcArea.Top,
+                  rcArea.Width, rcArea.Height);
                 pptShape.Fill.Solid;
                 pptShape.Fill.ForeColor.RGB := layoutItem.BackgroundColor;
                 pptShape.Line.Visible := msoFalse;
-
               end else begin
                 pptShape := pptSlide.Shapes.AddTextbox(msoTextOrientationHorizontal,
-                  layoutItem.Area.Left, layoutItem.Area.Top,
-                  layoutItem.Area.Width, layoutItem.Area.Height);
-                pptShape.TextFrame.AutoSize := msoFalse;
+                  rcArea.Left, rcArea.Top,
+                  rcArea.Width, rcArea.Height);
+                if layoutItem.Autosize then begin
+                  Assert(false, 'not tested');
+                  pptShape.TextFrame.AutoSize := msoTrue
+                end else
+                  pptShape.TextFrame.AutoSize := msoFalse;
               end;
               if slideItemArea.ContentType in [ctOverview, ctOverviewSubs] then begin
 
@@ -344,10 +364,14 @@ begin
               pptShape.TextFrame.TextRange.Font.Color.RGB := layoutItem.FontColor;
               pptShape.TextFrame.TextRange.Font.Name := GetSettings.FontName;
               pptShape.TextFrame.TextRange.Font.Size := iFontSizeNeeded;
-              case layoutItem.AreaAlignment of
-                alLeft: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignLeft;
-                alCenter: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignCenter;
-                alRight: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignRight;
+              if layoutItem.Autosize then begin
+                pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignCenter;
+              end else begin
+                case layoutItem.AreaAlignment of
+                  alLeft: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignLeft;
+                  alCenter: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignCenter;
+                  alRight: pptShape.TextFrame.TextRange.ParagraphFormat.Alignment := ppAlignRight;
+                end;
               end;
 //              if (slideItem.ContentType <> ctOverview) and (slide.OverviewType in [otIgnore]) then begin
 //                pptShape.TextFrame.Ruler.Levels.Item(1).LeftMargin := 20;

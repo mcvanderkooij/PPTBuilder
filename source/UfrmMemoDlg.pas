@@ -12,14 +12,17 @@ type
   TfrmMemoDlg = class(TForm)
     pnlHeaderMessage: TPanel;
     pnlButtons: TPanel;
-    pnlFooterMessage: TPanel;
     btnYes: TButton;
     btnNo: TButton;
     btnOk: TButton;
     lblHeader: TLabel;
-    lblFooter: TLabel;
     btnCancel: TButton;
     mmoMessage: TRichEdit;
+    pnlRemark: TPanel;
+    lblRemark: TLabel;
+    edtRemarkText: TEdit;
+    pnlFooterMessage: TPanel;
+    lblFooter: TLabel;
     edtFooterText: TEdit;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -30,6 +33,7 @@ type
     FFooter: string;
     FButtons: TMemoDlgBtn;
     FMessagereadonly: boolean;
+    FRemark: string;
     procedure SetButtons(const Value: TMemoDlgBtn);
     procedure SetFooter(const Value: string);
     procedure SetHeader(const Value: string);
@@ -40,6 +44,11 @@ type
     procedure SetFooterText(const Value: string);
     function GetShowFooterText: boolean;
     procedure SetShowFooterText(const Value: boolean);
+    function GetRemarkText: string;
+    function GetShowRemarkText: boolean;
+    procedure SetRemark(const Value: string);
+    procedure SetRemarkText(const Value: string);
+    procedure SetShowRemarkText(const Value: boolean);
     { Private declarations }
   protected
     procedure ReallignButtons;
@@ -49,6 +58,11 @@ type
     property Footer: string read FFooter write SetFooter;
     property FooterText: string read GetFooterText write SetFooterText;
     property ShowFooterText: boolean read GetShowFooterText write SetShowFooterText;
+
+    property Remark: string read FRemark write SetRemark;
+    property RemarkText: string read GetRemarkText write SetRemarkText;
+    property ShowRemarkText: boolean read GetShowRemarkText write SetShowRemarkText;
+
     property MessageText: TStrings read GetMessageText;
     property Messagereadonly: boolean read FMessagereadonly write SetMessagereadonly;
     property Buttons: TMemoDlgBtn read FButtons write SetButtons;
@@ -95,9 +109,19 @@ begin
   Result := mmoMessage.Lines;
 end;
 
+function TfrmMemoDlg.GetRemarkText: string;
+begin
+  Result := edtRemarkText.Text;
+end;
+
 function TfrmMemoDlg.GetShowFooterText: boolean;
 begin
   Result := edtFooterText.Visible;
+end;
+
+function TfrmMemoDlg.GetShowRemarkText: boolean;
+begin
+  Result := edtRemarkText.Visible;
 end;
 
 procedure TfrmMemoDlg.ReallignButtons;
@@ -178,6 +202,19 @@ begin
   end;
 end;
 
+procedure TfrmMemoDlg.SetRemark(const Value: string);
+begin
+  if (FRemark <> Value) then begin
+    FRemark := Value;
+    lblRemark.Caption := FRemark;
+  end;
+end;
+
+procedure TfrmMemoDlg.SetRemarkText(const Value: string);
+begin
+  edtRemarkText.Text := Value;
+end;
+
 procedure TfrmMemoDlg.SetShowFooterText(const Value: boolean);
 begin
   if Value then begin
@@ -188,6 +225,18 @@ begin
     lblFooter.Alignment := taCenter;
   end;
   edtFooterText.Visible := Value;
+end;
+
+procedure TfrmMemoDlg.SetShowRemarkText(const Value: boolean);
+begin
+  if Value then begin
+    lblRemark.Align := alLeft;
+    lblRemark.Alignment := taRightJustify;
+  end else begin
+    lblRemark.Align := alClient;
+    lblRemark.Alignment := taCenter;
+  end;
+  edtRemarkText.Visible := Value;
 end;
 
 procedure TfrmMemoDlg.SetTitle(const Value: string);

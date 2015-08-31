@@ -106,6 +106,7 @@ begin
     end;
   end;
   FfrmPPTViewer.ShowDescription := false;
+  FfrmPPTViewer.ShowRemark := false;
   FfrmPPTViewer.DoMultiSelection := true;
   if FfrmPPTViewer.ShowModal = mrOK then begin
     selections := FfrmPPTViewer.SelectionMulti;
@@ -131,6 +132,7 @@ begin
       FfrmPPTViewer.SelectionMode := smSlide;
       FfrmPPTViewer.Selection := selectionStart;
       FfrmPPTViewer.ShowDescription := false;
+      FfrmPPTViewer.ShowRemark := false;
       FfrmPPTViewer.DoMultiSelection := false;
       if FfrmPPTViewer.ShowModal = mrOK then begin
         selectionOK := FfrmPPTViewer.Selection;
