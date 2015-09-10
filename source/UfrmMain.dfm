@@ -59,6 +59,15 @@ object frmMain: TfrmMain
     Caption = 'Collecte 2:'
     ExplicitTop = 526
   end
+  object lblVersion: TLabel
+    Left = 1013
+    Top = 683
+    Width = 45
+    Height = 13
+    Alignment = taRightJustify
+    Anchors = [akRight, akBottom]
+    Caption = 'lblVersion'
+  end
   object lbSlides: TListBox
     Left = 8
     Top = 8

@@ -46,6 +46,7 @@ type
     mniEdit: TMenuItem;
     mniEditUndo: TMenuItem;
     mniEditRedo: TMenuItem;
+    lblVersion: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure ButtonGroupNewSlideButtonClicked(Sender: TObject; Index: Integer);
@@ -484,10 +485,14 @@ begin
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
+var
+  datBuild: TDateTime;
 begin
   if (GetSettings.FTPUserName = '') or (GetSettings.FTPPassword = '') then begin
     ShowSettings;
   end;
+  datBuild := PImageNtHeaders(HInstance + PImageDosHeader(HInstance)^._lfanew)^.FileHeader.TimeDateStamp / SecsPerDay + UnixDateDelta;
+  lblVersion.Caption := _('Version') + ': ' + FormatDateTime('d-m-yyyy', datBuild);
   FShowQuickstart := True;
 end;
 
