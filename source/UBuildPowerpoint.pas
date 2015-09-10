@@ -404,13 +404,11 @@ begin
     for i := 0 to project.Slides.Count -1 do begin
       slide := TSlide.Create(project.Slides[i]);
       try
-        if slide.OverviewType in [otSong, otReading, otText] then begin
-          if slide.IsSubOverview then begin
-            slide.InternalHideRibbon := true;
-            BuildSlide(presentation, slide, project, i);
-            if slide.OverviewType in [otSong] then begin
-              BuildSlide(presentation, slideOverview, project, i+1);
-            end;
+        if slide.IsSubOverview then begin
+          slide.InternalHideRibbon := true;
+          BuildSlide(presentation, slide, project, i);
+          if slide.OverviewType in [otSong] then begin
+            BuildSlide(presentation, slideOverview, project, i+1);
           end;
         end;
       finally

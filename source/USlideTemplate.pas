@@ -36,6 +36,7 @@ type
     FVariableOptions: TFastKeyValuesSS;
     FVariableDefaults: TFastKeyValuesSS;
     FMenuOrder: integer;
+    FIsSubOverview: boolean;
     function GetName: string;
     function GetSlideLayoutName: string;
     function GetVariableOptions: TFastKeyValuesSS;
@@ -57,6 +58,7 @@ type
     property EditPossibilities: TEditPossibilities read FEditPossibilities write FEditPossibilities;
     property OverviewType: TOverviewType read FOverviewType write FOverviewType;
     property OverviewName: string read FOverviewName write FOverviewName;
+    property IsSubOverview: boolean read FIsSubOverview write FIsSubOverview;
     property FollowedByOverview: boolean read FFollowedByOverview write FFollowedByOverview;
     property NoPreviousOverview: boolean read FNoPreviousOverview write FNoPreviousOverview;
     property PictoName: TSourceInfo read FPictoName write SetPictoName;
@@ -524,6 +526,17 @@ begin
   template.EditPossibilities := [epFixed];
   template.SelectContentSubDir := 'ppts';
 
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide3';
+  template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+  template.IsSubOverview := true;
+
 
   // Geloofsbelijdenis
   iMenuOrder := 80000;
@@ -571,6 +584,30 @@ begin
   template.SelectContentSubDir := 'ppts';
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Geloofsbelijdenis Zingen Gz 179b', 'Geloofsbelijdenis', 'Songs-layout', iMenuOrder);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179b'));
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179b'));
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179b'));
+  template.AreaData.AddSlideItem('footer', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsString('deel a'));
+  oSources.Add(TSourceInfo.CreateAsString('deel b'));
+  oSources.Add(TSourceInfo.CreateAsString('deel c'));
+  template.AreaData.AddSlideItem('footer-left', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179b deel 1.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179b deel 2.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179b deel 3.png'));
+  template.AreaData.AddSlideItem('content', ctPictureFit, oSources);
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis zingen.png');
+  template.SelectContentSubDir := 'songs';
+  template.OverviewType := otSong;
+  template.OverviewName := 'Gz 179 b';
+  template.EditPossibilities := [epFixed, epIsSong];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Geloofsbelijdenis lezen', 'Geloofsbelijdenis', 'Content3-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Geloofsbelijdenis');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\Geloofsbelijdenis lezen.png');
@@ -593,9 +630,30 @@ begin
     template.VariableOptions['Bidden'] := gl_SlideTemplates.GetTemplateNames('Bidden', true);
     template.VariableDefaults['Bidden'] := 'Gebed';
     template.VariableOptions['Geloofsbelijdenis'] := gl_SlideTemplates.GetTemplateNames('Geloofsbelijdenis', true);
-    template.VariableDefaults['Geloofsbelijdenis'] := 'Geloofsbelijdenis lezen';
+    if (i = 2) or (i=3) then
+      template.VariableDefaults['Geloofsbelijdenis'] := 'Geen'
+    else
+      template.VariableDefaults['Geloofsbelijdenis'] := 'Geloofsbelijdenis lezen';
     inc(iMenuOrder, 10);
   end;
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Avondmaal picto', 'Formulieren', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\avondmaal.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Avondmaal foto', 'Formulieren', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictures\avondmaal5.jpg');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
+  template.SelectContentSubDir := 'pictures';
+  template.EditPossibilities := [epFixed];
 
   for i := 1 to 3 do begin
     strI := IntToStr(i);
@@ -622,6 +680,15 @@ begin
   end;
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Doop picto', 'Formulieren', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Doop');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\kinderdoop.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderdoop.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Formulier Doop Volwassenen', 'Formulieren', 'Form-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Doopformulier Volwassenen');
   template.AreaData.AddSlideItem('content', ctTextMemo, LoadAndSplitMemoFile(GetSettings.GetDir('content') + 'forms\Doopformulier Volwassenen.txt' ));
@@ -633,6 +700,15 @@ begin
   template.VariableOptions['2 Bidden na doop'] := gl_SlideTemplates.GetTemplateNames('Bidden', true);
   template.VariableDefaults['2 Bidden na doop'] := 'Gebed';
   template.VariableDefaults['broeder/zuster'] := 'broeder zuster';
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Doop picto volwassen', 'Formulieren', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Doop');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\volwassendoop.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\volwassendoop.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Formulier Openbare geloofsbelijdenis', 'Formulieren', 'Form-layout', iMenuOrder);
@@ -674,6 +750,17 @@ begin
   template.VariableOptions['Gebed'] := gl_SlideTemplates.GetTemplateNames('Bidden', true);
   template.VariableDefaults['Gebed'] := 'Gebed';
   template.VariableOptions['uitspreken of antwoorden'] := 'je beloften uitspreken? (2 slides verwijderen)'#13'antwoorden op de volgende vragen:';
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Zegenbede picto', 'Formulieren', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Zegenbede');
+  template.AreaData.AddSlideItemFileName('content1', ctPictureFit, '');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
+  template.AreaData.AddSlideItemFileName('content3', ctPictureFit, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.SelectContentSubDir := 'songs';
+  template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Formulier Kerkelijke tucht uitsluiting', 'Formulieren', 'Form-layout', iMenuOrder);
@@ -718,44 +805,6 @@ begin
   template.VariableDefaults['hij zij'] := 'hij zij';
   template.VariableDefaults['zijn haar'] := 'zijn haar';
   template.VariableDefaults['hem haar'] := 'hem haar';
-
-  inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Avondmaal picto', 'Formulieren', 'Content3-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\avondmaal.png');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
-  template.SelectContentSubDir := 'pictos';
-  template.EditPossibilities := [epFixed];
-
-  inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Doop picto', 'Formulieren', 'Content3-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Doop');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\kinderdoop.png');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderdoop.png');
-  template.SelectContentSubDir := 'pictos';
-  template.EditPossibilities := [epFixed];
-
-  inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Doop picto volwassen', 'Formulieren', 'Content3-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Doop');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\volwassendoop.png');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\volwassendoop.png');
-  template.SelectContentSubDir := 'pictos';
-  template.EditPossibilities := [epFixed];
-
-  inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Zegenbede picto', 'Formulieren', 'Content3-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Zegenbede');
-  template.AreaData.AddSlideItemFileName('content1', ctPictureFit, '');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
-  template.AreaData.AddSlideItemFileName('content3', ctPictureFit, '');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
-  template.SelectContentSubDir := 'songs';
-  template.EditPossibilities := [epFixed];
 end;
 
 
@@ -773,6 +822,7 @@ begin
   FOverviewType := otIgnore;
   FFollowedByOverview := true;
   FNoPreviousOverview := false;
+  FIsSubOverview := false;
   FVariableOptions := TFastKeyValuesSS.Create;
   FVariableDefaults := TFastKeyValuesSS.Create;
   FPictoName := TSourceInfo.Create;
@@ -800,6 +850,7 @@ begin
   Result.PictoName := FPictoName.DeepCopy;
   Result.OverviewType := FOverviewType;
   Result.OverviewName := FOverviewName;
+  Result.IsSubOverview := FIsSubOverview;
   Result.AutomaticSmallNumbers := FOverviewType in [otReading, otText];
 
   for iArea := 0 to AreaData.Count -1 do begin
@@ -954,6 +1005,7 @@ begin
   Result.AddPair(CreateBoolPair('FollowedByOverview', FFollowedByOverview));
   Result.AddPair(CreateBoolPair('NoPreviousOverview', FNoPreviousOverview));
   Result.AddPair('OverviewName', EscapeString(FOverviewName));
+  Result.AddPair(CreateBoolPair('IsSubOverview', FIsSubOverview));
 
   strEditPossibilities := SetToString(TypeInfo(TEditPossibilities), FEditPossibilities, false);
   Result.AddPair('EditPossibilities', EscapeString(strEditPossibilities));
@@ -998,6 +1050,7 @@ begin
   FFollowedByOverview := UUtilsJSON.GetAsBoolean(Value, 'FollowedByOverview');
   FNoPreviousOverview := UUtilsJSON.GetAsBoolean(Value, 'NoPreviousOverview');
   FOverviewName := UUtilsJSON.GetAsString(Value, 'OverviewName');
+  FIsSubOverview := UUtilsJSON.GetAsBoolean(Value, 'IsSubOverview');
 
   strEditPossibilities := UUtilsJSON.GetAsString(Value, 'EditPossibilities');
   StringToSet(TypeInfo(TEditPossibilities), FEditPossibilities, strEditPossibilities);
