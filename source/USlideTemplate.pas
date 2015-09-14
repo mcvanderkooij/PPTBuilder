@@ -209,7 +209,7 @@ begin
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Mededelingen Kerkenraad', 'Algemeen', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Mededelingen');
-  template.AreaData.AddSlideItemPPT('content', ctExtSlide, '<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide2', '');
+  template.AreaData.AddSlideItemPPT('content', ctExtSlide, '<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide3', '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\mededelingen.png');
   template.SelectContentSubDir := 'ppts';
@@ -240,6 +240,17 @@ begin
   template.PictoName := TSourceInfo.CreateAsFileName('');
   template.OverviewType := otIgnore;
   template.EditPossibilities := [epAllowExternalPPTs];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Zwart beeld', 'Algemeen', 'Form-layout', iMenuOrder);
+  //template.AreaData.AddSlideItemString('footer', ctText, 'Mededelingen');
+  template.AreaData.AddSlideItemString('content', ctText, '');
+  //template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+//  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\mededelingen.png');
+  template.SelectContentSubDir := 'pictos';
+//  template.EditPossibilities := [epFixed];
+  template.EditPossibilities := [epFixed];
+  template.FollowedByOverview := False;
 
 
 
@@ -295,7 +306,7 @@ begin
   iMenuOrder := 30000;
   oSources := TSourceInfos.Create;
   oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE));
-  oSources.Add(TSourceInfo.CreateAsPPT('<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide2', '', true));
+  oSources.Add(TSourceInfo.CreateAsPPT('<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide3', '', true));
   oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE));
   template := gl_SlideTemplates.Add(CTEMPLATE_COLLECTE, 'Liturgisch', 'Center-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Na de collecten %aftercollecte%');
@@ -632,7 +643,7 @@ begin
   end;
 
   inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Avondmaal viering', 'Formulieren', 'Form-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Avondmaal viering (meerdere tafels)', 'Formulieren', 'Form-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
   template.AreaData.AddSlideItem('content', ctTextMemo, LoadAndSplitMemoFile(GetSettings.GetDir('content') + 'forms\Avondmaal viering.txt' ));
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
