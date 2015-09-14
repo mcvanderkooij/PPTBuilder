@@ -70,9 +70,9 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.1.1;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-			<VerInfo_Build>1</VerInfo_Build>
-			<VerInfo_Release>1</VerInfo_Release>
+			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.2.2;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Build>2</VerInfo_Build>
+			<VerInfo_Release>2</VerInfo_Release>
 			<Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
 			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p Eendenkooij8 /d "PTT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
@@ -247,7 +247,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
 			<PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
 			<PreLinkEvent/>
 			<PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-			<PostBuildEvent>C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p Eendenkooij8 /d &quot;PTT Builder&quot; /du &quot;http://www.gemeenteleven.nl/&quot; $(OUTPUTPATH)</PostBuildEvent>
+			<PostBuildEvent>C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p Eendenkooij8 /d &quot;PTT Builder&quot; /du &quot;http://www.gemeenteleven.nl/&quot; $(OUTPUTPATH)</PostBuildEvent>
 			<PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
 		</PropertyGroup>
 	</Project>
