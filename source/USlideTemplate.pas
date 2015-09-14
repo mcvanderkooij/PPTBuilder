@@ -376,17 +376,17 @@ begin
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsPPT, epIsSong];
 
-  inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Zingen-plaatjes', 'Zingen', 'Songs-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, '');
-  template.AreaData.AddSlideItemString('footer-left', ctText, '');
-  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-  template.AreaData.AddSlideItemString('remark', ctText, '');
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
-  template.SelectContentSubDir := 'songs';
-  template.OverviewType := otSong;
-  template.EditPossibilities := [epSongIsPicture, epIsSong];
+//  inc(iMenuOrder, 10);
+//  template := gl_SlideTemplates.Add('Zingen-plaatjes', 'Zingen', 'Songs-layout', iMenuOrder);
+//  template.AreaData.AddSlideItemString('footer', ctText, '');
+//  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+//  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '');
+//  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+//  template.AreaData.AddSlideItemString('remark', ctText, '');
+//  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
+//  template.SelectContentSubDir := 'songs';
+//  template.OverviewType := otSong;
+//  template.EditPossibilities := [epSongIsPicture, epIsSong];
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zingen-tekst', 'Zingen', 'Songs-layout', iMenuOrder);
@@ -626,16 +626,19 @@ begin
     template.AreaData.AddSlideItem('content', ctTextMemo, LoadAndSplitMemoFile(GetSettings.GetDir('content') + 'forms\Avondmaalsformulier ' + strI + '.txt' ));
     template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Avondmaal.png');
     template.OverviewName := 'Avondmaalsformulier ' + strI;
-    template.EditPossibilities := [epSlideVariables];
-    template.VariableOptions['Bidden'] := gl_SlideTemplates.GetTemplateNames('Bidden', true);
-    template.VariableDefaults['Bidden'] := 'Gebed';
-    template.VariableOptions['Geloofsbelijdenis'] := gl_SlideTemplates.GetTemplateNames('Geloofsbelijdenis', true);
-    if (i = 2) or (i=3) then
-      template.VariableDefaults['Geloofsbelijdenis'] := 'Geen'
-    else
-      template.VariableDefaults['Geloofsbelijdenis'] := 'Geloofsbelijdenis lezen';
+    template.FollowedByOverview := false;
+    template.EditPossibilities := [epFixed];
     inc(iMenuOrder, 10);
   end;
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Avondmaal viering', 'Formulieren', 'Form-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
+  template.AreaData.AddSlideItem('content', ctTextMemo, LoadAndSplitMemoFile(GetSettings.GetDir('content') + 'forms\Avondmaal viering.txt' ));
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Avondmaal picto', 'Formulieren', 'Content3-layout', iMenuOrder);

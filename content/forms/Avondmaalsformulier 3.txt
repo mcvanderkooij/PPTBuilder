@@ -43,12 +43,5 @@ We vieren het avondmaal ook met het oog op de terugkeer van Jezus. Paulus schrij
 <---
 Tegelijk zien we aan het avondmaal uit naar de luisterrijke verschijning van onze verlosser, naar de overweldigende vreugde die hij ons heeft beloofd, naar de bruiloft van het Lam, waar hij met ons opnieuw wijn zal drinken in het koninkrijk van zijn Vader. Daarom vieren we het avondmaal met grote blijdschap en bidden we met heel Gods kerk:
 <i>Maranata! Amen, kom, Heer Jezus!<i>
-<---
-#template:%Bidden%#
-<---
-#template:%Geloofsbelijdenis%#
-<---
-#template:Overzicht Formulier#
-<---
-#template:SUBS#
+
 

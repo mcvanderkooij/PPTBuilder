@@ -52,11 +52,4 @@ Door diezelfde Geest verbindt hij ons ook met elkaar in echte liefde als delen v
 <i>Verlangen naar Christus’ terugkomst<i>
 
 Christus heeft ons de opdracht gegeven het avondmaal te vieren, totdat hij komt. Aan zijn tafel krijgen we alvast een voorproefje van de overweldigende blijdschap die hij beloofd heeft. Vol verlangen zien we uit naar zijn luisterrijke verschijning, naar de bruiloft van het Lam, waar hij opnieuw wijn zal drinken in het koninkrijk van zijn Vader. Laten we dus blij zijn en feestvieren en hem de eer geven, want de bruiloft van het Lam komt.
-<---
-#template:%Bidden%#
-<---
-#template:%Geloofsbelijdenis%#
-<---
-#template:Overzicht Formulier#
-<---
-#template:SUBS#
+

@@ -19,11 +19,4 @@ We beleven aan deze tafel samen de vreugdevolle eenheid met Christus en met elka
 Tegelijk verwachten we de terugkeer van onze Heer Jezus. Aan het avondmaal mogen we alvast iets proeven van de blijdschap die de bruiloft van het Lam geeft. Straks zal onze Heer met ons opnieuw wijn drinken in het koninkrijk van zijn Vader.
 <---
 Daarom mogen we het avondmaal ook niet achteloos en zonder oprecht geloof vieren. We moeten dat juist doen met eerbied voor God en in heilige, gespannen verwachting. Straks zal de Heer alle tranen uit onze ogen wissen en zal aan alle gebrokenheid en nood een einde gekomen zijn. En hij zal over alles en allen regeren.
-<---
-#template:%Bidden%#
-<---
-#template:%Geloofsbelijdenis%#
-<---
-#template:Overzicht Formulier#
-<---
-#template:SUBS#
+
