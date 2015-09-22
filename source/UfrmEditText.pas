@@ -25,6 +25,7 @@ type
     cbxPartOfForm: TCheckBox;
     cbxShowInOverview: TCheckBox;
     btnSelectPictoNone: TButton;
+    btnConvertToHC: TButton;
     procedure ImgViewPictoClick(Sender: TObject);
     procedure btnInsertSlideClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,13 +36,16 @@ type
     procedure btnFillClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnSelectPictoNoneClick(Sender: TObject);
+    procedure btnConvertToHCClick(Sender: TObject);
   private
     FStartSlide: string;
+    FConvertedSlide: string;
     FSlideTemplateName: string;
     FPictoName: TSourceInfo;
     FIsBibleText: boolean;
     FSlideVariables: TFastKeyValuesSS;
     FSlideOptions: TFastKeyValuesSS;
+    FOverviewType: TOverviewType;
     { Private declarations }
   protected
     function GetSlideAsString: string;
@@ -62,6 +66,28 @@ uses
   USlideLayout, UfrmBrowseFTP, USlideTemplate, USlideVariables;
 
 { TfrmEditText }
+
+procedure TfrmEditText.btnConvertToHCClick(Sender: TObject);
+var
+  template: TSlideTemplate;
+  slide: TSlide;
+begin
+  case FOverviewType of
+    otIgnore: ;
+    otSong: ;
+    otReading: template := GetSlideTemplates.FindByName(CTEMPLATE_READING_HC);
+    otText: template := GetSlideTemplates.FindByName(CTEMPLATE_TEXT_HC);
+  end;
+
+  if Assigned(template) then begin
+    Hide;
+    slide := template.DoOnAdd(true);
+    if Assigned(slide) then begin
+      FConvertedSlide := slide.AsJSon;
+    end;
+    ModalResult := mrOK;
+  end;
+end;
 
 procedure TfrmEditText.btnFillClick(Sender: TObject);
 var
@@ -145,6 +171,7 @@ begin
   TranslateComponent(self);
   FSlideVariables := TFastKeyValuesSS.Create;
   FSlideOptions := TFastKeyValuesSS.Create;
+  FConvertedSlide := '';
 end;
 
 procedure TfrmEditText.FormDestroy(Sender: TObject);
@@ -171,6 +198,11 @@ var
   i: integer;
   strPrefix: string;
 begin
+  if FConvertedSlide <> '' then begin
+    Result := FConvertedSlide;
+    Exit;
+  end;
+
   slide := TSlide.Create(FStartSlide);
   try
     slide.SlideName := slide.SlideTemplateName + ' : ' + edtOverviewName.Text;
@@ -232,6 +264,7 @@ begin
   try
     FSlideTemplateName := slide.SlideTemplateName;
     FSlideVariables.LoadFromString(slide.Variables.SaveToString);
+    FOverviewType := slide.OverviewType;
 
     template := GetSlideTemplates.FindByName(FSlideTemplateName);
     if Assigned(template) then begin

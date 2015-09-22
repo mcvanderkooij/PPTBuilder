@@ -36,6 +36,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\Projects\Delphi\PPTBuilder\bin-dev\PPTBuilder.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "D:\Projects\Delphi\PPTBuilder\bin-dev\handleiding.rtf"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "D:\Projects\Delphi\PPTBuilder\bin-dev\locale\*"; DestDir: "{app}\bin\locale"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\Projects\Delphi\PPTBuilder\content\*"; DestDir: "{app}\content"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

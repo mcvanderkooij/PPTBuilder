@@ -49,7 +49,10 @@ uses
   UBrowseFTP in '..\..\source\UBrowseFTP.pas',
   UfrmQuickStart in '..\..\source\UfrmQuickStart.pas' {frmQuickStart},
   UMRUList in '..\..\source\UMRUList.pas',
-  USnapshot in '..\..\source\USnapshot.pas';
+  USnapshot in '..\..\source\USnapshot.pas',
+  UfrmEditBook in '..\..\source\UfrmEditBook.pas' {frmEditBook},
+  USourceBook in '..\..\source\USourceBook.pas',
+  UfrmBrowseBook in '..\..\source\UfrmBrowseBook.pas' {frmBrowseBook};
 
 {$R *.res}
 

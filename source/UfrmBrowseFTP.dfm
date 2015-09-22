@@ -21,11 +21,15 @@ object frmBrowseFTP: TfrmBrowseFTP
     Height = 41
     Align = alBottom
     TabOrder = 0
+    DesignSize = (
+      828
+      41)
     object btnOK: TButton
       Left = 664
       Top = 5
       Width = 75
       Height = 25
+      Anchors = [akTop, akRight]
       Caption = 'OK'
       Default = True
       ModalResult = 1
@@ -36,6 +40,7 @@ object frmBrowseFTP: TfrmBrowseFTP
       Top = 6
       Width = 75
       Height = 25
+      Anchors = [akTop, akRight]
       Cancel = True
       Caption = 'Cancel'
       ModalResult = 2
