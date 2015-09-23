@@ -1,8 +1,8 @@
 #  Doesn't have any letters
 #. frmMain..MainMenu1..mniFile..N2..Caption
-#: UfrmMain.dfm:258
+#: UfrmMain.dfm:267
 #. frmMain..MainMenu1..mniFile..N1..Caption
-#: UfrmMain.dfm:265
+#: UfrmMain.dfm:274
 msgid "-"
 msgstr ""
 
@@ -14,35 +14,35 @@ msgstr ""
 
 #  Doesn't have any letters
 #. frmMain..btnSpeakerSelect..Caption
-#: UfrmMain.dfm:155
+#: UfrmMain.dfm:164
 #. frmMain..btnCollecte1Select..Caption
-#: UfrmMain.dfm:187
+#: UfrmMain.dfm:196
 #. frmMain..btnCollecte2Select..Caption
-#: UfrmMain.dfm:219
+#: UfrmMain.dfm:228
 msgid "..."
 msgstr ""
 
 #  Looks like a file extension or file mask
 #. frmMain..OpenDialogProject..DefaultExt
-#: UfrmMain.dfm:288
+#: UfrmMain.dfm:297
 #. frmMain..SaveDialogProject..DefaultExt
-#: UfrmMain.dfm:294
+#: UfrmMain.dfm:303
 msgid ".ppb"
 msgstr ""
 
 #  Looks like a file extension or file mask
 #. frmMain..SaveDialogPPT..DefaultExt
-#: UfrmMain.dfm:300
+#: UfrmMain.dfm:309
 msgid ".ppt"
 msgstr ""
 
 #  Doesn't have any letters
 #. frmMain..btnSpeakerAdd..Caption
-#: UfrmMain.dfm:139
+#: UfrmMain.dfm:148
 #. frmMain..btnCollecte1Add..Caption
-#: UfrmMain.dfm:171
+#: UfrmMain.dfm:180
 #. frmMain..btnCollecte2Add..Caption
-#: UfrmMain.dfm:203
+#: UfrmMain.dfm:212
 msgid "+"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 
 #  Doesn't look like text
 #. frmMain..CategoryPanelGroup1..CategoryPanel1..Caption
-#: UfrmMain.dfm:129
+#: UfrmMain.dfm:138
 msgid "CategoryPanel1"
 msgstr ""
 
@@ -85,19 +85,25 @@ msgstr ""
 
 #  Doesn't look like text
 #. frmBrowseFTP..Panel2..Caption
-#: UfrmBrowseFTP.dfm:51
+#: UfrmBrowseFTP.dfm:56
 msgid "Panel2"
 msgstr ""
 
 #  Doesn't look like text
 #. frmBrowseFTP..Panel2..Panel3..Caption
-#: UfrmBrowseFTP.dfm:77
+#: UfrmBrowseFTP.dfm:82
 msgid "Panel3"
 msgstr ""
 
 #  Seems like a Font.Name extract
+#. frmBrowseBook..Font.Name
+#: UfrmBrowseBook.dfm:11
 #. frmBrowseFTP..Font.Name
 #: UfrmBrowseFTP.dfm:11
+#. frmEditBook..Font.Name
+#: UfrmEditBook.dfm:12
+#. frmEditBook..lbVerses..Font.Name
+#: UfrmEditBook.dfm:120
 #. frmEditExtSlide..Font.Name
 #: UfrmEditExtSlide.dfm:12
 #. frmEditExtSlide..lbVerses..Font.Name
@@ -117,21 +123,21 @@ msgstr ""
 #. frmMain..Font.Name
 #: UfrmMain.dfm:11
 #. frmMain..lbSlides..Font.Name
-#: UfrmMain.dfm:73
+#: UfrmMain.dfm:82
 #. frmMain..CategoryPanelGroup1..HeaderFont.Name
-#: UfrmMain.dfm:123
+#: UfrmMain.dfm:132
 #. frmMain..btnSpeakerAdd..Font.Name
-#: UfrmMain.dfm:143
+#: UfrmMain.dfm:152
 #. frmMain..btnSpeakerSelect..Font.Name
-#: UfrmMain.dfm:159
+#: UfrmMain.dfm:168
 #. frmMain..btnCollecte1Add..Font.Name
-#: UfrmMain.dfm:175
+#: UfrmMain.dfm:184
 #. frmMain..btnCollecte1Select..Font.Name
-#: UfrmMain.dfm:191
+#: UfrmMain.dfm:200
 #. frmMain..btnCollecte2Add..Font.Name
-#: UfrmMain.dfm:207
+#: UfrmMain.dfm:216
 #. frmMain..btnCollecte2Select..Font.Name
-#: UfrmMain.dfm:223
+#: UfrmMain.dfm:232
 #. frmMemoDlg..Font.Name
 #: UfrmMemoDlg.dfm:14
 #. frmMemoDlg..mmoMessage..Font.Name
@@ -151,6 +157,8 @@ msgstr ""
 msgid "Tahoma"
 msgstr ""
 
+#. frmEditBook..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditBook.dfm:53
 #. frmEditExtSlide..ImgViewPicto..Bitmap.ResamplerClassName
 #: UfrmEditExtSlide.dfm:127
 #. frmEditSinglePage..ImgViewPicto..Bitmap.ResamplerClassName
@@ -185,3 +193,7 @@ msgstr ""
 msgid "tsText"
 msgstr ""
 
+#. frmMain..lblVersion..Caption
+#: UfrmMain.dfm:69
+msgid "lblVersion"
+msgstr ""

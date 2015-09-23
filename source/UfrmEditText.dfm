@@ -173,4 +173,13 @@ object frmEditText: TfrmEditText
     TabOrder = 12
     OnClick = btnSelectPictoNoneClick
   end
+  object btnConvertToHC: TButton
+    Left = 527
+    Top = 39
+    Width = 156
+    Height = 25
+    Caption = 'Convert To HC'
+    TabOrder = 13
+    OnClick = btnConvertToHCClick
+  end
 end

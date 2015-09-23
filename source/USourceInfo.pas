@@ -8,7 +8,7 @@ uses
 type
   TStringTree = TNode<String>;
 
-  TSourceInfoType = (sitUnknown, sitString, sitPPT, sitFileName, sitTemplate);
+  TSourceInfoType = (sitUnknown, sitString, sitPPT, sitFileName, sitTemplate, sitBook);
 
   TSourceInfo = class(TJSONPersistent)
   private
@@ -44,6 +44,7 @@ type
     constructor CreateAsTemplate(strTemplateName: string; blnContentTypeOverride: boolean = false); virtual;
     constructor CreateAsPPT(strFilename, strSlide, strShape: string; blnContentTypeOverride: boolean = false); virtual;
     constructor CreateAsFileName(strFileName: string; blnContentTypeOverride: boolean = false); virtual;
+    constructor CreateAsBook(strBook, strChapter, strVerse: string; blnContentTypeOverride: boolean = false); virtual;
   end;
 
   TSourceInfos = class(TObjectList<TSourceInfo>)
@@ -58,6 +59,7 @@ function SourceInfoToMemoText(sourceinfo: TSourceInfo): string;
 function SourceInfoFromMemoText(strText: string): TSourceInfo;
 
 procedure SortSourceInfoStrings(slStrings: TStrings);
+procedure SortStrings(slStrings: TStringList);
 
 implementation
 
@@ -127,6 +129,11 @@ begin
   end;
 end;
 
+function SortStringsItem(List: TStringList; Index1, Index2: Integer): Integer;
+begin
+  Result := CompareNatural(List[Index1], List[Index2]);
+end;
+
 procedure SortSourceInfoStrings(slStrings: TStrings);
 var
   slItems: TStringList;
@@ -139,6 +146,11 @@ begin
   finally
     slItems.Free;
   end;
+end;
+
+procedure SortStrings(slStrings: TStringList);
+begin
+  slStrings.CustomSort(SortStringsItem);
 end;
 
 { TSourceInfo }
@@ -169,6 +181,19 @@ end;
 constructor TSourceInfo.Create;
 begin
   //
+end;
+
+constructor TSourceInfo.CreateAsBook(strBook, strChapter, strVerse: string;
+  blnContentTypeOverride: boolean);
+begin
+  SourceType := sitBook;
+  Description := '';
+  Remark := '';
+  Text := '';
+  FileName := strBook;
+  SlideName := strChapter;
+  ShapeName := strVerse;
+  ContentTypeOverride := blnContentTypeOverride;
 end;
 
 constructor TSourceInfo.CreateAsFileName(strFileName: string;

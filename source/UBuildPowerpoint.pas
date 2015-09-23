@@ -14,7 +14,7 @@ implementation
 
 uses
   Office_TLB, Types, RegularExpressionsCore, Forms, ShellApi,
-  USourceInfo, GNUGetText,
+  USourceInfo, GNUGetText, USourceBook,
   UUtils, UUtilsStrings, USlideLayout, USettings, USourcePPT, UTempActions,
   UUtilsFeedback,
   UOverview, USlideTemplate, URibbon, URegexReplaceProperties;
@@ -311,7 +311,11 @@ begin
               end;
             end else if slideItemArea.ContentType in [ctText, ctTextMemo, ctOverview, ctOverviewSubs] then begin
 
-              strContentText := sourceInfo.Text;
+              if sourceInfo.SourceType = sitBook then begin
+                strContentText := GetCachedBooks.GetVerse(sourceInfo);
+              end else begin
+                strContentText := sourceInfo.Text;
+              end;
 
               if slide.AutomaticSmallNumbers and (strArea = 'content') then begin
                 strContentText := ReplaceAutomaticSmallNumbers(strContentText);

@@ -10,13 +10,15 @@ const
   CTEMPLATE_COLLECTE = 'Collecte';
   CTEMPLATE_OVERVIEW = 'Overzicht';
   CTEMPLATE_OVERVIEW_SUBS = 'Overzicht Formulier';
+  CTEMPLATE_READING_HC = 'Lezen HC';
+  CTEMPLATE_TEXT_HC = 'Tekst HC';
 
   CCONTENT_COLLECTE = #13#13#13'<40>1<^>e<^> collecte:'#13'%collecte1%'#13#13'2<^>e<^> collecte:'#13'%collecte2%';
 
 type
   TEditPossibility = (epFixed, epAllowExternalPPTs, epSinglePage,
     epIsSong, epSongIsMemo, epSongIsPPT, epSongIsPicture,
-    epIsText,
+    epIsText, epIsBook, epBookMulti,
     epMemoMulti, epSlideVariables);
   TEditPossibilities = set of TEditPossibility;
 
@@ -95,6 +97,7 @@ uses
   Forms, Dialogs, SysUtils, Controls, GNUGetText, Classes,
   USlideLayout, UfrmPictureSelector, UUtilsForms, UUtilsStrings,
   UfrmEditSong, UfrmEditText, UfrmEditExtSlide, UfrmEditSinglePage,
+  UfrmEditBook,
   UStringLogicalComparer, USourcePPT, USettings, UUtils,
   UfrmEditVariables;
 
@@ -421,13 +424,38 @@ begin
   template.EditPossibilities := [epMemoMulti, epIsText];
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_READING_HC, 'Bijbel', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Heidelbergse Catechismus';
+  template.VariableDefaults['FooterLeftPrefix'] := 'Vraag';
+  template.OverviewType := otReading;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Tekst', 'Bijbel', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Tekst');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
   template.OverviewType := otText;
   template.EditPossibilities := [epMemoMulti, epIsText];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_HC, 'Bijbel', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Tekst');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Heidelbergse Catechismus';
+  template.VariableDefaults['FooterLeftPrefix'] := 'Vraag';
+  template.OverviewType := otText;
+  template.EditPossibilities := [epBookMulti, epIsBook];
 
   // Bidden
   iMenuOrder := 60000;
@@ -865,7 +893,7 @@ begin
   Result.OverviewType := FOverviewType;
   Result.OverviewName := FOverviewName;
   Result.IsSubOverview := FIsSubOverview;
-  Result.AutomaticSmallNumbers := FOverviewType in [otReading, otText];
+  Result.AutomaticSmallNumbers := (FOverviewType in [otReading, otText]) and not (epIsBook in FEditPossibilities);
 
   for iArea := 0 to AreaData.Count -1 do begin
     strArea := AreaData.KeyOfIndex[iArea];
@@ -921,6 +949,8 @@ begin
     editForm := TfrmEditSinglePage.Create(Application.MainForm);
   end else if epMemoMulti in EditPossibilities then begin
     editForm := TfrmEditText.Create(Application.MainForm);
+  end else if epBookMulti in EditPossibilities then begin
+    editForm := TfrmEditBook.Create(Application.MainForm, FSelectContentSubDir);
   end else if epSlideVariables in EditPossibilities then begin
     editForm := TfrmEditVariables.Create(Application.MainForm);
   end;
