@@ -49,7 +49,10 @@ uses
   UUtilsFeedback in '..\..\source\UUtilsFeedback.pas',
   USnapshot in '..\..\source\USnapshot.pas',
   UMRUList in '..\..\source\UMRUList.pas',
-  UfrmQuickStart in '..\..\source\UfrmQuickStart.pas' {frmQuickStart};
+  UfrmQuickStart in '..\..\source\UfrmQuickStart.pas' {frmQuickStart},
+  UfrmBrowseBook in '..\..\source\UfrmBrowseBook.pas' {frmBrowseBook},
+  UfrmEditBook in '..\..\source\UfrmEditBook.pas' {frmEditBook},
+  USourceBook in '..\..\source\USourceBook.pas';
 
 {$R *.res}
 
