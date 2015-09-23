@@ -46,7 +46,10 @@ uses
   UUtilsJSON in '..\..\source\UUtilsJSON.pas',
   UBrowseFTP in '..\..\source\UBrowseFTP.pas',
   USlideVariables in '..\..\source\USlideVariables.pas',
-  UUtilsFeedback in '..\..\source\UUtilsFeedback.pas';
+  UUtilsFeedback in '..\..\source\UUtilsFeedback.pas',
+  USnapshot in '..\..\source\USnapshot.pas',
+  UMRUList in '..\..\source\UMRUList.pas',
+  UfrmQuickStart in '..\..\source\UfrmQuickStart.pas' {frmQuickStart};
 
 {$R *.res}
 
