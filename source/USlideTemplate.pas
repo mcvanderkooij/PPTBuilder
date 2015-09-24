@@ -133,6 +133,9 @@ var
   strI: string;
   oSources: TSourceInfos;
   iMenuOrder: integer;
+
+  slideArray: TArray<string>;
+  slideIndex: integer;
 begin
   // geen
   iMenuOrder := 0;
@@ -270,6 +273,15 @@ begin
   template.AreaData.AddSlideItemFileName('content1', ctPictureFit, '<content>songs\Votum.png');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
   template.AreaData.AddSlideItemFileName('content3', ctPictureFit, '<content>songs\Amen.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.SelectContentSubDir := 'songs';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Zegengroet', 'Liturgisch', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Zegengroet');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
   template.SelectContentSubDir := 'songs';
@@ -554,6 +566,15 @@ begin
   template.SelectContentSubDir := 'pictos';
   template.EditPossibilities := [epFixed];
 
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Inzamelen gebedspunten', 'Bidden', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Inzamelen gebedspunten');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\verbindende tekst.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\verbindende tekst.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
+
   // Wet
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Wet - 10 geboden', 'Wet', 'Content3-layout', iMenuOrder);
@@ -732,6 +753,31 @@ begin
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis lezen.png');
   template.SelectContentSubDir := 'pictos';
   template.EditPossibilities := [epSinglePage];
+
+  inc(iMenuOrder, 10);
+
+  slideArray := TArray<string>.Create('1-4', '5-10', '11-17', '18-22', '23-26', '27-31', '32-36', '37-40');
+
+  template := gl_SlideTemplates.Add('Geloofsbelijdenis van Athanasius', 'Geloofsbelijdenis', 'Songs-layout', iMenuOrder);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis van Athanasius'));
+  template.AreaData.AddSlideItem('footer', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  for slideIndex := 0 to Length(slideArray) -1 do begin
+    oSources.Add(TSourceInfo.CreateAsString(slideArray[slideIndex]));
+  end;
+  template.AreaData.AddSlideItem('footer-left', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  for slideIndex := 0 to Length(slideArray) -1 do begin
+    oSources.Add(TSourceInfo.CreateAsBook('Geloofsbel. van Athanasius', 'Geloofsbel. van Athanasius.txt', slideArray[slideIndex]));
+  end;
+  template.AreaData.AddSlideItem('content', ctTextMemo, oSources);
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis lezen.png');
+  template.SelectContentSubDir := 'Geloofsbel. van Athanasius';
+  template.OverviewType := otIgnore;
+  template.OverviewName := 'Geloofsbelijdenis van Athanasius';
+  template.EditPossibilities := [epFixed, epBookMulti, epIsBook];
 
 
   // Formulieren
