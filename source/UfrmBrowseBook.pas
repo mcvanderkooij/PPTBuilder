@@ -38,6 +38,7 @@ type
     property SelectionValid: boolean read FSelectionValid;
 
     procedure ClearSelection;
+    procedure ClearTree;
     procedure ValidateSelection;
     procedure OpenBook(strBook: string);
     { Public declarations }
@@ -64,6 +65,11 @@ begin
   FreeAndNil(FSelection);
   FSelection := TSourceInfo.CreateAsBook('' ,'', '');
   FSelectionValid := false;
+end;
+
+procedure TfrmBrowseBook.ClearTree;
+begin
+  tvBooks.Items.Clear;
 end;
 
 procedure TfrmBrowseBook.FormCreate(Sender: TObject);
@@ -130,6 +136,7 @@ var
   tree: TStringTree;
 begin
   ClearSelection;
+  ClearTree;
 
   Caption := _('Browse') + ' ' + strBook;
   cachedPPT := GetCachedBooks.Get(strBook);

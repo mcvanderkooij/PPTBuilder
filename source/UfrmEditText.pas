@@ -25,6 +25,9 @@ type
     cbxPartOfForm: TCheckBox;
     cbxShowInOverview: TCheckBox;
     btnSelectPictoNone: TButton;
+    btnConvertToAGB: TButton;
+    btnConvertToDL: TButton;
+    btnConvertToGBA: TButton;
     btnConvertToHC: TButton;
     procedure ImgViewPictoClick(Sender: TObject);
     procedure btnInsertSlideClick(Sender: TObject);
@@ -37,6 +40,9 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure btnSelectPictoNoneClick(Sender: TObject);
     procedure btnConvertToHCClick(Sender: TObject);
+    procedure btnConvertToAGBClick(Sender: TObject);
+    procedure btnConvertToDLClick(Sender: TObject);
+    procedure btnConvertToGBAClick(Sender: TObject);
   private
     FStartSlide: string;
     FConvertedSlide: string;
@@ -51,6 +57,7 @@ type
     function GetSlideAsString: string;
     procedure SetSlideAsString(const Value: string);
     function Edit: boolean;
+    procedure ConvertToTemplate(strReadingTemplate, strTextTemplate: string);
   public
     property SlideAsString: string read GetSlideAsString write SetSlideAsString;
     property IsBibleText: boolean read FIsBibleText write FIsBibleText;
@@ -67,7 +74,27 @@ uses
 
 { TfrmEditText }
 
+procedure TfrmEditText.btnConvertToAGBClick(Sender: TObject);
+begin
+  ConvertToTemplate(CTEMPLATE_READING_AGB, CTEMPLATE_TEXT_AGB);
+end;
+
+procedure TfrmEditText.btnConvertToDLClick(Sender: TObject);
+begin
+  ConvertToTemplate(CTEMPLATE_READING_DL, CTEMPLATE_TEXT_DL);
+end;
+
+procedure TfrmEditText.btnConvertToGBAClick(Sender: TObject);
+begin
+  ConvertToTemplate(CTEMPLATE_READING_GBA, CTEMPLATE_TEXT_GBA);
+end;
+
 procedure TfrmEditText.btnConvertToHCClick(Sender: TObject);
+begin
+  ConvertToTemplate(CTEMPLATE_READING_HC, CTEMPLATE_TEXT_HC);
+end;
+
+procedure TfrmEditText.ConvertToTemplate(strReadingTemplate, strTextTemplate: string);
 var
   template: TSlideTemplate;
   slide: TSlide;
@@ -75,8 +102,8 @@ begin
   case FOverviewType of
     otIgnore: ;
     otSong: ;
-    otReading: template := GetSlideTemplates.FindByName(CTEMPLATE_READING_HC);
-    otText: template := GetSlideTemplates.FindByName(CTEMPLATE_TEXT_HC);
+    otReading: template := GetSlideTemplates.FindByName(strReadingTemplate);
+    otText: template := GetSlideTemplates.FindByName(strTextTemplate);
   end;
 
   if Assigned(template) then begin

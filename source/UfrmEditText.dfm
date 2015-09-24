@@ -173,13 +173,40 @@ object frmEditText: TfrmEditText
     TabOrder = 12
     OnClick = btnSelectPictoNoneClick
   end
-  object btnConvertToHC: TButton
+  object btnConvertToAGB: TButton
     Left = 527
     Top = 39
     Width = 156
     Height = 25
-    Caption = 'Convert To HC'
+    Caption = 'Apostolische Geloofsbelijdenis'
     TabOrder = 13
+    OnClick = btnConvertToAGBClick
+  end
+  object btnConvertToDL: TButton
+    Left = 527
+    Top = 70
+    Width = 156
+    Height = 25
+    Caption = 'Dortse Leerregels'
+    TabOrder = 14
+    OnClick = btnConvertToDLClick
+  end
+  object btnConvertToGBA: TButton
+    Left = 527
+    Top = 101
+    Width = 156
+    Height = 25
+    Caption = 'Geloofsbel. van Athanasius'
+    TabOrder = 15
+    OnClick = btnConvertToGBAClick
+  end
+  object btnConvertToHC: TButton
+    Left = 527
+    Top = 132
+    Width = 156
+    Height = 25
+    Caption = 'Heidelbergse Catechismus'
+    TabOrder = 16
     OnClick = btnConvertToHCClick
   end
 end

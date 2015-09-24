@@ -10,8 +10,14 @@ const
   CTEMPLATE_COLLECTE = 'Collecte';
   CTEMPLATE_OVERVIEW = 'Overzicht';
   CTEMPLATE_OVERVIEW_SUBS = 'Overzicht Formulier';
-  CTEMPLATE_READING_HC = 'Lezen HC';
-  CTEMPLATE_TEXT_HC = 'Tekst HC';
+  CTEMPLATE_READING_AGB = 'Lezen Apostolische Geloofsbelijdenis';
+  CTEMPLATE_READING_DL = 'Lezen Dortse Leerregels';
+  CTEMPLATE_READING_GBA = 'Lezen Geloofsbelijdenis van Athanasius';
+  CTEMPLATE_READING_HC = 'Lezen Heidelbergse Catechismus';
+  CTEMPLATE_TEXT_AGB = 'Tekst Apostolische Geloofsbelijdenis';
+  CTEMPLATE_TEXT_DL = 'Tekst Dortse Leerregels';
+  CTEMPLATE_TEXT_GBA = 'Tekst Geloofsbelijdenis van Athanasius';
+  CTEMPLATE_TEXT_HC = 'Tekst Heidelbergse Catechismus';
 
   CCONTENT_COLLECTE = #13#13#13'<40>1<^>e<^> collecte:'#13'%collecte1%'#13#13'2<^>e<^> collecte:'#13'%collecte2%';
 
@@ -415,7 +421,7 @@ begin
 
   // Bijbel
   iMenuOrder := 50000;
-  template := gl_SlideTemplates.Add('Lezen', 'Bijbel', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Lezen', 'Schriftlezing en tekst', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
@@ -424,7 +430,43 @@ begin
   template.EditPossibilities := [epMemoMulti, epIsText];
 
   inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add(CTEMPLATE_READING_HC, 'Bijbel', 'Songs-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add(CTEMPLATE_READING_AGB, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Apostolische Geloofsbelijdenis';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otReading;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_READING_DL, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Dortse Leerregels';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otReading;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_READING_GBA, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Geloofsbel. van Athanasius';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otReading;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_READING_HC, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
@@ -436,7 +478,7 @@ begin
   template.EditPossibilities := [epBookMulti, epIsBook];
 
   inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add('Tekst', 'Bijbel', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Tekst', 'Schriftlezing en tekst', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Tekst');
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
@@ -446,7 +488,43 @@ begin
   template.EditPossibilities := [epMemoMulti, epIsText];
 
   inc(iMenuOrder, 10);
-  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_HC, 'Bijbel', 'Songs-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_AGB, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Apostolische Geloofsbelijdenis';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otText;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_DL, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Dortse Leerregels';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otText;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_GBA, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Lezen');
+  template.AreaData.AddSlideItemString('footer-left', ctText, '');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Bijbel.png');
+  template.SelectContentSubDir := 'Geloofsbel. van Athanasius';
+  template.VariableDefaults['FooterLeftPrefix'] := '';
+  template.OverviewType := otText;
+  template.EditPossibilities := [epBookMulti, epIsBook];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add(CTEMPLATE_TEXT_HC, 'Schriftlezing en tekst', 'Songs-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Tekst');
   template.AreaData.AddSlideItemString('footer-left', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
