@@ -79,7 +79,7 @@
         <DCC_Define>SIMPLE;$(DCC_Define)</DCC_Define>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>W:\PPTBuilder\bin-devXE5\</DCC_ExeOutput>
+        <DCC_ExeOutput>..\..\bin-devXE5\</DCC_ExeOutput>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
@@ -163,6 +163,21 @@
         <DCCReference Include="..\..\source\UBrowseFTP.pas"/>
         <DCCReference Include="..\..\source\USlideVariables.pas"/>
         <DCCReference Include="..\..\source\UUtilsFeedback.pas"/>
+        <DCCReference Include="..\..\source\USnapshot.pas"/>
+        <DCCReference Include="..\..\source\UMRUList.pas"/>
+        <DCCReference Include="..\..\source\UfrmQuickStart.pas">
+            <Form>frmQuickStart</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\source\UfrmBrowseBook.pas">
+            <Form>frmBrowseBook</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\source\UfrmEditBook.pas">
+            <Form>frmEditBook</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\source\USourceBook.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
