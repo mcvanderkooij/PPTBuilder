@@ -70,11 +70,11 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.5.4;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.6.4;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
 			<VerInfo_Build>4</VerInfo_Build>
-			<VerInfo_Release>5</VerInfo_Release>
+			<VerInfo_Release>6</VerInfo_Release>
 			<Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
-			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PTT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
+			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PPT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
 			<DCC_Define>SIMPLE;$(DCC_Define)</DCC_Define>
 			<DCC_UnitSearchPath>D:\Data\Projects\Delphi\graphics32\Lines;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
@@ -256,7 +256,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
 			<PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
 			<PreLinkEvent/>
 			<PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-			<PostBuildEvent>C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d &quot;PTT Builder&quot; /du &quot;http://www.gemeenteleven.nl/&quot; $(OUTPUTPATH)</PostBuildEvent>
+			<PostBuildEvent>C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d &quot;PPT Builder&quot; /du &quot;http://www.gemeenteleven.nl/&quot; $(OUTPUTPATH)</PostBuildEvent>
 			<PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
 		</PropertyGroup>
 	</Project>
