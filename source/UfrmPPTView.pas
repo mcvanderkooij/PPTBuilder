@@ -89,7 +89,7 @@ var
   strFileName: string;
 begin
   strFileName := '';
-  if SelectFTPFile(strFileName, '.ppt|.pptx') then begin
+  if SelectFTPFile(strFileName, '.ppt|.pptx', '') then begin
     OpenFile(CopyExternalFileToLocal(strFileName));
   end;
 end;

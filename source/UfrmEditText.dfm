@@ -95,6 +95,7 @@ object frmEditText: TfrmEditText
     Width = 674
     Height = 251
     Anchors = [akLeft, akTop, akRight, akBottom]
+    PopupMenu = ppmText
     ScrollBars = ssVertical
     TabOrder = 3
     WantTabs = True
@@ -139,7 +140,7 @@ object frmEditText: TfrmEditText
     OnClick = btnInternetClick
   end
   object btnFill: TButton
-    Left = 607
+    Left = 335
     Top = 177
     Width = 75
     Height = 25
@@ -175,7 +176,7 @@ object frmEditText: TfrmEditText
   end
   object btnConvertToAGB: TButton
     Left = 527
-    Top = 39
+    Top = 70
     Width = 156
     Height = 25
     Caption = 'Apostolische Geloofsbelijdenis'
@@ -184,7 +185,7 @@ object frmEditText: TfrmEditText
   end
   object btnConvertToDL: TButton
     Left = 527
-    Top = 70
+    Top = 101
     Width = 156
     Height = 25
     Caption = 'Dortse Leerregels'
@@ -193,7 +194,7 @@ object frmEditText: TfrmEditText
   end
   object btnConvertToGBA: TButton
     Left = 527
-    Top = 101
+    Top = 132
     Width = 156
     Height = 25
     Caption = 'Geloofsbel. van Athanasius'
@@ -202,11 +203,31 @@ object frmEditText: TfrmEditText
   end
   object btnConvertToHC: TButton
     Left = 527
-    Top = 132
+    Top = 163
     Width = 156
     Height = 25
     Caption = 'Heidelbergse Catechismus'
     TabOrder = 16
     OnClick = btnConvertToHCClick
+  end
+  object btnBibleNBV: TButton
+    Left = 608
+    Top = 39
+    Width = 75
+    Height = 25
+    Anchors = [akTop, akRight]
+    Caption = 'NBV'
+    TabOrder = 17
+    OnClick = btnBibleNBVClick
+  end
+  object ppmText: TPopupMenu
+    OnPopup = ppmTextPopup
+    Left = 304
+    Top = 336
+    object mniPaste: TMenuItem
+      Caption = 'Paste'
+      ShortCut = 16470
+      OnClick = mniPasteClick
+    end
   end
 end

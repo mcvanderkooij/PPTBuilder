@@ -25,30 +25,33 @@ type
     procedure lvFilesDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
+    FAutoOpen: string;
     procedure AddToTree(parent: TStringTree; parentNode: TTreeNode);
     function GetSelectedFTPFileName: string;
+    procedure SetAutoOpen(const Value: string);
     { Private declarations }
   public
     property SelectedFTPFileName: string read GetSelectedFTPFileName;
+    property AutoOpen: string read FAutoOpen write SetAutoOpen;
     { Public declarations }
   end;
 
-function SelectFTPFile(var strFileName: string; strExtensions: string): boolean;
+function SelectFTPFile(var strFileName: string; strExtensions: string; strAutoOpen: string): boolean;
 function CopyExternalFileToLocal(strFileName: string): string;
-procedure OpenInternetSource;
+procedure OpenInternetSource(strAutoOpen: string);
 
 implementation
 
 uses
   ShellApi,
-  GNUGetText, UBrowseFTP, USettings;
+  GNUGetText, UBrowseFTP, USettings, UUtilsStrings, UTempActions;
 
 {$R *.dfm}
 
 var
   gl_frmBrowseFTP: TfrmBrowseFTP;
 
-function SelectFTPFile(var strFileName: string; strExtensions: string): boolean;
+function SelectFTPFile(var strFileName: string; strExtensions: string; strAutoOpen: string): boolean;
 
 begin
   if not Assigned(gl_frmBrowseFTP) then begin
@@ -58,6 +61,7 @@ begin
     GetBrowseFTP.Extensions.Clear;
     GetBrowseFTP.Extensions.Delimiter := '|';
     GetBrowseFTP.Extensions.DelimitedText := strExtensions;
+    gl_frmBrowseFTP.AutoOpen := strAutoOpen;
     Result := gl_frmBrowseFTP.ShowModal = mrOK;
     if Result then begin
       strFileName := gl_frmBrowseFTP.SelectedFTPFileName;
@@ -92,12 +96,12 @@ begin
   end;
 end;
 
-procedure OpenInternetSource;
+procedure OpenInternetSource(strAutoOpen: string);
 var
   strFileName: string;
 begin
   strFileName := '';
-  if SelectFTPFile(strFileName, '.ppt|.pptx|.doc|.docx|.xls|.xlsx|.rtf|.txt') then begin
+  if SelectFTPFile(strFileName, '.ppt|.pptx|.doc|.docx|.xls|.xlsx|.rtf|.txt', strAutoOpen) then begin
     strFileName := CopyExternalFileToLocal(strFileName);
     ShellExecute(0, '', PChar(strFileName), '', '', SW_SHOWNORMAL);
   end;
@@ -117,8 +121,32 @@ end;
 
 procedure TfrmBrowseFTP.ApplicationEvents1Idle(Sender: TObject;
   var Done: Boolean);
+var
+  aFolders: TArrayOfString;
+  index: integer;
+  node: TTreeNode;
 begin
   btnOK.Enabled := lvFiles.ItemIndex <> -1;
+
+  if FAutoOpen <> '' then begin
+    SetWaitCursor;
+    aFolders := Split(FAutoOpen, '/');
+    FAutoOpen := '';
+    node := tvDirs.Items.GetFirstNode;
+    for index := 0 to Length(aFolders) -1 do begin
+      while Assigned(node) do begin
+        if node.Text = aFolders[index] then begin
+          tvDirsChange(nil, node);
+          node.Selected := true;
+          node := node.getFirstChild;
+          break;
+        end;
+        node := node.getNextSibling;
+      end;
+
+    end;
+
+  end;
 end;
 
 procedure TfrmBrowseFTP.FormCreate(Sender: TObject);
@@ -140,6 +168,11 @@ procedure TfrmBrowseFTP.lvFilesDblClick(Sender: TObject);
 begin
  if lvFiles.ItemIndex <> -1 then
    ModalResult := mrOk;
+end;
+
+procedure TfrmBrowseFTP.SetAutoOpen(const Value: string);
+begin
+  FAutoOpen := Value;
 end;
 
 procedure TfrmBrowseFTP.tvDirsChange(Sender: TObject; nodeSelected: TTreeNode);

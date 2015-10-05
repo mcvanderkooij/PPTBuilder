@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, GR32_Image,
-  USlide, USourceInfo, Vcl.ExtCtrls, UFastKeysSS;
+  USlide, USourceInfo, Vcl.ExtCtrls, UFastKeysSS, Vcl.Menus;
 
 type
   TfrmEditText = class(TForm, ISlideEditForm)
@@ -29,6 +29,9 @@ type
     btnConvertToDL: TButton;
     btnConvertToGBA: TButton;
     btnConvertToHC: TButton;
+    ppmText: TPopupMenu;
+    mniPaste: TMenuItem;
+    btnBibleNBV: TButton;
     procedure ImgViewPictoClick(Sender: TObject);
     procedure btnInsertSlideClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -43,6 +46,9 @@ type
     procedure btnConvertToAGBClick(Sender: TObject);
     procedure btnConvertToDLClick(Sender: TObject);
     procedure btnConvertToGBAClick(Sender: TObject);
+    procedure mniPasteClick(Sender: TObject);
+    procedure ppmTextPopup(Sender: TObject);
+    procedure btnBibleNBVClick(Sender: TObject);
   private
     FStartSlide: string;
     FConvertedSlide: string;
@@ -73,6 +79,11 @@ uses
   USlideLayout, UfrmBrowseFTP, USlideTemplate, USlideVariables;
 
 { TfrmEditText }
+
+procedure TfrmEditText.btnBibleNBVClick(Sender: TObject);
+begin
+  OpenInternetSource('BeamTeam/Notenbeeld/Bijbel(vertalingen)/NBV');
+end;
 
 procedure TfrmEditText.btnConvertToAGBClick(Sender: TObject);
 begin
@@ -144,7 +155,7 @@ end;
 
 procedure TfrmEditText.btnInternetClick(Sender: TObject);
 begin
-  OpenInternetSource;
+  OpenInternetSource('');
 end;
 
 procedure TfrmEditText.btnPasteClick(Sender: TObject);
@@ -275,6 +286,16 @@ begin
     (Sender as TMemo).SelectAll;
     Key := #0;
   end;
+end;
+
+procedure TfrmEditText.mniPasteClick(Sender: TObject);
+begin
+  btnPasteClick(nil);
+end;
+
+procedure TfrmEditText.ppmTextPopup(Sender: TObject);
+begin
+  mniPaste.Enabled := Clipboard.AsText <> '';
 end;
 
 procedure TfrmEditText.SetSlideAsString(const Value: string);

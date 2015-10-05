@@ -94,7 +94,7 @@ end;
 
 procedure TfrmEditSong.btnInternetClick(Sender: TObject);
 begin
-  OpenInternetSource;
+  OpenInternetSource('');
 end;
 
 procedure TfrmEditSong.btnSelectPictoNoneClick(Sender: TObject);
