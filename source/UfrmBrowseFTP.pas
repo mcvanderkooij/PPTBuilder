@@ -143,9 +143,7 @@ begin
         end;
         node := node.getNextSibling;
       end;
-
     end;
-
   end;
 end;
 
