@@ -11,9 +11,9 @@ const
   CScreenHeight = 540;
   CViewMarge = 10;
   CRibbonWidth = 45;
-  CFooterHeight = 45;
+  CFooterHeight = 40;
   CFooterLeftWidth = 200;
-  CRemarkHeight = 60;
+  CRemarkHeight = 40;
   CRemarkMarge = 5;
 
   CFooterColor = TColor($0C0CB1);
@@ -123,7 +123,7 @@ begin
   else
     layout['footer'].AreaAlignment := alLeft;
   layout['footer'].FontColor := TColors.White;
-  layout['footer'].FontSize := 34;
+  layout['footer'].FontSize := 26;
   layout['footer'].UseBackground := true;
   layout['footer'].BackgroundColor := CFooterColor;
 end;
@@ -136,7 +136,7 @@ begin
   layout['footer-left'].Area := Rect(0, CScreenHeight-CFooterHeight, CFooterLeftWidth, CScreenHeight);
   layout['footer-left'].AreaAlignment := alLeft;
   layout['footer-left'].FontColor := TColors.White;
-  layout['footer-left'].FontSize := 34;
+  layout['footer-left'].FontSize := 26;
   layout['footer-left'].UseBackground := true;
   layout['footer-left'].BackgroundColor := CFooterColor;
 end;
@@ -157,7 +157,7 @@ begin
   layout['remark'].Area := Rect(0, CScreenHeight-CFooterHeight - CRemarkHeight -CRemarkMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight - CRemarkMarge);
   layout['remark'].AreaAlignment := alRight;
   layout['remark'].FontColor := TColors.White;
-  layout['remark'].FontSize := 38;
+  layout['remark'].FontSize := 28;
   layout['remark'].UseBackground := true;
   layout['remark'].BackgroundColor := CFooterColor;
   layout['remark'].Autosize := true;
