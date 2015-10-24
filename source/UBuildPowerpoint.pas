@@ -64,6 +64,23 @@ begin
   end;
 end;
 
+function ReplaceAutomaticNormalNumbers(strText: string): string;
+var
+  regex: TPerlRegEx;
+begin
+  regex := TPerlRegEx.Create();
+  try
+    regex.Subject := strText;
+    regex.Options := [preMultiLine];
+    regex.RegEx := '^\s*<14>(\d+)<14>\s*$';
+    regex.Replacement := '$1';
+    regex.ReplaceAll;
+    Result := regex.Subject;
+  finally
+    regex.Free;
+  end;
+end;
+
 // each row
 procedure LayoutTextRange( txtrange: PowerPoint_TLB.TextRange; strTag: string;
   action: TTagAction; clFontColor: TColor; iFontSize: integer);
@@ -319,6 +336,7 @@ begin
 
               if slide.AutomaticSmallNumbers and (strArea = 'content') then begin
                 strContentText := ReplaceAutomaticSmallNumbers(strContentText);
+                strContentText := ReplaceAutomaticNormalNumbers(strContentText);
               end;
 
               iFontSizeNeeded := layoutItem.FontSize;
