@@ -685,9 +685,9 @@ begin
   oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179a'));
   template.AreaData.AddSlideItem('footer', ctText, oSources);
   oSources := TSourceInfos.Create;
-  oSources.Add(TSourceInfo.CreateAsString('deel a'));
-  oSources.Add(TSourceInfo.CreateAsString('deel b'));
-  oSources.Add(TSourceInfo.CreateAsString('deel c'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 1'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 2'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 3'));
   template.AreaData.AddSlideItem('footer-left', ctText, oSources);
   oSources := TSourceInfos.Create;
   oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a deel 1.png'));
@@ -729,9 +729,9 @@ begin
   oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179b'));
   template.AreaData.AddSlideItem('footer', ctText, oSources);
   oSources := TSourceInfos.Create;
-  oSources.Add(TSourceInfo.CreateAsString('deel a'));
-  oSources.Add(TSourceInfo.CreateAsString('deel b'));
-  oSources.Add(TSourceInfo.CreateAsString('deel c'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 1'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 2'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 3'));
   template.AreaData.AddSlideItem('footer-left', ctText, oSources);
   oSources := TSourceInfos.Create;
   oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179b deel 1.png'));
