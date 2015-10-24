@@ -67,12 +67,13 @@
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
 			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
-			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.6.4;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-			<VerInfo_Build>4</VerInfo_Build>
-			<VerInfo_Release>6</VerInfo_Release>
+			<Manifest_File>None</Manifest_File>
+			<DCC_RemoteDebug>false</DCC_RemoteDebug>
+			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.7.6;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Build>6</VerInfo_Build>
+			<VerInfo_Release>7</VerInfo_Release>
 			<Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
 			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PPT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
@@ -82,7 +83,6 @@ $(PostBuildEvent)]]></PostBuildEvent>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 			<DCC_DcuOutput>D:\temp\DCUXE2_32\PPTBuilder\</DCC_DcuOutput>
-			<DCC_RemoteDebug>false</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
 			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
