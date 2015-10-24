@@ -690,9 +690,9 @@ begin
   oSources.Add(TSourceInfo.CreateAsString('deel 3'));
   template.AreaData.AddSlideItem('footer-left', ctText, oSources);
   oSources := TSourceInfos.Create;
-  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a deel 1.png'));
-  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a deel 2.png'));
-  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a deel 3.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a allen deel 1.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a allen deel 2.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a allen deel 3.png'));
   template.AreaData.AddSlideItem('content', ctPictureFit, oSources);
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis zingen.png');
@@ -702,24 +702,28 @@ begin
   template.EditPossibilities := [epFixed, epIsSong];
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Geloofsbelijdenis Zingen Gz 179a beurtzang', 'Geloofsbelijdenis', 'Songs-layout', iMenuOrder);
   oSources := TSourceInfos.Create;
-  for i := 0 to 2 do begin
-    source := TSourceInfo.Create;
-    source.SourceType := sitPPT;
-    source.Description := '';
-    source.Text := '';
-    source.FileName := '<content>ppts\Gz 179a beurtzang.ppt';
-    source.SlideName := 'Slide'+intToStr(i+2);
-    source.ShapeName := '';
-    oSources.Add(source);
-  end;
-  template := gl_SlideTemplates.Add('Geloofsbelijdenis Zingen Gz 179a beurtzang', 'Geloofsbelijdenis', 'Content-layout', iMenuOrder);
-  template.AreaData.AddSlideItem('content', ctExtSlide, oSources);
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179a'));
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179a'));
+  oSources.Add(TSourceInfo.CreateAsString('Geloofsbelijdenis Gezang 179a'));
+  template.AreaData.AddSlideItem('footer', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsString('deel 1'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 2'));
+  oSources.Add(TSourceInfo.CreateAsString('deel 3'));
+  template.AreaData.AddSlideItem('footer-left', ctText, oSources);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a beurtzang deel 1.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a beurtzang deel 2.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\Gereformeerd Kerkboek\Gezang 179a beurtzang deel 3.png'));
+  template.AreaData.AddSlideItem('content', ctPictureFit, oSources);
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis zingen.png');
+  template.SelectContentSubDir := 'songs';
   template.OverviewType := otSong;
   template.OverviewName := 'Gz 179 a';
   template.EditPossibilities := [epFixed, epIsSong];
-  template.SelectContentSubDir := 'ppts';
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Geloofsbelijdenis Zingen Gz 179b', 'Geloofsbelijdenis', 'Songs-layout', iMenuOrder);
