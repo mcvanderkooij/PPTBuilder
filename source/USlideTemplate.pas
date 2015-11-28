@@ -356,7 +356,7 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zegen Amen Lb 416', 'Liturgisch', 'Content-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Votum en zegengroet');
+  template.AreaData.AddSlideItemString('footer', ctText, 'Zegen');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>songs\lb416 zegen.png');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
