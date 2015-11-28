@@ -92,7 +92,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
@@ -106,7 +106,7 @@ begin
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 16.30');
 
   //// Orde van dienst A middagdienst
@@ -117,7 +117,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
@@ -131,7 +131,7 @@ begin
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - week');
 
   //// Orde van dienst B morgendienst
@@ -142,7 +142,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
@@ -160,7 +160,7 @@ begin
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 16.30');
 
   //// Orde van dienst B middagdienst
@@ -171,7 +171,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Lezen');
@@ -184,7 +184,7 @@ begin
   liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - week');
 
   //// Orde van dienst C morgendienst
@@ -195,7 +195,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Schuldbelijdenis en Genadeverkondiging');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   // dienst van het woord
@@ -215,7 +215,7 @@ begin
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 16.30');
 
   //// Orde van dienst C middagdienst
@@ -226,7 +226,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
-  liturgy.SlideTemplates.Add('Votum en zegengroet');
+  liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   // dienst van het woord
   liturgy.SlideTemplates.Add('Gebed');
@@ -243,7 +243,7 @@ begin
   liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Zegen Gezongen Amen');
+  liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - week');
 end;
 

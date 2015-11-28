@@ -255,12 +255,9 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zwart beeld', 'Algemeen', 'Form-layout', iMenuOrder);
-  //template.AreaData.AddSlideItemString('footer', ctText, 'Mededelingen');
   template.AreaData.AddSlideItemString('content', ctText, '');
-  //template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
-//  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\mededelingen.png');
+  template.PictoName := TSourceInfo.CreateAsFileName('');
   template.SelectContentSubDir := 'pictos';
-//  template.EditPossibilities := [epFixed];
   template.EditPossibilities := [epFixed];
   template.FollowedByOverview := False;
 
@@ -273,6 +270,15 @@ begin
   template.AreaData.AddSlideItemFileName('content1', ctPictureFit, '<content>songs\Votum.png');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
   template.AreaData.AddSlideItemFileName('content3', ctPictureFit, '<content>songs\Amen.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.SelectContentSubDir := 'songs';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Votum en zegengroet Lb 416', 'Liturgisch', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Votum en zegengroet');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>songs\lb416 votum.png');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
   template.SelectContentSubDir := 'songs';
@@ -346,6 +352,15 @@ begin
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
   template.FollowedByOverview := False;
   template.NoPreviousOverview := true;
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Zegen Amen Lb 416', 'Liturgisch', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Votum en zegengroet');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>songs\lb416 zegen.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.SelectContentSubDir := 'songs';
   template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
