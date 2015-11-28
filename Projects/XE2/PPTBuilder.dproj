@@ -78,7 +78,7 @@
 			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PPT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
 			<DCC_Define>SIMPLE;$(DCC_Define)</DCC_Define>
-			<DCC_UnitSearchPath>D:\Data\Projects\Delphi\graphics32\Lines;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>D:\Projects\Delphi\PictoSelector\source\Graphics32\Lines;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_ExeOutput>D:\Projects\Delphi\PPTBuilder\bin-dev\</DCC_ExeOutput>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<VerInfo_Locale>1033</VerInfo_Locale>
