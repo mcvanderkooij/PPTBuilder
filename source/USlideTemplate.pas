@@ -285,6 +285,18 @@ begin
   template.EditPossibilities := [epFixed];
 
   inc(iMenuOrder, 10);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\votum sela deel 1.png'));
+  oSources.Add(TSourceInfo.CreateAsFileName('<content>songs\votum sela deel 2.png'));
+  template := gl_SlideTemplates.Add('Votum en zegengroet Sela', 'Liturgisch', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Votum en zegengroet (Sela)');
+  template.AreaData.AddSlideItem('content', ctPictureFit, oSources);
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.SelectContentSubDir := 'songs';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zegengroet', 'Liturgisch', 'Content3-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Zegengroet');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\zegening.png');
