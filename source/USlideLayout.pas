@@ -381,7 +381,7 @@ begin
     bitmap.Canvas.TextRect(rectText, strText, [tfWordBreak]);
 //    bitmap.SaveToFile('d:\temp\_dump.bmp');
 
-    Result := rectText.Height < (FArea.Height);
+    Result := rectText.Height <= (FArea.Height);
   finally
     bitmap.Free;
   end;

@@ -82,7 +82,7 @@ var
           iNextBreak := MatchRegex('\d+', iTextMaxLineLength, 20, blnHasMaxOccurences);
         end;
         if iNextBreak > 0 then begin
-          if ((iNextBreak - iPos) / iTextMaxLineLength > 0.8) or (iNextBreak > iNextLineBreak) or blnHasMaxOccurences then
+          if ((iNextBreak - iPos) / iTextMaxLineLength > 0.7) or (iNextBreak > iNextLineBreak) or blnHasMaxOccurences then
             Result := iNextBreak
           else
             Result := iNextLineBreak;
@@ -137,7 +137,13 @@ begin
 
       SetLength(Result, Length(Result) + 1);
       Result[High(Result)] := StringReplace(copy(strLine, iPos, iBestFind-iPos), #13, #13#10, [rfReplaceAll]);
-      iPos := iBestFind;
+
+
+      //iPos := iBestFind;
+      strLine := trim(copy(strLine, iBestFind-iPos + 1, MaxInt));
+
+      regex.Subject := strLine;
+      iPos := 1;
     end;
     // add all that was left
     SetLength(Result, Length(Result) + 1);
