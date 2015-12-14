@@ -268,14 +268,21 @@ end;
 procedure TfrmEditExtSlide.SetSlideAsString(const Value: string);
 var
   slide: TSlide;
-  slideItemContent: TSlideItem;
+  slideItemContent, slideItemFooter: TSlideItem;
   iStart, i, iCount: integer;
   sourceInfo: TSourceInfo;
 begin
   FStartSlide := Value;
   slide := TSlide.Create(FStartSlide);
   try
-    edtOverviewName.Text := slide.OverviewName;
+    slideItemFooter := slide['footer'];
+    if Assigned(slideItemFooter) then begin
+      edtOverviewName.Text := slide.OverviewName;
+    end else begin
+      edtOverviewName.Color := clBtnFace;
+      edtOverviewName.ReadOnly := true;
+      edtOverviewName.TabStop := False;
+    end;
     FreeAndNil(FPictoName);
     FPictoName := slide.PictoName.DeepCopy;
     ViewPNG(FPictoName.FileName, ImgViewPicto.Bitmap);
