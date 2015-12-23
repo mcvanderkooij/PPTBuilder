@@ -372,6 +372,8 @@ begin
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>songs\lb416 zegen.png');
   template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zegening.png');
+  template.FollowedByOverview := False;
+  template.NoPreviousOverview := true;
   template.SelectContentSubDir := 'songs';
   template.EditPossibilities := [epFixed];
 
@@ -786,6 +788,17 @@ begin
   template.EditPossibilities := [epSinglePage];
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Geloofsbelijdenis tekst invoer', 'Geloofsbelijdenis', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Geloofsbelijdenis');
+  template.AreaData.AddSlideItemString('content', ctTextMemo, '');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\Geloofsbelijdenis lezen.png');
+  template.OverviewType := otIgnore;
+  template.FollowedByOverview := false;
+  template.EditPossibilities := [epMemoMulti];
+
+
+  inc(iMenuOrder, 10);
 
   slideArray := TArray<string>.Create('1-4', '5-10', '11-17', '18-22', '23-26', '27-31', '32-36', '37-40');
 
@@ -1048,6 +1061,7 @@ begin
   Result.OverviewType := FOverviewType;
   Result.OverviewName := FOverviewName;
   Result.IsSubOverview := FIsSubOverview;
+  Result.ShowInOverview := FOverviewType <> otIgnore;
   Result.AutomaticSmallNumbers := (FOverviewType in [otReading, otText]) and not (epIsBook in FEditPossibilities);
 
   for iArea := 0 to AreaData.Count -1 do begin
