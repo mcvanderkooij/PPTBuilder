@@ -101,7 +101,7 @@ var
   strFileName: string;
 begin
   strFileName := '';
-  if SelectFTPFile(strFileName, '.ppt|.pptx|.doc|.docx|.xls|.xlsx|.rtf|.txt', strAutoOpen) then begin
+  if SelectFTPFile(strFileName, '.ppt|.pptx|.doc|.docx|.xls|.xlsx|.rtf|.txt|.pdf', strAutoOpen) then begin
     strFileName := CopyExternalFileToLocal(strFileName);
     ShellExecute(0, '', PChar(strFileName), '', '', SW_SHOWNORMAL);
   end;
