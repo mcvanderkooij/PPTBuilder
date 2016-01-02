@@ -52,7 +52,8 @@ uses
   USnapshot in '..\..\source\USnapshot.pas',
   UfrmEditBook in '..\..\source\UfrmEditBook.pas' {frmEditBook},
   USourceBook in '..\..\source\USourceBook.pas',
-  UfrmBrowseBook in '..\..\source\UfrmBrowseBook.pas' {frmBrowseBook};
+  UfrmBrowseBook in '..\..\source\UfrmBrowseBook.pas' {frmBrowseBook},
+  RegExpr in '..\..\source\RegExpr.pas';
 
 {$R *.res}
 
