@@ -9,107 +9,119 @@ type
   TSplitOption = (soNumbers, soLineBreaks);
   TSplitOptions = set of TSplitOption;
 
-function SplitBibleVerses(strLine: UTF8String; iMaxLineLength: integer; content: TLayoutItem; splitOptions: TSplitOptions): TArrayOfString;
+function SplitBibleVerses(strLine: String; iMaxLineLength: integer; content: TLayoutItem; splitOptions: TSplitOptions): TArrayOfString;
 
 implementation
 
 uses
-  RegularExpressionsCore;
+  RegExpr;
 
-function SplitBibleVerses(strLine: UTF8String; iMaxLineLength: integer; content: TLayoutItem; splitOptions: TSplitOptions): TArrayOfString;
+function SplitBibleVerses(strLine: String; iMaxLineLength: integer; content: TLayoutItem; splitOptions: TSplitOptions): TArrayOfString;
 var
-  regex: TPerlRegEx;
-
-  iPos: integer;
   iBestFind: integer;
-  blnHasMaxOccurences: boolean;
 
-  function MatchRegex(strRegEx: string; iMaxLineLength, iMaxOccurences: integer; out blnHasMaxOccurences: boolean): integer;
+  function MatchRegex(strLine, strRegEx: string; iMaxLineLength: integer): integer;
   var
-    iOccurences: integer;
+    iOccurences, i: integer;
+    regex: TRegExpr;
   begin
     Result := -1;
     iOccurences := 0;
-    blnHasMaxOccurences := false;
-    regex.RegEx := strRegEx;
-    regex.Start := iPos+10;
-    regex.Stop := iPos + iMaxLineLength;
-
-    if regex.MatchAgain then begin
-      repeat
-        Result := regex.MatchedOffset;
-        inc(iOccurences);
-        if (iMaxOccurences > 0) and (iOccurences >= iMaxOccurences) then
-          Exit;
-
-      until not regex.MatchAgain;
+    regex := TRegExpr.Create;
+    try
+      regex.ModifierM := True;
+      regex.Expression := strRegEx;
+      if regex.Exec(strLine) then begin
+        repeat
+          if regex.MatchPos[0] < iMaxLineLength then begin
+            Result := regex.MatchPos[0];
+          end else
+            break;
+        until not regex.ExecNext;
+      end;
+    finally
+      regex.Free;
     end;
   end;
 
-  function GetBestFind(iMaxLineLength: integer; content: TLayoutItem): integer;
+  function GetBestFind(strLine: string; iMaxLineLength: integer; content: TLayoutItem): integer;
   var
-    iNextLineBreak, iNextBreak: integer;
-    iTextMaxLineLength: integer;
+    iTextMaxLineLength, iNextBreak, iNextBestBreak: integer;
   begin
     iTextMaxLineLength := iMaxLineLength;
     Result := -1;
     while (iTextMaxLineLength > 100) and (Result = -1) do begin
 
-      if (Length(strLine) < (iPos + iTextMaxLineLength)) then begin
-        if content.TextFit(copy(strLine, iPos, iTextMaxLineLength)) then begin
+      // does it fit anyway?
+      if (Length(strLine) < iTextMaxLineLength) then begin
+        if content.TextFit(strLine) then begin
           Result := -1;
           Exit;
         end;
       end;
 
-      iNextLineBreak := 0;
+      // first only find the max line length
+      if Assigned(content) then begin
+        while (iTextMaxLineLength > 100) do begin
+          if not content.TextFit(copy(strLine, 1, iTextMaxLineLength)) then begin
+            dec(iTextMaxLineLength, 10);
+          end else
+            break;
+        end;
+      end;
+
+      iNextBestBreak := -1;
+      // empty line wins
+      iNextBreak := MatchRegex(strLine, '(\r\n){2,}', iTextMaxLineLength);
+      if iNextBreak <> -1 then begin
+        if iNextBestBreak < iNextBreak then
+          iNextBestBreak := iNextBreak;
+        if (iNextBreak / iTextMaxLineLength > 0.5) then
+          Result := iNextBreak;
+      end;
+
+      if soNumbers in splitOptions then begin
+        if Result = -1 then begin
+          iNextBreak := MatchRegex(strLine, '\d+', iTextMaxLineLength);
+          if iNextBreak <> -1 then begin
+            if iNextBestBreak < iNextBreak then
+              iNextBestBreak := iNextBreak;
+            if (iNextBreak / iTextMaxLineLength > 0.6) then
+              Result := iNextBreak;
+          end;
+        end;
+      end;
+
       if soLineBreaks in splitOptions then begin
-        iNextLineBreak := MatchRegex('\r+', iTextMaxLineLength, 20, blnHasMaxOccurences);
-      end;
-
-//      if (iNextLineBreak > 0) then begin
-//        inc(iNextLineBreak);
-//        // when line in last 80% of text, use it anyway
-//        if ((iNextLineBreak - iPos) / iTextMaxLineLength > 0.7) or blnHasMaxOccurences then begin
-//          Result := iNextLineBreak;
-//        end;
-//      end;
-
-      // look for better verse position
-      if Result = -1 then begin
-        iNextBreak := 0;
-        if soNumbers in splitOptions then begin
-          iNextBreak := MatchRegex('\d+', iTextMaxLineLength, 20, blnHasMaxOccurences);
-        end;
-        if iNextBreak > 0 then begin
-          if ((iNextBreak - iPos) / iTextMaxLineLength > 0.7) or (iNextBreak > iNextLineBreak) or blnHasMaxOccurences then
-            Result := iNextBreak
-          else
-            Result := iNextLineBreak;
+        if Result = -1 then begin
+          iNextBreak := MatchRegex(strLine, '\r\n+', iTextMaxLineLength);
+          if iNextBreak <> -1 then begin
+            if iNextBestBreak < iNextBreak then
+              iNextBestBreak := iNextBreak;
+            if (iNextBreak / iTextMaxLineLength > 0.7) then
+              Result := iNextBreak;
+          end;
         end;
       end;
 
       if Result = -1 then begin
-        if (iNextLineBreak > 0) then begin
-          Result := iNextLineBreak;
+        iNextBreak := MatchRegex(strLine, '\w+', iTextMaxLineLength);
+        if iNextBreak <> -1 then begin
+          if iNextBestBreak < iNextBreak then
+            iNextBestBreak := iNextBreak;
         end;
       end;
 
-      // look for word break
       if Result = -1 then begin
-        iNextBreak := MatchRegex('\w+', iTextMaxLineLength, 0, blnHasMaxOccurences);
-        if iNextBreak > 0 then begin
-          if iNextBreak > iNextLineBreak then
-            Result := iNextBreak
-          else
-            Result := iNextLineBreak;
-        end;
+        if iNextBestBreak > 0 then
+          Result := iNextBestBreak;
       end;
 
+      // does the result fit in content?
       if Assigned(content) and (Result <> -1) then begin
-        if not content.TextFit(copy(strLine, iPos, Result-iPos)) then begin
+        if not content.TextFit(copy(strLine, 1, Result-1)) then begin
+          iTextMaxLineLength := Result -1;
           Result := -1;
-          dec(iTextMaxLineLength, 10);
         end;
       end else begin
         // never loop with less space
@@ -119,38 +131,22 @@ var
   end;
 
 begin
-  strLine := StringReplace(strLine, #13#10, #13, [rfReplaceAll]);
+  SetLength(Result, 0);
+  while Length(strLine) > 0 do begin
+    iBestFind := GetBestFind(strLine, iMaxLineLength, content);
 
-  regex := TPerlRegEx.Create();
-  try
-    regex.Subject := strLine;
-    regex.Options := [preMultiLine];
-
-    SetLength(Result, 0);
-    iPos := 1;
-    while (iPos < Length(strLine)) and (iPos > 0) do begin
-      iBestFind := GetBestFind(iMaxLineLength, content);
-
-      if iBestFind = -1 then begin
-        break;
-      end;
-
-      SetLength(Result, Length(Result) + 1);
-      Result[High(Result)] := StringReplace(copy(strLine, iPos, iBestFind-iPos), #13, #13#10, [rfReplaceAll]);
-
-
-      //iPos := iBestFind;
-      strLine := trim(copy(strLine, iBestFind-iPos + 1, MaxInt));
-
-      regex.Subject := strLine;
-      iPos := 1;
+    if iBestFind = -1 then begin
+      break;
     end;
-    // add all that was left
+
     SetLength(Result, Length(Result) + 1);
-    Result[High(Result)] := StringReplace(copy(strLine, iPos, MaxInt), #13, #13#10, [rfReplaceAll]);
-  finally
-    regex.Free;
+    Result[High(Result)] := copy(strLine, 1, iBestFind-1);
+
+    strLine := trim(copy(strLine, iBestFind, MaxInt));
   end;
+  // add all that was left
+  SetLength(Result, Length(Result) + 1);
+  Result[High(Result)] := copy(strLine, 1, MaxInt);
 end;
 
 end.
