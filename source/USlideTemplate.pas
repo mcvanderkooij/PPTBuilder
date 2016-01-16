@@ -230,6 +230,16 @@ begin
   template.NoPreviousOverview := true;
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Gelegenheid tot vragen stellen', 'Algemeen', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Gelegenheid tot vragen stellen');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\vragen stellen.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\vragen stellen.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFixed];
+  template.FollowedByOverview := False;
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Aangepast - tekstblad', 'Algemeen', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, '');
   template.AreaData.AddSlideItemString('content', ctTextMemo, '');
