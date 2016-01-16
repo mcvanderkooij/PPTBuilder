@@ -379,7 +379,7 @@ begin
                 finally
                   overview.Free;
                 end;
-                pptShape.TextFrame.Ruler.TabStops.Add(ppTabStopLeft, 100);
+                pptShape.TextFrame.Ruler.TabStops.Add(ppTabStopLeft, CTABSTOP1);
                 pptShape.TextFrame.Ruler.TabStops.Add(ppTabStopLeft, 170);
               end;
               pptShape.TextFrame.TextRange.Text := ReplaceSpecials(strContentText, project, slide);

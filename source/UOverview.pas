@@ -43,11 +43,11 @@ end;
 function TOverview.BuildMain(iCurrentSlide: integer; slideOverview: TSlide;
   out iFontSizeNeeded: integer): string;
 var
-  iSlide: Integer;
+  iSlide, iLinePart: Integer;
   slide: TSlide;
 
   slOverView: array [TOverviewType] of TStringList;
-  strOverviewLine: string;
+  strOverviewLine, strOverviewLine2: string;
   strColor, strSize: string;
   overviewIndex: TOverviewType;
   strPrefix: string;
@@ -111,9 +111,50 @@ begin
             end;
             strOverviewLine := join(aOverviewLine, #9);
           end;
-          strOverviewLine := strColor + strPrefix + strOverviewLine + strColor;
+          if slideOverview.Layout.Values['content'].TextWidthFit(strPrefix + strOverviewLine) then begin
+            slOverView[slide.OverviewType].Add(strColor + strPrefix + strOverviewLine + strColor);
+          end else begin
+            aOverviewLine := split(strOverviewLine, ', ');
+            // Can not break, but will reserve extra line
+            if Length(aOverviewLine) < 2 then begin
+              slOverView[slide.OverviewType].Add(strColor + strPrefix + strOverviewLine + strColor);
+              slOverView[slide.OverviewType].Add('');
+            end else begin
+              strOverviewLine := aOverviewLine[0] + ',';
 
-          slOverView[slide.OverviewType].Add(strOverviewLine);
+              iLinePart := 1;
+              while (iLinePart <= Length(aOverviewLine) ) do begin
+                if slideOverview.Layout.Values['content'].TextWidthFit(strPrefix + strOverviewLine) then begin
+                  if (iLinePart = Length(aOverviewLine)) then begin
+                    break;
+                  end;
+                  strOverviewLine2 := strOverviewLine + ' ';
+                  strOverviewLine := strOverviewLine2 + aOverviewLine[iLinePart];
+                  inc(iLinePart);
+                  if (iLinePart < (Length(aOverviewLine) )) then
+                    strOverviewLine := strOverviewLine + ',';
+                end else begin
+                  if iLinePart = 1 then begin
+                    slOverView[slide.OverviewType].Add(strColor + strPrefix + join(aOverviewLine, ', ') + strColor);
+                    slOverView[slide.OverviewType].Add('');
+                    strOverviewLine := '';
+                    break;
+                  end;
+                  slOverView[slide.OverviewType].Add(strColor + strPrefix + strOverviewLine2 + strColor);
+                  if slide.OverviewType in [otReading, otText] then
+                    strPrefix := #9
+                  else
+                    strPrefix := #9#9'  ';
+                  strOverviewLine := aOverviewLine[iLinePart-1];
+                  if (iLinePart < (Length(aOverviewLine) )) then
+                    strOverviewLine := strOverviewLine + ',';
+                  strOverviewLine2 := strOverviewLine + ' ';
+                end;
+              end;
+              if strOverviewLine <> '' then
+                slOverView[slide.OverviewType].Add(strColor + strPrefix + strOverviewLine + strColor);
+            end;
+          end;
         end;
       finally
         slide.Free;

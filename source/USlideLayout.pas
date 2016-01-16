@@ -15,6 +15,7 @@ const
   CFooterLeftWidth = 200;
   CRemarkHeight = 40;
   CRemarkMarge = 5;
+  CTABSTOP1 = 100;
 
   CFooterColor = TColor($0C0CB1);
 
@@ -43,6 +44,7 @@ type
     function GetMaxRows(iFontSize: integer): integer;
     function TextFit(strText: string): boolean;
     function TextWidth(strText: string): integer;
+    function TextWidthFit(strText: string): boolean;
 
     property Visible: boolean read FVisible write FVisible;
     property Area: TRect read FArea write FArea;
@@ -407,6 +409,33 @@ begin
     bitmap.Free;
   end;
 
+end;
+
+function TLayoutItem.TextWidthFit(strText: string): boolean;
+var
+  bitmap: TBitmap;
+  rectText: TRect;
+  iMaxWidth: integer;
+begin
+  iMaxWidth := FArea.Width;
+  if pos(#9, strText) > 0 then begin
+    iMaxWidth := iMaxWidth - CTABSTOP1;
+    strText := copy(strText, pos(#9, strText) + 1, MaxInt);
+  end;
+  bitmap := TBitmap.Create;
+  try
+    bitmap.Canvas.Font.Name := GetSettings.FontName;
+    bitmap.Canvas.Font.Size := round(FFontSize);
+
+    rectText.Left := 0;
+    rectText.Right := iMaxWidth;
+    rectText.Top := 0;
+    rectText.Bottom := FArea.Height;
+    bitmap.Canvas.TextRect(rectText, strText, [tfSingleLine, tfCalcRect]);
+    Result := rectText.Width <= iMaxWidth;
+  finally
+    bitmap.Free;
+  end;
 end;
 
 { TSlideLayouts }
