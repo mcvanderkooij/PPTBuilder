@@ -4,7 +4,7 @@ interface
 
 uses
   USlideLayout, System.Generics.Collections, Classes, UFastKeysSO, UUtilsStrings,
-  UFastKeysSS, Data.DBXJSON, USourceInfo;
+  UFastKeysSS, Data.DBXJSON, System.JSON, USourceInfo;
 
 const
   CNEWSLIDE = '<---';

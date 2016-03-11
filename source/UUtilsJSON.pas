@@ -3,7 +3,7 @@ unit UUtilsJSON;
 interface
 
 uses
-  Data.DBXJSON, Types, Classes;
+  Data.DBXJSON, System.JSON, Types, Classes;
 
 type
   TJSONPersistent = class(TObject)

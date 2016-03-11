@@ -3,7 +3,7 @@ unit UFastKeysSS;
 interface
 
 uses
-  Windows, Classes, SysUtils, UFastkeys, Data.DBXJSON;
+  Windows, Classes, SysUtils, UFastkeys, Data.DBXJSON, System.JSON;
 
 type
   TFastKeyPairSS = record

@@ -3,7 +3,7 @@ unit UProject;
 interface
 
 uses
-  Classes, UFastKeysSS, UUtilsJSON, Data.DBXJSON, USnapshot;
+  Classes, UFastKeysSS, UUtilsJSON, Data.DBXJSON, System.JSON, USnapshot;
 
 type
   TProject = class(TJSONPersistent)

@@ -3,7 +3,7 @@ unit UFastKeysSO;
 interface
 
 uses
-  Windows, Classes, SysUtils, UFastkeys, UFastkeysSS, Data.DBXJSON, UUtilsJSON;
+  Windows, Classes, SysUtils, UFastkeys, UFastkeysSS, Data.DBXJSON, UUtilsJSON, System.JSON;
 
 type
   TValueObject = class(TJSONPersistent)

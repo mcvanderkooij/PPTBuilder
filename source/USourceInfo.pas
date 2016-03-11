@@ -3,7 +3,7 @@ unit USourceInfo;
 interface
 
 uses
-  TeeGenericTree, Classes, System.Generics.Collections, Data.DBXJSON, UUtilsJSON;
+  TeeGenericTree, Classes, System.Generics.Collections, Data.DBXJSON, System.JSON, UUtilsJSON;
 
 type
   TStringTree = TNode<String>;

@@ -3,7 +3,7 @@ unit USlideLayout;
 interface
 
 uses
-  System.Generics.Collections, UITypes, Types, Graphics, Data.DBXJSON,
+  System.Generics.Collections, UITypes, Types, Graphics, Data.DBXJSON, System.JSON,
   UFastKeysSO;
 
 const

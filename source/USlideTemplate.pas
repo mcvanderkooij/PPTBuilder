@@ -3,7 +3,7 @@ unit USlideTemplate;
 interface
 
 uses
-  System.Generics.Collections, System.Generics.Defaults, Data.DBXJSON,
+  System.Generics.Collections, System.Generics.Defaults, Data.DBXJSON, System.JSON,
   USlide, UFastKeysSS, USourceInfo, UUtilsJSon;
 
 const
