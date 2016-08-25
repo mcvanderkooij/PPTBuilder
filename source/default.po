@@ -2,10 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: PACKAGE VERSION\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2016-08-25 14:43\n"
 "PO-Revision-Date: 2016-08-25 14:43\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
@@ -17,6 +18,67 @@ msgstr "Project-Id-Version: PACKAGE VERSION\n"
 #. frmBrowseBook..Caption
 #: UfrmBrowseBook.dfm:4
 msgid "Browse Book"
+msgstr ""
+
+#. frmBrowseBook..Font.Name
+#: UfrmBrowseBook.dfm:11
+#. frmBrowseFTP..Font.Name
+#: UfrmBrowseFTP.dfm:11
+#. frmEditBook..Font.Name
+#: UfrmEditBook.dfm:12
+#. frmEditBook..lbVerses..Font.Name
+#: UfrmEditBook.dfm:120
+#. frmEditExtSlide..Font.Name
+#: UfrmEditExtSlide.dfm:12
+#. frmEditExtSlide..lbVerses..Font.Name
+#: UfrmEditExtSlide.dfm:84
+#. frmEditSinglePage..Font.Name
+#: UfrmEditSinglePage.dfm:12
+#. frmEditSong..Font.Name
+#: UfrmEditSong.dfm:12
+#. frmEditSong..lbVerses..Font.Name
+#: UfrmEditSong.dfm:78
+#. frmEditText..Font.Name
+#: UfrmEditText.dfm:13
+#. frmEditVariables..Font.Name
+#: UfrmEditVariables.dfm:11
+#. frmListBoxDlg..Font.Name
+#: UfrmListBoxDlg.dfm:13
+#. frmMain..Font.Name
+#: UfrmMain.dfm:11
+#. frmMain..lbSlides..Font.Name
+#: UfrmMain.dfm:82
+#. frmMain..CategoryPanelGroup1..HeaderFont.Name
+#: UfrmMain.dfm:132
+#. frmMain..btnSpeakerAdd..Font.Name
+#: UfrmMain.dfm:152
+#. frmMain..btnSpeakerSelect..Font.Name
+#: UfrmMain.dfm:168
+#. frmMain..btnCollecte1Add..Font.Name
+#: UfrmMain.dfm:184
+#. frmMain..btnCollecte1Select..Font.Name
+#: UfrmMain.dfm:200
+#. frmMain..btnCollecte2Add..Font.Name
+#: UfrmMain.dfm:216
+#. frmMain..btnCollecte2Select..Font.Name
+#: UfrmMain.dfm:232
+#. frmMemoDlg..Font.Name
+#: UfrmMemoDlg.dfm:14
+#. frmMemoDlg..mmoMessage..Font.Name
+#: UfrmMemoDlg.dfm:98
+#. frmPictureDescription..Font.Name
+#: UfrmPictureDescription.dfm:11
+#. frmPictureSelector..Font.Name
+#: UfrmPictureSelector.dfm:12
+#. frmPPTViewer..Font.Name
+#: UfrmPPTView.dfm:11
+#. frmQuickStart..Font.Name
+#: UfrmQuickStart.dfm:12
+#. frmSelectString..Font.Name
+#: UfrmSelectString.dfm:12
+#. frmSettings..Font.Name
+#: UfrmSettings.dfm:12
+msgid "Tahoma"
 msgstr ""
 
 #. frmBrowseBook..Panel1..btnOK..Caption
@@ -82,6 +144,16 @@ msgstr ""
 msgid "Browse Server"
 msgstr ""
 
+#. frmBrowseFTP..Panel2..Caption
+#: UfrmBrowseFTP.dfm:56
+msgid "Panel2"
+msgstr ""
+
+#. frmBrowseFTP..Panel2..Panel3..Caption
+#: UfrmBrowseFTP.dfm:82
+msgid "Panel3"
+msgstr ""
+
 #. frmEditBook..Caption
 #: UfrmEditBook.dfm:5
 msgid "Edit Book"
@@ -107,6 +179,27 @@ msgstr ""
 #. frmEditText..Label3..Caption
 #: UfrmEditText.dfm:37
 msgid "Picto:"
+msgstr ""
+
+#. frmEditBook..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditBook.dfm:53
+#. frmEditExtSlide..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditExtSlide.dfm:127
+#. frmEditSinglePage..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditSinglePage.dfm:53
+#. frmEditSinglePage..PageControlContent..tsPicture..ImgViewPicture..Bitmap.ResamplerClassName
+#: UfrmEditSinglePage.dfm:144
+#. frmEditSong..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditSong.dfm:121
+#. frmEditText..ImgViewPicto..Bitmap.ResamplerClassName
+#: UfrmEditText.dfm:58
+#. frmPictureDescription..ImgView321..Bitmap.ResamplerClassName
+#: UfrmPictureDescription.dfm:45
+#. frmPictureSelector..ImgViewSelection..Bitmap.ResamplerClassName
+#: UfrmPictureSelector.dfm:46
+#. frmPPTViewer..ImgView321..Bitmap.ResamplerClassName
+#: UfrmPPTView.dfm:73
+msgid "TNearestResampler"
 msgstr ""
 
 #. frmEditBook..cbxPartOfForm..Caption
@@ -213,6 +306,21 @@ msgstr ""
 msgid "Edit Single"
 msgstr ""
 
+#. frmEditSinglePage..PageControlContent..tsText..Caption
+#: UfrmEditSinglePage.dfm:102
+msgid "tsText"
+msgstr ""
+
+#. frmEditSinglePage..PageControlContent..tsMemo..Caption
+#: UfrmEditSinglePage.dfm:117
+msgid "tsMemo"
+msgstr ""
+
+#. frmEditSinglePage..PageControlContent..tsPicture..Caption
+#: UfrmEditSinglePage.dfm:134
+msgid "tsPicture"
+msgstr ""
+
 #. frmEditSong..Caption
 #: UfrmEditSong.dfm:5
 msgid "Edit Song Slide"
@@ -272,6 +380,11 @@ msgstr ""
 msgid "Edit Text Slide"
 msgstr ""
 
+#. frmEditText..btnInsertSlide..Caption
+#: UfrmEditText.dfm:110
+msgid "<--->"
+msgstr ""
+
 #. frmEditText..btnPaste..Caption
 #: UfrmEditText.dfm:120
 #. frmEditText..ppmText..mniPaste..Caption
@@ -314,6 +427,11 @@ msgstr ""
 #. frmEditText..btnBibleNBV..Caption
 #: UfrmEditText.dfm:219
 msgid "NBV"
+msgstr ""
+
+#. frmListBoxDlg..Caption
+#: UfrmListBoxDlg.dfm:4
+msgid "frmListBoxDlg"
 msgstr ""
 
 #. frmListBoxDlg..pnlButtons..btnYes..Caption
@@ -363,6 +481,34 @@ msgstr ""
 msgid "Collecte 2:"
 msgstr ""
 
+#. frmMain..lblVersion..Caption
+#: UfrmMain.dfm:69
+msgid "lblVersion"
+msgstr ""
+
+#. frmMain..CategoryPanelGroup1..CategoryPanel1..Caption
+#: UfrmMain.dfm:138
+msgid "CategoryPanel1"
+msgstr ""
+
+#. frmMain..btnSpeakerAdd..Caption
+#: UfrmMain.dfm:148
+#. frmMain..btnCollecte1Add..Caption
+#: UfrmMain.dfm:180
+#. frmMain..btnCollecte2Add..Caption
+#: UfrmMain.dfm:212
+msgid "+"
+msgstr ""
+
+#. frmMain..btnSpeakerSelect..Caption
+#: UfrmMain.dfm:164
+#. frmMain..btnCollecte1Select..Caption
+#: UfrmMain.dfm:196
+#. frmMain..btnCollecte2Select..Caption
+#: UfrmMain.dfm:228
+msgid "..."
+msgstr ""
+
 #. frmMain..MainMenu1..mniFile..Caption
 #: UfrmMain.dfm:243
 msgid "File"
@@ -398,6 +544,13 @@ msgstr ""
 msgid "Recently Used"
 msgstr ""
 
+#. frmMain..MainMenu1..mniFile..N2..Caption
+#: UfrmMain.dfm:267
+#. frmMain..MainMenu1..mniFile..N1..Caption
+#: UfrmMain.dfm:274
+msgid "-"
+msgstr ""
+
 #. frmMain..MainMenu1..mniFile..mniSettings..Caption
 #: UfrmMain.dfm:270
 #. frmSettings..Caption
@@ -420,6 +573,13 @@ msgstr ""
 msgid "Redo"
 msgstr ""
 
+#. frmMain..OpenDialogProject..DefaultExt
+#: UfrmMain.dfm:297
+#. frmMain..SaveDialogProject..DefaultExt
+#: UfrmMain.dfm:303
+msgid ".ppb"
+msgstr ""
+
 #. frmMain..OpenDialogProject..Filter
 #: UfrmMain.dfm:298
 #. frmMain..SaveDialogProject..Filter
@@ -427,9 +587,19 @@ msgstr ""
 msgid "Powerpoint Builder Files (*.ppb)|*.ppb"
 msgstr ""
 
+#. frmMain..SaveDialogPPT..DefaultExt
+#: UfrmMain.dfm:309
+msgid ".ppt"
+msgstr ""
+
 #. frmMain..SaveDialogPPT..Filter
 #: UfrmMain.dfm:310
 msgid "Powerpoint (*.ppt)|*.ppt"
+msgstr ""
+
+#. frmMemoDlg..Caption
+#: UfrmMemoDlg.dfm:5
+msgid "frmMemoDlg"
 msgstr ""
 
 #. frmPictureDescription..Caption
@@ -475,6 +645,16 @@ msgstr ""
 #. frmPPTViewer..btnSelect..Caption
 #: UfrmPPTView.dfm:101
 msgid "Select"
+msgstr ""
+
+#. frmPPTViewer..Caption
+#: UfrmPPTView.dfm:4
+msgid "frmPPTViewer"
+msgstr ""
+
+#. frmPPTViewer..lblPPTFile..Caption
+#: UfrmPPTView.dfm:26
+msgid "lblPPTFile"
 msgstr ""
 
 #. frmPPTViewer..btnOpenComputer..Caption
@@ -537,8 +717,18 @@ msgstr ""
 msgid "Website Password"
 msgstr ""
 
+#. frmSettings..edtPassword..PasswordChar
+#: UfrmSettings.dfm:67
+msgid "*"
+msgstr ""
+
 #: UBuildPowerpoint.pas:462
 msgid "Create Powerpoint..."
+msgstr ""
+
+#: UFastKeysSO.pas:61
+#: UFastKeysSS.pas:53
+msgid "Index out of bounds"
 msgstr ""
 
 #: UfrmBrowseBook.pas:141

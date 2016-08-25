@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2015-09-22 20:53\n"
-"PO-Revision-Date: 2015-09-22 20:55+0100\n"
+"POT-Creation-Date: 2016-08-25 14:43\n"
+"PO-Revision-Date: 2016-08-25 14:51+0100\n"
 "Last-Translator: Martijn van der Kooij <MCvanderKooij@solcon.nl>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -59,7 +59,7 @@ msgstr "OK"
 #: UfrmEditExtSlide.dfm:63 UfrmEditSinglePage.dfm:90 UfrmEditSong.dfm:64
 #: UfrmEditText.dfm:88 UfrmEditVariables.dfm:35 UfrmListBoxDlg.dfm:83
 #: UfrmMemoDlg.dfm:84 UfrmPictureDescription.dfm:82 UfrmPictureSelector.dfm:63
-#: UfrmPPTView.dfm:93 UfrmSelectString.dfm:81 UfrmSettings.dfm:51
+#: UfrmPPTView.dfm:91 UfrmSelectString.dfm:81 UfrmSettings.dfm:51
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -93,14 +93,14 @@ msgstr "Picto:"
 #. frmEditBook..cbxPartOfForm..Caption
 #. frmEditSong..cbxPartOfForm..Caption
 #. frmEditText..cbxPartOfForm..Caption
-#: UfrmEditBook.dfm:70 UfrmEditSong.dfm:171 UfrmEditText.dfm:156
+#: UfrmEditBook.dfm:70 UfrmEditSong.dfm:164 UfrmEditText.dfm:157
 msgid "Part Of Form"
 msgstr "Part Of Form"
 
 #. frmEditBook..cbxShowInOverview..Caption
 #. frmEditSong..cbxShowInOverview..Caption
 #. frmEditText..cbxShowInOverview..Caption
-#: UfrmEditBook.dfm:78 UfrmEditSong.dfm:163 UfrmEditText.dfm:164
+#: UfrmEditBook.dfm:78 UfrmEditSong.dfm:156 UfrmEditText.dfm:165
 msgid "Show In Overview"
 msgstr "Show In Overview"
 
@@ -110,7 +110,7 @@ msgstr "Show In Overview"
 #. frmEditSong..btnSelectPictoNone..Caption
 #. frmEditText..btnSelectPictoNone..Caption
 #: UfrmEditBook.dfm:86 UfrmEditExtSlide.dfm:144 UfrmEditSinglePage.dfm:70
-#: UfrmEditSong.dfm:179 UfrmEditText.dfm:172 USlideTemplate.pas:1144
+#: UfrmEditSong.dfm:172 UfrmEditText.dfm:173 USlideTemplate.pas:1334
 msgid "None"
 msgstr "None"
 
@@ -118,7 +118,7 @@ msgstr "None"
 #. frmEditExtSlide..btnVerseAdd..Caption
 #. frmEditSong..btnVerseAdd..Caption
 #. frmSelectString..btnAdd..Caption
-#: UfrmEditBook.dfm:135 UfrmEditExtSlide.dfm:99 UfrmEditSong.dfm:100
+#: UfrmEditBook.dfm:135 UfrmEditExtSlide.dfm:99 UfrmEditSong.dfm:93
 #: UfrmSelectString.dfm:43
 msgid "Add"
 msgstr "Add"
@@ -128,7 +128,7 @@ msgstr "Add"
 #. frmEditSong..btnVerseEdit..Caption
 #. frmMain..MainMenu1..mniEdit..Caption
 #. frmSelectString..btnEdit..Caption
-#: UfrmEditBook.dfm:144 UfrmEditExtSlide.dfm:108 UfrmEditSong.dfm:109
+#: UfrmEditBook.dfm:144 UfrmEditExtSlide.dfm:108 UfrmEditSong.dfm:102
 #: UfrmMain.dfm:283 UfrmSelectString.dfm:52 UfrmEditBook.pas:138
 #: UfrmSelectString.pas:116
 msgid "Edit"
@@ -139,7 +139,7 @@ msgstr "Edit"
 #. frmEditSong..btnVerseDelete..Caption
 #. frmMain..ppmSlides..mniSlidesDelete..Caption
 #. frmSelectString..btnDelete..Caption
-#: UfrmEditBook.dfm:153 UfrmEditExtSlide.dfm:117 UfrmEditSong.dfm:118
+#: UfrmEditBook.dfm:153 UfrmEditExtSlide.dfm:117 UfrmEditSong.dfm:111
 #: UfrmMain.dfm:324 UfrmSelectString.dfm:61
 msgid "Delete"
 msgstr "Delete"
@@ -147,7 +147,7 @@ msgstr "Delete"
 #. frmEditBook..btnVerseCopy..Caption
 #. frmEditSong..btnVerseCopy..Caption
 #. frmMain..ppmSlides..mniSlidesCopy..Caption
-#: UfrmEditBook.dfm:162 UfrmEditSong.dfm:145 UfrmMain.dfm:319
+#: UfrmEditBook.dfm:162 UfrmEditSong.dfm:138 UfrmMain.dfm:319
 msgid "Copy"
 msgstr "Copy"
 
@@ -181,9 +181,49 @@ msgstr "Edit Song Slide"
 #. frmEditSong..btnInternet..Caption
 #. frmEditText..btnInternet..Caption
 #. frmPPTViewer..btnOpenInternet..Caption
-#: UfrmEditSong.dfm:154 UfrmEditText.dfm:137 UfrmPPTView.dfm:124
+#: UfrmEditSong.dfm:147 UfrmEditText.dfm:138 UfrmPPTView.dfm:119
 msgid "Internet"
 msgstr "Internet"
+
+#. frmEditSong..edtOverviewName....Items.Strings
+#: UfrmEditSong.dfm:183
+msgid "Ps "
+msgstr "Ps "
+
+#. frmEditSong..edtOverviewName....Items.Strings
+#: UfrmEditSong.dfm:184
+msgid "Gez "
+msgstr "Gez "
+
+#. frmEditSong..edtOverviewName....Items.Strings
+#: UfrmEditSong.dfm:185
+msgid "LB "
+msgstr "LB "
+
+#. frmEditSong..edtOverviewName....Items.Strings
+#: UfrmEditSong.dfm:186
+msgid "Opw "
+msgstr "Opw "
+
+#. frmEditSong..btnVerseAddPsalm..Caption
+#: UfrmEditSong.dfm:193
+msgid "Add Psalm"
+msgstr "Add Psalm"
+
+#. frmEditSong..btnVerseAddGezang..Caption
+#: UfrmEditSong.dfm:202
+msgid "Add Gezang"
+msgstr "Add Gezang"
+
+#. frmEditSong..btnVerseAddLiedboek..Caption
+#: UfrmEditSong.dfm:211
+msgid "Add Liedboek"
+msgstr "Add Liedboek"
+
+#. frmEditSong..btnVerseAddOpwekking..Caption
+#: UfrmEditSong.dfm:220
+msgid "Add Opwekking"
+msgstr "Add Opwekking"
 
 #. frmEditText..Caption
 #: UfrmEditText.dfm:4
@@ -191,25 +231,46 @@ msgid "Edit Text Slide"
 msgstr "Edit Text Slide"
 
 #. frmEditText..btnPaste..Caption
-#: UfrmEditText.dfm:119
+#. frmEditText..ppmText..mniPaste..Caption
+#: UfrmEditText.dfm:120 UfrmEditText.dfm:228
 msgid "Paste"
 msgstr "Paste"
 
 #. frmEditText..cbxAutomaticSmallNumbers..Caption
-#: UfrmEditText.dfm:128
+#: UfrmEditText.dfm:129
 msgid "Automatic small numbers"
 msgstr "Automatic small numbers"
 
 #. frmEditText..btnFill..Caption
 #. frmEditVariables..Caption
-#: UfrmEditText.dfm:147 UfrmEditVariables.dfm:4
+#: UfrmEditText.dfm:148 UfrmEditVariables.dfm:4
 msgid "Fill"
 msgstr "Fill"
 
+#. frmEditText..btnConvertToAGB..Caption
+#: UfrmEditText.dfm:182
+msgid "Apostolische Geloofsbelijdenis"
+msgstr "Apostolische Geloofsbelijdenis"
+
+#. frmEditText..btnConvertToDL..Caption
+#: UfrmEditText.dfm:191
+msgid "Dortse Leerregels"
+msgstr "Dortse Leerregels"
+
+#. frmEditText..btnConvertToGBA..Caption
+#: UfrmEditText.dfm:200
+msgid "Geloofsbel. van Athanasius"
+msgstr "Geloofsbel. van Athanasius"
+
 #. frmEditText..btnConvertToHC..Caption
-#: UfrmEditText.dfm:181
-msgid "Convert To HC"
-msgstr "Convert To HC"
+#: UfrmEditText.dfm:209
+msgid "Heidelbergse Catechismus"
+msgstr "Heidelbergse Catechismus"
+
+#. frmEditText..btnBibleNBV..Caption
+#: UfrmEditText.dfm:219
+msgid "NBV"
+msgstr "NBV"
 
 #. frmListBoxDlg..pnlButtons..btnYes..Caption
 #. frmMemoDlg..pnlButtons..btnYes..Caption
@@ -253,11 +314,6 @@ msgstr "Collecte 1:"
 #: UfrmMain.dfm:59
 msgid "Collecte 2:"
 msgstr "Collecte 2:"
-
-#. frmMain..lblVersion..Caption
-#: UfrmMain.dfm:69
-msgid "lblVersion"
-msgstr ""
 
 #. frmMain..MainMenu1..mniFile..Caption
 #: UfrmMain.dfm:243
@@ -336,8 +392,8 @@ msgstr "Description"
 
 #. frmPictureDescription..Label2..Caption
 #. frmPPTViewer..lblRemark..Caption
-#: UfrmPictureDescription.dfm:37 UfrmPPTView.dfm:42 UfrmEditSong.pas:182
-#: UfrmEditSong.pas:196 UfrmEditSong.pas:248 UfrmEditSong.pas:256
+#: UfrmPictureDescription.dfm:37 UfrmPPTView.dfm:42 UfrmEditSong.pas:222
+#: UfrmEditSong.pas:236 UfrmEditSong.pas:289 UfrmEditSong.pas:297
 msgid "Remark / Antiphon"
 msgstr "Remark / Antiphon"
 
@@ -358,7 +414,7 @@ msgstr "Remark / Antiphon:"
 
 #. frmPictureSelector..btnSelect..Caption
 #. frmPPTViewer..btnSelect..Caption
-#: UfrmPictureSelector.dfm:74 UfrmPPTView.dfm:104
+#: UfrmPictureSelector.dfm:74 UfrmPPTView.dfm:101
 msgid "Select"
 msgstr "Select"
 
@@ -368,7 +424,7 @@ msgid "Computer"
 msgstr "Computer"
 
 #. frmPPTViewer..OpenDialog1..Filter
-#: UfrmPPTView.dfm:138
+#: UfrmPPTView.dfm:132
 msgid "Powerpoint|*.ppt;*.pptx|All|*.*"
 msgstr "Powerpoint|*.ppt;*.pptx|All|*.*"
 
@@ -422,44 +478,44 @@ msgstr "Website Username"
 msgid "Website Password"
 msgstr "Website Password"
 
-#: UBuildPowerpoint.pas:444
+#: UBuildPowerpoint.pas:462
 msgid "Create Powerpoint..."
 msgstr "Create Powerpoint..."
 
-#: UfrmBrowseBook.pas:134
+#: UfrmBrowseBook.pas:141
 msgid "Browse"
 msgstr "Browse"
 
 #. shape.Export(strTempFile, ppShapeFormatPNG, round(shape.Width), round(shape.Height), ppScaleToFit);     //ppScaleToFit
-#: UfrmEditSong.pas:151 UfrmEditSong.pas:179 UfrmEditSong.pas:193
+#: UfrmEditSong.pas:191 UfrmEditSong.pas:219 UfrmEditSong.pas:233
 msgid "verse"
 msgstr "verse"
 
 #. todo content translation
-#: UfrmEditSong.pas:182 UfrmEditSong.pas:248 UfrmEditText.pas:220
-#: UOverview.pas:191
+#: UfrmEditSong.pas:222 UfrmEditSong.pas:289 UfrmEditText.pas:258
+#: UOverview.pas:232
 msgid "Singing"
 msgstr "Singing"
 
-#: UfrmEditSong.pas:182 UfrmEditSong.pas:248 UfrmSelectString.pas:87
+#: UfrmEditSong.pas:222 UfrmEditSong.pas:289 UfrmSelectString.pas:87
 #: UfrmSelectString.pas:116
 msgid "Enter text"
 msgstr "Enter text"
 
-#: UfrmEditSong.pas:182 UfrmEditSong.pas:196 UfrmEditSong.pas:248
-#: UfrmEditSong.pas:256
+#: UfrmEditSong.pas:222 UfrmEditSong.pas:236 UfrmEditSong.pas:289
+#: UfrmEditSong.pas:297
 msgid "Sub text"
 msgstr "Sub text"
 
 #. todo content translation
 #. todo content translation
-#: UfrmEditText.pas:221 UOverview.pas:82 UOverview.pas:188
+#: UfrmEditText.pas:259 UOverview.pas:82 UOverview.pas:229
 msgid "Reading"
 msgstr "Reading"
 
 #. todo content translation
 #. todo content translation
-#: UfrmEditText.pas:222 UOverview.pas:86 UOverview.pas:189
+#: UfrmEditText.pas:260 UOverview.pas:86 UOverview.pas:230
 msgid "Text"
 msgstr "Text"
 
@@ -487,11 +543,11 @@ msgstr "Version"
 msgid "(changed)"
 msgstr "(changed)"
 
-#: UfrmPPTView.pas:287
+#: UfrmPPTView.pas:289
 msgid "Select Slide"
 msgstr "Select Slide"
 
-#: UfrmPPTView.pas:288
+#: UfrmPPTView.pas:290
 msgid "Select Picture from Slide"
 msgstr "Select Picture from Slide"
 
@@ -519,6 +575,9 @@ msgstr "Information"
 #: UUtilsForms.pas:54
 msgid "Confirmation"
 msgstr "Confirmation"
+
+#~ msgid "Convert To HC"
+#~ msgstr "Convert To HC"
 
 #~ msgid "Zingen"
 #~ msgstr "Zingen"
