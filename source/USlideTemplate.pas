@@ -678,7 +678,8 @@ begin
   source.ShapeName := '';
   template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
-  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.PictoName := TSourceInfo.CreateAsFileName('');
   template.OverviewType := otIgnore;
   template.EditPossibilities := [epFixed];
   template.SelectContentSubDir := 'ppts';
@@ -870,9 +871,19 @@ begin
   template := gl_SlideTemplates.Add('Avondmaal foto', 'Formulieren', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
   template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictures\avondmaal5.jpg');
-  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  //template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
   template.SelectContentSubDir := 'pictures';
+  template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Avondmaal foto (meerdere tafels)', 'Formulieren', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Avondmaal');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictures\avondmaal5.jpg');
+  //template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\avondmaal.png');
+  template.SelectContentSubDir := 'pictures';
+  template.IsSubOverview := true;
   template.EditPossibilities := [epFixed];
 
   for i := 1 to 3 do begin
