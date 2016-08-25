@@ -408,12 +408,16 @@ begin
 end;
 
 procedure TfrmMain.DoSlideCopy;
+var
+  index: integer;
 begin
   AddSnapshot;
-  if lbSlides.ItemIndex <> -1 then begin
-    lbSlides.Items.AddObject(
-       lbSlides.Items[lbSlides.ItemIndex],
-       TSlide.Create(TSlide(lbSlides.Items.Objects[lbSlides.ItemIndex]).AsJSon)
+  index := lbSlides.ItemIndex;
+  if index <> -1 then begin
+    lbSlides.Items.InsertObject(
+       index + 1,
+       lbSlides.Items[index],
+       TSlide.Create(TSlide(lbSlides.Items.Objects[index]).AsJSon)
     );
     FLastProjectHash := CreateProjectHash;
   end;
