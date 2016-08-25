@@ -63,7 +63,6 @@ object frmPPTViewer: TfrmPPTViewer
     ReadOnly = True
     TabOrder = 2
     OnClick = TreeView1DblClick
-    ExplicitHeight = 434
   end
   object ImgView321: TImgView32
     Left = 175
@@ -81,7 +80,6 @@ object frmPPTViewer: TfrmPPTViewer
     ScrollBars.Visibility = svAuto
     OverSize = 0
     TabOrder = 3
-    ExplicitHeight = 434
   end
   object btnCancel: TButton
     Left = 824
@@ -93,7 +91,6 @@ object frmPPTViewer: TfrmPPTViewer
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 7
-    ExplicitTop = 505
   end
   object btnSelect: TButton
     Left = 743
@@ -105,7 +102,6 @@ object frmPPTViewer: TfrmPPTViewer
     Default = True
     ModalResult = 1
     TabOrder = 6
-    ExplicitTop = 505
   end
   object edtDescription: TEdit
     Left = 113
@@ -114,7 +110,6 @@ object frmPPTViewer: TfrmPPTViewer
     Height = 21
     Anchors = [akLeft, akRight, akBottom]
     TabOrder = 4
-    ExplicitTop = 479
   end
   object btnOpenInternet: TButton
     Left = 8
@@ -132,7 +127,6 @@ object frmPPTViewer: TfrmPPTViewer
     Height = 21
     Anchors = [akLeft, akRight, akBottom]
     TabOrder = 5
-    ExplicitTop = 507
   end
   object OpenDialog1: TOpenDialog
     Filter = 'Powerpoint|*.ppt;*.pptx|All|*.*'

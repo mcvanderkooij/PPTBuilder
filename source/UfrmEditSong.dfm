@@ -3,8 +3,8 @@ object frmEditSong: TfrmEditSong
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Edit Song Slide'
-  ClientHeight = 412
-  ClientWidth = 320
+  ClientHeight = 516
+  ClientWidth = 341
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -46,37 +46,30 @@ object frmEditSong: TfrmEditSong
     Height = 96
   end
   object btnOK: TButton
-    Left = 156
-    Top = 378
-    Width = 75
+    Left = 137
+    Top = 483
+    Width = 95
     Height = 25
     Caption = 'OK'
     Default = True
     ModalResult = 1
-    TabOrder = 6
+    TabOrder = 15
   end
   object btnCancel: TButton
-    Left = 237
-    Top = 378
-    Width = 75
+    Left = 238
+    Top = 483
+    Width = 95
     Height = 25
     Cancel = True
     Caption = 'Cancel'
     ModalResult = 2
-    TabOrder = 7
-  end
-  object edtOverviewName: TEdit
-    Left = 128
-    Top = 11
-    Width = 185
-    Height = 21
-    TabOrder = 0
+    TabOrder = 16
   end
   object lbVerses: TListBox
     Left = 8
     Top = 182
     Width = 223
-    Height = 190
+    Height = 283
     Style = lbOwnerDrawFixed
     DragMode = dmAutomatic
     Font.Charset = DEFAULT_CHARSET
@@ -85,7 +78,7 @@ object frmEditSong: TfrmEditSong
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 5
     OnDblClick = lbVersesDblClick
     OnDragDrop = lbVersesDragDrop
     OnDragOver = lbVersesDragOver
@@ -95,28 +88,28 @@ object frmEditSong: TfrmEditSong
   object btnVerseAdd: TButton
     Left = 237
     Top = 182
-    Width = 75
+    Width = 95
     Height = 25
     Caption = 'Add'
-    TabOrder = 3
+    TabOrder = 6
     OnClick = btnVerseAddClick
   end
   object btnVerseEdit: TButton
-    Left = 237
-    Top = 244
-    Width = 75
+    Left = 238
+    Top = 404
+    Width = 95
     Height = 25
     Caption = 'Edit'
-    TabOrder = 4
+    TabOrder = 12
     OnClick = btnVerseEditClick
   end
   object btnVerseDelete: TButton
-    Left = 237
-    Top = 275
-    Width = 75
+    Left = 238
+    Top = 435
+    Width = 95
     Height = 25
     Caption = 'Delete'
-    TabOrder = 5
+    TabOrder = 13
     OnClick = btnVerseDeleteClick
   end
   object ImgViewPicto: TImgView32
@@ -134,25 +127,25 @@ object frmEditSong: TfrmEditSong
     ScrollBars.Size = 17
     ScrollBars.Visibility = svAuto
     OverSize = 0
-    TabOrder = 1
+    TabOrder = 3
     OnClick = ImgViewPictoClick
   end
   object btnVerseCopy: TButton
-    Left = 237
-    Top = 213
-    Width = 75
+    Left = 238
+    Top = 373
+    Width = 95
     Height = 25
     Caption = 'Copy'
-    TabOrder = 8
+    TabOrder = 11
     OnClick = btnVerseCopyClick
   end
   object btnInternet: TButton
     Left = 8
-    Top = 378
+    Top = 483
     Width = 75
     Height = 25
     Caption = 'Internet'
-    TabOrder = 9
+    TabOrder = 14
     OnClick = btnInternetClick
   end
   object cbxShowInOverview: TCheckBox
@@ -161,7 +154,7 @@ object frmEditSong: TfrmEditSong
     Width = 184
     Height = 17
     Caption = 'Show In Overview'
-    TabOrder = 10
+    TabOrder = 1
   end
   object cbxPartOfForm: TCheckBox
     Left = 128
@@ -169,7 +162,7 @@ object frmEditSong: TfrmEditSong
     Width = 184
     Height = 17
     Caption = 'Part Of Form'
-    TabOrder = 11
+    TabOrder = 2
   end
   object btnSelectPictoNone: TButton
     Left = 226
@@ -177,8 +170,56 @@ object frmEditSong: TfrmEditSong
     Width = 75
     Height = 25
     Caption = 'None'
-    TabOrder = 12
+    TabOrder = 4
     OnClick = btnSelectPictoNoneClick
+  end
+  object edtOverviewName: TComboBox
+    Left = 128
+    Top = 11
+    Width = 185
+    Height = 21
+    TabOrder = 0
+    Items.Strings = (
+      'Ps '
+      'Gez '
+      'LB '
+      'Opw ')
+  end
+  object btnVerseAddPsalm: TButton
+    Left = 237
+    Top = 213
+    Width = 95
+    Height = 25
+    Caption = 'Add Psalm'
+    TabOrder = 7
+    OnClick = btnVerseAddPsalmClick
+  end
+  object btnVerseAddGezang: TButton
+    Left = 237
+    Top = 244
+    Width = 95
+    Height = 25
+    Caption = 'Add Gezang'
+    TabOrder = 8
+    OnClick = btnVerseAddGezangClick
+  end
+  object btnVerseAddLiedboek: TButton
+    Left = 238
+    Top = 275
+    Width = 95
+    Height = 25
+    Caption = 'Add Liedboek'
+    TabOrder = 9
+    OnClick = btnVerseAddLiedboekClick
+  end
+  object btnVerseAddOpwekking: TButton
+    Left = 237
+    Top = 306
+    Width = 95
+    Height = 25
+    Caption = 'Add Opwekking'
+    TabOrder = 10
+    OnClick = btnVerseAddOpwekkingClick
   end
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle

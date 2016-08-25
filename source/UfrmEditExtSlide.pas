@@ -108,6 +108,7 @@ begin
   FfrmPPTViewer.ShowDescription := false;
   FfrmPPTViewer.ShowRemark := false;
   FfrmPPTViewer.DoMultiSelection := true;
+  FfrmPPTViewer.AutoOpen := '';
   if FfrmPPTViewer.ShowModal = mrOK then begin
     selections := FfrmPPTViewer.SelectionMulti;
     try
@@ -134,6 +135,7 @@ begin
       FfrmPPTViewer.ShowDescription := false;
       FfrmPPTViewer.ShowRemark := false;
       FfrmPPTViewer.DoMultiSelection := false;
+      FfrmPPTViewer.AutoOpen := '';
       if FfrmPPTViewer.ShowModal = mrOK then begin
         selectionOK := FfrmPPTViewer.Selection;
         selectionOK.Description := FfrmPPTViewer.Description;

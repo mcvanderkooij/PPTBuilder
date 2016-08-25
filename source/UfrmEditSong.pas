@@ -11,7 +11,6 @@ type
   TfrmEditSong = class(TForm, ISlideEditForm)
     btnOK: TButton;
     btnCancel: TButton;
-    edtOverviewName: TEdit;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -27,6 +26,11 @@ type
     cbxShowInOverview: TCheckBox;
     cbxPartOfForm: TCheckBox;
     btnSelectPictoNone: TButton;
+    edtOverviewName: TComboBox;
+    btnVerseAddPsalm: TButton;
+    btnVerseAddGezang: TButton;
+    btnVerseAddLiedboek: TButton;
+    btnVerseAddOpwekking: TButton;
     procedure btnVerseAddClick(Sender: TObject);
     procedure ImgViewPictoClick(Sender: TObject);
     procedure btnVerseEditClick(Sender: TObject);
@@ -46,6 +50,10 @@ type
     procedure btnInternetClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSelectPictoNoneClick(Sender: TObject);
+    procedure btnVerseAddPsalmClick(Sender: TObject);
+    procedure btnVerseAddGezangClick(Sender: TObject);
+    procedure btnVerseAddLiedboekClick(Sender: TObject);
+    procedure btnVerseAddOpwekkingClick(Sender: TObject);
   private
     FStartSlide: string;
     FPictoName: TSourceInfo;
@@ -54,6 +62,8 @@ type
     FSlideTemplateName: string;
     { Private declarations }
   protected
+    procedure VerseAdd(strAutoOpen: string);
+    procedure SetOverviewName(strName: string);
     function GetSlideAsString: string;
     procedure SetSlideAsString(const Value: string);
     function Edit: boolean;
@@ -92,6 +102,12 @@ begin
   DoEdit;
 end;
 
+procedure TfrmEditSong.btnVerseAddPsalmClick(Sender: TObject);
+begin
+  SetOverviewName('Ps ');
+  VerseAdd('BeamTeam/zwarte achtergrond/150 Psalmen1 Ppt');
+end;
+
 procedure TfrmEditSong.btnInternetClick(Sender: TObject);
 begin
   OpenInternetSource('');
@@ -104,6 +120,29 @@ begin
 end;
 
 procedure TfrmEditSong.btnVerseAddClick(Sender: TObject);
+begin
+  VerseAdd('');
+end;
+
+procedure TfrmEditSong.btnVerseAddGezangClick(Sender: TObject);
+begin
+  SetOverviewName('Gez ');
+  VerseAdd('BeamTeam/zwarte achtergrond/Nieuw GKB');
+end;
+
+procedure TfrmEditSong.btnVerseAddLiedboekClick(Sender: TObject);
+begin
+  SetOverviewName('LB ');
+  VerseAdd('BeamTeam/Notenbeeld/Liedboek');
+end;
+
+procedure TfrmEditSong.btnVerseAddOpwekkingClick(Sender: TObject);
+begin
+  SetOverviewName('Opw ');
+  VerseAdd('BeamTeam/Notenbeeld/Opwekkingsliederen');
+end;
+
+procedure TfrmEditSong.VerseAdd(strAutoOpen: string);
 var
   selection: TSourceInfo;
   source: TSourceInfo;
@@ -121,6 +160,7 @@ begin
   if Assigned(template) then begin
     if (epSongIsPPT in template.EditPossibilities) then begin
       FfrmPPTViewer.SelectionMode := smPicture;
+      FfrmPPTViewer.AutoOpen := strAutoOpen;
       if lbVerses.Items.Count > 0 then begin
         selection := SourceInfoFromString(lbVerses.Items[0]);
         try
@@ -236,6 +276,7 @@ begin
           FfrmPPTViewer.ShowDescription := true;
           FfrmPPTViewer.ShowRemark := true;
           FfrmPPTViewer.DoMultiSelection := false;
+          FfrmPPTViewer.AutoOpen := '';
           if FfrmPPTViewer.ShowModal <> mrOK then
             Exit;
           selectionOK := FfrmPPTViewer.Selection;
@@ -415,6 +456,13 @@ procedure TfrmEditSong.lbVersesMouseDown(Sender: TObject; Button: TMouseButton;
 begin
   FStartingPoint.X := X;
   FStartingPoint.Y := Y;
+end;
+
+procedure TfrmEditSong.SetOverviewName(strName: string);
+begin
+  if edtOverviewName.Text = '' then begin
+    edtOverviewName.Text := strName;
+  end;
 end;
 
 procedure TfrmEditSong.SetSlideAsString(const Value: string);

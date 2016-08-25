@@ -35,6 +35,7 @@ type
     FSelectionMode: TSelectionMode;
     FSelectionValid: boolean;
     FSelection: TSourceInfo;
+    FAutoOpen: string;
     procedure ViewJPG(strFileName: string; bmp32: TBitmap32);
     procedure ViewPicture(shape: PowerPoint_TLB.Shape; bmp32: TBitmap32);
     procedure ViewSlide(slide: PowerPoint_TLB._Slide; bmp32: TBitmap32);
@@ -68,6 +69,7 @@ type
     property ShowDescription: boolean read GetShowDescription write SetShowDescription;
     property Remark: string read GetRemark write SetRemark;
     property ShowRemark: boolean read GetShowRemark write SetShowRemark;
+    property AutoOpen: string read FAutoOpen write FAutoOpen;
     { Public declarations }
   end;
 
@@ -89,7 +91,7 @@ var
   strFileName: string;
 begin
   strFileName := '';
-  if SelectFTPFile(strFileName, '.ppt|.pptx', '') then begin
+  if SelectFTPFile(strFileName, '.ppt|.pptx', AutoOpen) then begin
     OpenFile(CopyExternalFileToLocal(strFileName));
   end;
 end;
