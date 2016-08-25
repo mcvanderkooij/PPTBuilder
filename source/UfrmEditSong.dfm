@@ -4,7 +4,7 @@ object frmEditSong: TfrmEditSong
   BorderStyle = bsDialog
   Caption = 'Edit Song Slide'
   ClientHeight = 516
-  ClientWidth = 341
+  ClientWidth = 369
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -46,9 +46,9 @@ object frmEditSong: TfrmEditSong
     Height = 96
   end
   object btnOK: TButton
-    Left = 137
+    Left = 205
     Top = 483
-    Width = 95
+    Width = 75
     Height = 25
     Caption = 'OK'
     Default = True
@@ -56,9 +56,9 @@ object frmEditSong: TfrmEditSong
     TabOrder = 15
   end
   object btnCancel: TButton
-    Left = 238
+    Left = 286
     Top = 483
-    Width = 95
+    Width = 75
     Height = 25
     Cancel = True
     Caption = 'Cancel'
@@ -88,7 +88,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseAdd: TButton
     Left = 237
     Top = 182
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Add'
     TabOrder = 6
@@ -97,7 +97,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseEdit: TButton
     Left = 238
     Top = 404
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Edit'
     TabOrder = 12
@@ -106,7 +106,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseDelete: TButton
     Left = 238
     Top = 435
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Delete'
     TabOrder = 13
@@ -133,7 +133,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseCopy: TButton
     Left = 238
     Top = 373
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Copy'
     TabOrder = 11
@@ -165,7 +165,7 @@ object frmEditSong: TfrmEditSong
     TabOrder = 2
   end
   object btnSelectPictoNone: TButton
-    Left = 226
+    Left = 238
     Top = 84
     Width = 75
     Height = 25
@@ -173,12 +173,14 @@ object frmEditSong: TfrmEditSong
     TabOrder = 4
     OnClick = btnSelectPictoNoneClick
   end
-  object edtOverviewName: TComboBox
+  object cmbOverviewName: TComboBox
     Left = 128
     Top = 11
     Width = 185
     Height = 21
     TabOrder = 0
+    OnEnter = cmbOverviewNameEnter
+    OnSelect = cmbOverviewNameEnter
     Items.Strings = (
       'Ps '
       'Gez '
@@ -188,7 +190,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseAddPsalm: TButton
     Left = 237
     Top = 213
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Add Psalm'
     TabOrder = 7
@@ -197,7 +199,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseAddGezang: TButton
     Left = 237
     Top = 244
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Add Gezang'
     TabOrder = 8
@@ -206,7 +208,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseAddLiedboek: TButton
     Left = 238
     Top = 275
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Add Liedboek'
     TabOrder = 9
@@ -215,7 +217,7 @@ object frmEditSong: TfrmEditSong
   object btnVerseAddOpwekking: TButton
     Left = 237
     Top = 306
-    Width = 95
+    Width = 125
     Height = 25
     Caption = 'Add Opwekking'
     TabOrder = 10

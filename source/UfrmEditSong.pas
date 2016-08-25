@@ -26,7 +26,7 @@ type
     cbxShowInOverview: TCheckBox;
     cbxPartOfForm: TCheckBox;
     btnSelectPictoNone: TButton;
-    edtOverviewName: TComboBox;
+    cmbOverviewName: TComboBox;
     btnVerseAddPsalm: TButton;
     btnVerseAddGezang: TButton;
     btnVerseAddLiedboek: TButton;
@@ -54,6 +54,7 @@ type
     procedure btnVerseAddGezangClick(Sender: TObject);
     procedure btnVerseAddLiedboekClick(Sender: TObject);
     procedure btnVerseAddOpwekkingClick(Sender: TObject);
+    procedure cmbOverviewNameEnter(Sender: TObject);
   private
     FStartSlide: string;
     FPictoName: TSourceInfo;
@@ -319,6 +320,11 @@ begin
   Result := ShowModal = mrOk;
 end;
 
+procedure TfrmEditSong.cmbOverviewNameEnter(Sender: TObject);
+begin
+  PostMessage(cmbOverviewName.Handle, CB_SETEDITSEL, 0, MakeLong(Length(cmbOverviewName.Text), $ffff));
+end;
+
 procedure TfrmEditSong.FormCreate(Sender: TObject);
 begin
   TranslateComponent(self);
@@ -352,8 +358,8 @@ begin
     template := GetSlideTemplates.FindByName(FSlideTemplateName);
     Assert(Assigned(template));
 
-    slide.SlideName := slide.SlideTemplateName + ' : ' + edtOverviewName.Text;
-    slide.OverviewName := edtOverviewName.Text;
+    slide.SlideName := slide.SlideTemplateName + ' : ' + cmbOverviewName.Text;
+    slide.OverviewName := cmbOverviewName.Text;
     slide.ShowInOverview := cbxShowInOverview.Checked;
     slide.PictoName := FPictoName.DeepCopy;
     slide.IsSubOverview := cbxPartOfForm.Checked;
@@ -374,7 +380,7 @@ begin
 
     for i := 0 to lbVerses.Items.Count -1 do begin
       selection := SourceInfoFromString(lbVerses.Items[i]);
-      slideItemFooter.ContentSources.Add(TSourceInfo.CreateAsString(RespaceOverviewName(edtOverviewName.Text, false)));
+      slideItemFooter.ContentSources.Add(TSourceInfo.CreateAsString(RespaceOverviewName(cmbOverviewName.Text, false)));
       if Assigned(slideItemFooterLeft) then begin
         slideItemFooterLeft.ContentSources.Add(TSourceInfo.CreateAsString(selection.Description));
       end;
@@ -460,8 +466,8 @@ end;
 
 procedure TfrmEditSong.SetOverviewName(strName: string);
 begin
-  if edtOverviewName.Text = '' then begin
-    edtOverviewName.Text := strName;
+  if cmbOverviewName.Text = '' then begin
+    cmbOverviewName.Text := strName;
   end;
 end;
 
@@ -477,7 +483,7 @@ begin
   slide := TSlide.Create(FStartSlide);
   try
     FSlideTemplateName := slide.SlideTemplateName;
-    edtOverviewName.Text := slide.OverviewName;
+    cmbOverviewName.Text := slide.OverviewName;
     FreeAndNil(FPictoName);
     FPictoName := slide.PictoName.DeepCopy;
     ViewPNG(FPictoName.FileName, ImgViewPicto.Bitmap);
