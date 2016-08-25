@@ -932,15 +932,8 @@ begin
       bmp32Dest.Clear(clBlack32);
 
     if FileExists(strPictoFileName) then begin
-      png := TPngImageX.Create;
-      try
-        png.LoadFromFile(strPictoFileName);
-        LoadPNGintoBitmap32(bmp32, png, bAlphaChannelUsed);
-
-        bmp32.DrawTo(bmp32Dest, bmp32Dest.BoundsRect);
-      finally
-        png.Free;
-      end;
+      LoadPNGintoBitmap32(bmp32, strPictoFileName, bAlphaChannelUsed);
+      bmp32.DrawTo(bmp32Dest, bmp32Dest.BoundsRect);
     end;
 
     FPicto.Assign(bmp32Dest);
