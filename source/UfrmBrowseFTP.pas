@@ -186,8 +186,10 @@ begin
     slDirs := nil;
     slFiles := TStringList.Create;
     try
+      slFiles.CaseSensitive := false;
       if integer(nodeSelected.Data) = -1  then begin
         slDirs := TStringList.Create;
+        slDirs.CaseSensitive := false;
       end;
       // create path
       strPath := '';

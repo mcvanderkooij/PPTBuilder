@@ -148,6 +148,10 @@ begin
           end;
         end
       end;
+      slFiles.Sort;
+      if Assigned(slFolders) then begin
+        slFolders.Sort;
+      end;
     finally
       ftp.Free;
     end;
