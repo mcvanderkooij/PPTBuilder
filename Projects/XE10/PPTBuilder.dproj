@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{94A93979-835D-4FCD-AEF1-8A92117643EB}</ProjectGuid>
-        <ProjectVersion>18.0</ProjectVersion>
+        <ProjectVersion>18.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <MainSource>PPTBuilder.dpr</MainSource>
         <Base>True</Base>
@@ -75,14 +75,14 @@
         <DCC_DebugDCUs>true</DCC_DebugDCUs>
         <Manifest_File>None</Manifest_File>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
-        <VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.10.9;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Build>9</VerInfo_Build>
-        <VerInfo_Release>10</VerInfo_Release>
+        <VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.11.11;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>11</VerInfo_Build>
+        <VerInfo_Release>11</VerInfo_Release>
         <Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
         <PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PPT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
         <DCC_Define>SIMPLE;$(DCC_Define)</DCC_Define>
-        <DCC_UnitSearchPath>D:\Projects\Delphi\PictoSelector\source\Graphics32\Lines;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>D:\Projects\Delphi\PictoSelector\source\Graphics32\Lines;D:\Projects\Delphi\PictoSelector\source\Graphics32\Png;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_ExeOutput>D:\Projects\Delphi\PPTBuilder\bin-dev\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -251,27 +251,12 @@ $(PostBuildEvent)]]></PostBuildEvent>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="2">
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -625,12 +610,27 @@ $(PostBuildEvent)]]></PostBuildEvent>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>

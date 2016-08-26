@@ -72,9 +72,9 @@
 			<DCC_DebugDCUs>true</DCC_DebugDCUs>
 			<Manifest_File>None</Manifest_File>
 			<DCC_RemoteDebug>false</DCC_RemoteDebug>
-			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.9.8;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-			<VerInfo_Build>8</VerInfo_Build>
-			<VerInfo_Release>9</VerInfo_Release>
+			<VerInfo_Keys>CompanyName=M.C. van der Kooij;FileDescription=;FileVersion=1.0.10.9;InternalName=PPTBuilder.exe;LegalCopyright=2015 by M.C. van der Kooij;LegalTrademarks=;OriginalFilename=;ProductName=PPT Builder;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Build>9</VerInfo_Build>
+			<VerInfo_Release>10</VerInfo_Release>
 			<Icon_MainIcon>..\..\1437516208_powerpoint.ico</Icon_MainIcon>
 			<PostBuildEvent><![CDATA[C:\Tools\kSign\kSignCMD.exe /f D:\Data\Projects\CertMCKooij.pfx /p $(PASSWORD) /d "PPT Builder" /du "http://www.gemeenteleven.nl/" $(OUTPUTPATH)
 $(PostBuildEvent)]]></PostBuildEvent>
