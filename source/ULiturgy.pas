@@ -124,7 +124,7 @@ begin
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
@@ -181,7 +181,7 @@ begin
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
@@ -240,7 +240,7 @@ begin
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');

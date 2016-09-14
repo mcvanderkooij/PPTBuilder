@@ -8,6 +8,7 @@ uses
 
 const
   CTEMPLATE_COLLECTE = 'Collecte';
+  CTEMPLATE_COLLECTE_CHILDREN = 'Collecte kinderen uit creche';
   CTEMPLATE_OVERVIEW = 'Overzicht';
   CTEMPLATE_OVERVIEW_SUBS = 'Overzicht Formulier';
   CTEMPLATE_READING_AGB = 'Lezen Apostolische Geloofsbelijdenis';
@@ -19,8 +20,8 @@ const
   CTEMPLATE_TEXT_GBA = 'Tekst Geloofsbelijdenis van Athanasius';
   CTEMPLATE_TEXT_HC = 'Tekst Heidelbergse Catechismus';
 
-  CCONTENT_COLLECTE = #13#13#13'<40>1<^>e<^> collecte:'#13'%collecte1%'#13#13'2<^>e<^> collecte:'#13'%collecte2%';
-
+  CCONTENT_COLLECTE = #13#13#13'<40>1<^>e<^> collecte:'#13'%collecte1%'#13#13'2<^>e<^> collecte:'#13'%collecte2%<40>';
+  CCONTENT_COLLECTE_CHILDREN = CCONTENT_COLLECTE + #13#13#13'<28>Kinderen mogen uit de creche opgehaald worden<28>';
 type
   TEditPossibility = (epFixed, epAllowExternalPPTs, epSinglePage,
     epIsSong, epSongIsMemo, epSongIsPPT, epSongIsPicture,
@@ -355,8 +356,8 @@ begin
   iMenuOrder := 30000;
   oSources := TSourceInfos.Create;
   oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE));
-  oSources.Add(TSourceInfo.CreateAsPPT('<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide3', '', true));
-  oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE));
+  //oSources.Add(TSourceInfo.CreateAsPPT('<content>ppts\Mededelingen Kerkenraad.ppt', 'Slide3', '', true));
+  //oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE));
   template := gl_SlideTemplates.Add(CTEMPLATE_COLLECTE, 'Liturgisch', 'Center-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Na de collecten %aftercollecte%');
   template.AreaData.AddSlideItem('content', ctTextMemo, oSources);
@@ -364,6 +365,18 @@ begin
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\collecte 3.png');
   template.FollowedByOverview := False;
   template.EditPossibilities := [epFixed];
+
+  inc(iMenuOrder, 10);
+  oSources := TSourceInfos.Create;
+  oSources.Add(TSourceInfo.CreateAsString(CCONTENT_COLLECTE_CHILDREN));
+  template := gl_SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN, 'Liturgisch', 'Center-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Na de collecten %aftercollecte%');
+  template.AreaData.AddSlideItem('content', ctTextMemo, oSources);
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\collecte 3.png');
+  template.FollowedByOverview := False;
+  template.EditPossibilities := [epFixed];
+
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Zegen Gezongen Amen', 'Liturgisch', 'Content2-layout', iMenuOrder);
