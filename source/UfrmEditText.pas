@@ -110,9 +110,10 @@ var
   template: TSlideTemplate;
   slide: TSlide;
 begin
+  template := nil;
   case FOverviewType of
-    otIgnore: ;
     otSong: ;
+    otIgnore,
     otReading: template := GetSlideTemplates.FindByName(strReadingTemplate);
     otText: template := GetSlideTemplates.FindByName(strTextTemplate);
   end;
