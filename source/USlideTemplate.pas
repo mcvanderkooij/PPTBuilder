@@ -680,7 +680,7 @@ begin
   template.SelectContentSubDir := 'ppts';
 
 
-  // Kinderen
+  // Kinderen - kidsclub
   iMenuOrder := 70000;
   source := TSourceInfo.Create;
   source.SourceType := sitPPT;
@@ -721,6 +721,103 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
   template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+  template.IsSubOverview := true;
+
+  // Kinderen - kompas
+  inc(iMenuOrder, 10);
+  source := TSourceInfo.Create;
+  source.SourceType := sitPPT;
+  source.Description := '';
+  source.Text := '';
+  source.FileName := '<content>ppts\Kompas_Groep_7-8.ppt';
+  source.SlideName := 'Slide1';
+  source.ShapeName := '';
+  template := gl_SlideTemplates.Add('Kompas 7-8 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.PictoName := TSourceInfo.CreateAsFileName('');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide2';
+  template := gl_SlideTemplates.Add('Kompas 7-8 naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide3';
+  template := gl_SlideTemplates.Add('Kompas 7-8 terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide3';
+  template := gl_SlideTemplates.Add('Kompas 7-8 terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+  template.IsSubOverview := true;
+
+
+  // Kinderen - kidsclub + kompas
+  inc(iMenuOrder, 10);
+  source := TSourceInfo.Create;
+  source.SourceType := sitPPT;
+  source.Description := '';
+  source.Text := '';
+  source.FileName := '<content>ppts\Kompas_kidsclub.ppt';
+  source.SlideName := 'Slide2';
+  source.ShapeName := '';
+  template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.PictoName := TSourceInfo.CreateAsFileName('');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide3';
+  template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide4';
+  template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.AreaData.AddSlideItem('content', ctExtSlide, source);
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
+  template.OverviewType := otIgnore;
+  template.EditPossibilities := [epFixed];
+  template.SelectContentSubDir := 'ppts';
+
+  inc(iMenuOrder, 10);
+  source := source.DeepCopy;
+  source.SlideName := 'Slide4';
+  template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
