@@ -26,7 +26,7 @@ type
   TEditPossibility = (epFixed, epAllowExternalPPTs, epSinglePage,
     epIsSong, epSongIsMemo, epSongIsPPT, epSongIsPicture,
     epIsText, epIsBook, epBookMulti,
-    epMemoMulti, epSlideVariables);
+    epMemoMulti, epSlideVariables, epFooterEdit);
   TEditPossibilities = set of TEditPossibility;
 
   TSlideTemplate = class(TJSONPersistent)
@@ -627,6 +627,14 @@ begin
   template.SelectContentSubDir := 'pictos';
   template.EditPossibilities := [epFixed];
 
+  template := gl_SlideTemplates.Add('Stilte moment', 'Bidden', 'Content3-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Stilte moment');
+  template.AreaData.AddSlideItemFileName('content', ctPictureFit, '<content>pictos\stiltemoment.png');
+  template.AreaData.AddSlideItemString('ribbon', ctRibbon, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\stiltemoment.png');
+  template.SelectContentSubDir := 'pictos';
+  template.EditPossibilities := [epFooterEdit];
+
   // Wet
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Wet - 10 geboden', 'Wet', 'Content3-layout', iMenuOrder);
@@ -1225,6 +1233,25 @@ var
   editForm: TForm;
   frmPictureSelector: TfrmPictureSelector;
 
+  function EditFooter(blnUpdateSlideName: boolean): boolean;
+  var
+    iContentIndex: integer;
+  begin
+    areaTemplate := AreaData['footer'];
+    if Result and Assigned(areaTemplate) and (areaTemplate.ContentType = ctText) then begin
+      for iContentIndex := 0 to slide['footer'].ContentSources.Count -1 do begin
+        strText := slide['footer'].ContentSources[iContentIndex].Text;
+        Result := InputQuery('Voettekst', _('Enter text'), strText);
+        if Result then begin
+          slide['footer'].ContentSources[iContentIndex] := TSourceInfo.CreateAsString(strText);
+          if blnUpdateSlideName then begin
+            slide.SlideName := strText;
+          end;
+        end;
+      end;
+    end;
+  end;
+
 begin
   Result := True;
   if epFixed in EditPossibilities then
@@ -1269,6 +1296,8 @@ begin
       editFormInterface := nil;
       editForm.Free;
     end;
+  end else if epFooterEdit in EditPossibilities then begin
+    Result := EditFooter(true);
   end else begin
 
     // fallback
@@ -1288,16 +1317,7 @@ begin
       end;
     end;
 
-    areaTemplate := AreaData['footer'];
-    if Result and Assigned(areaTemplate) and (areaTemplate.ContentType = ctText) then begin
-      for iContentIndex := 0 to slide['footer'].ContentSources.Count -1 do begin
-        strText := slide['footer'].ContentSources[iContentIndex].Text;
-        Result := InputQuery('Voettekst ' + IntToStr(iContentIndex), 'Enter text', strText);
-        if Result then begin
-          slide['footer'].ContentSources[iContentIndex] := TSourceInfo.CreateAsString(strText);
-        end;
-      end;
-    end;
+    Result := Result and EditFooter(false);
 
     for iArea := 0 to slide.Count -1 do begin
       strAreaName := slide.KeyOfIndex[iArea];

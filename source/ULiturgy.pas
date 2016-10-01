@@ -92,6 +92,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
@@ -117,6 +118,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
@@ -142,6 +144,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
@@ -171,6 +174,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Gebed');
@@ -195,6 +199,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Schuldbelijdenis en Genadeverkondiging');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
@@ -226,6 +231,7 @@ begin
   // aanvang
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   // dienst van het woord
