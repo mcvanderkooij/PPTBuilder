@@ -68,7 +68,7 @@ begin
           continue;
         end;
 
-        if slide.SlideTemplateName = CTEMPLATE_COLLECTE then begin
+        if (slide.SlideTemplateName = CTEMPLATE_COLLECTE) or (slide.SlideTemplateName = CTEMPLATE_COLLECTE_CHILDREN) then begin
           FProject.AfterCollecte := '$$';
         end;
 
