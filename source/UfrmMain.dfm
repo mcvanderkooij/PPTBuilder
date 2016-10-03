@@ -2,8 +2,8 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Powerpoint Builder'
-  ClientHeight = 704
-  ClientWidth = 1066
+  ClientHeight = 542
+  ClientWidth = 956
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,12 +19,12 @@ object frmMain: TfrmMain
   OnResize = FormResize
   OnShow = FormShow
   DesignSize = (
-    1066
-    704)
+    956
+    542)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 776
+    Left = 666
     Top = 8
     Width = 44
     Height = 13
@@ -34,7 +34,7 @@ object frmMain: TfrmMain
   end
   object Label2: TLabel
     Left = 8
-    Top = 624
+    Top = 462
     Width = 43
     Height = 13
     Anchors = [akLeft, akBottom]
@@ -43,7 +43,7 @@ object frmMain: TfrmMain
   end
   object Label3: TLabel
     Left = 8
-    Top = 651
+    Top = 489
     Width = 51
     Height = 13
     Anchors = [akLeft, akBottom]
@@ -52,7 +52,7 @@ object frmMain: TfrmMain
   end
   object Label4: TLabel
     Left = 8
-    Top = 678
+    Top = 516
     Width = 51
     Height = 13
     Anchors = [akLeft, akBottom]
@@ -60,19 +60,21 @@ object frmMain: TfrmMain
     ExplicitTop = 526
   end
   object lblVersion: TLabel
-    Left = 1013
-    Top = 683
+    Left = 903
+    Top = 521
     Width = 45
     Height = 13
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
     Caption = 'lblVersion'
+    ExplicitLeft = 1013
+    ExplicitTop = 683
   end
   object lbSlides: TListBox
     Left = 8
     Top = 8
-    Width = 762
-    Height = 601
+    Width = 652
+    Height = 439
     Style = lbOwnerDrawFixed
     Anchors = [akLeft, akTop, akRight, akBottom]
     DragMode = dmAutomatic
@@ -90,39 +92,44 @@ object frmMain: TfrmMain
     OnDragOver = lbSlidesDragOver
     OnDrawItem = lbSlidesDrawItem
     OnMouseDown = lbSlidesMouseDown
+    ExplicitWidth = 762
+    ExplicitHeight = 601
   end
   object edtSpeaker: TEdit
     Left = 112
-    Top = 621
+    Top = 459
     Width = 360
     Height = 21
     Anchors = [akLeft, akBottom]
     TabOrder = 2
     OnExit = edtCollecte1Exit
+    ExplicitTop = 621
   end
   object edtCollecte1: TEdit
     Left = 112
-    Top = 648
+    Top = 486
     Width = 360
     Height = 21
     Anchors = [akLeft, akBottom]
     TabOrder = 5
     OnExit = edtCollecte1Exit
+    ExplicitTop = 648
   end
   object edtCollecte2: TEdit
     Left = 112
-    Top = 675
+    Top = 513
     Width = 360
     Height = 21
     Anchors = [akLeft, akBottom]
     TabOrder = 8
     OnExit = edtCollecte1Exit
+    ExplicitTop = 675
   end
   object CategoryPanelGroup1: TCategoryPanelGroup
-    Left = 776
+    Left = 666
     Top = 27
     Width = 282
-    Height = 582
+    Height = 420
     VertScrollBar.Tracking = True
     Align = alNone
     Anchors = [akTop, akRight, akBottom]
@@ -132,6 +139,8 @@ object frmMain: TfrmMain
     HeaderFont.Name = 'Tahoma'
     HeaderFont.Style = []
     TabOrder = 1
+    ExplicitLeft = 776
+    ExplicitHeight = 582
     object CategoryPanel1: TCategoryPanel
       Top = 0
       Height = 169
@@ -141,7 +150,7 @@ object frmMain: TfrmMain
   end
   object btnSpeakerAdd: TButton
     Left = 478
-    Top = 620
+    Top = 458
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -154,10 +163,11 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 3
     OnClick = btnSpeakerAddClick
+    ExplicitTop = 620
   end
   object btnSpeakerSelect: TButton
     Left = 507
-    Top = 620
+    Top = 458
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -170,10 +180,11 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 4
     OnClick = btnSpeakerSelectClick
+    ExplicitTop = 620
   end
   object btnCollecte1Add: TButton
     Left = 478
-    Top = 647
+    Top = 485
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -186,10 +197,11 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 6
     OnClick = btnCollecte1AddClick
+    ExplicitTop = 647
   end
   object btnCollecte1Select: TButton
     Left = 507
-    Top = 647
+    Top = 485
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -202,10 +214,11 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 7
     OnClick = btnCollecte1SelectClick
+    ExplicitTop = 647
   end
   object btnCollecte2Add: TButton
     Left = 478
-    Top = 674
+    Top = 512
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -218,10 +231,11 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 9
     OnClick = btnCollecte2AddClick
+    ExplicitTop = 674
   end
   object btnCollecte2Select: TButton
     Left = 507
-    Top = 674
+    Top = 512
     Width = 23
     Height = 23
     Anchors = [akLeft, akBottom]
@@ -234,6 +248,7 @@ object frmMain: TfrmMain
     ParentFont = False
     TabOrder = 10
     OnClick = btnCollecte2SelectClick
+    ExplicitTop = 674
   end
   object MainMenu1: TMainMenu
     AutoHotkeys = maManual
