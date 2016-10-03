@@ -182,7 +182,7 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Afscheid - 19.00', 'Algemeen', 'Titlepage-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanmiddag 19.00 uur D.V.');
+  template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanavond 19.00 uur D.V.');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');
   template.SelectContentSubDir := 'pictures';
