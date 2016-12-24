@@ -237,70 +237,72 @@ var
   SearchStr, Patt, NewStr: string;
   Offset, I, L: Integer;
 begin
-  if rfIgnoreCase in Flags then
+  if FirstIndex > 0 then
   begin
-    SearchStr := AnsiUpperCase(S);
-    Patt := AnsiUpperCase(OldPattern);
-  end else
-  begin
-    SearchStr := S;
-    Patt := OldPattern;
-  end;
-  NewStr := S;
-  Result := '';
-  if SearchStr.Length <> S.Length then
-  begin
-    I := FirstIndex;
-    L := OldPattern.Length;
-    while I <= High(S) do
+    if rfIgnoreCase in Flags then
     begin
-      if string.Compare(S, I - FirstIndex, OldPattern, 0, L, True) = 0 then
+      SearchStr := AnsiUpperCase(S);
+      Patt := AnsiUpperCase(OldPattern);
+    end else
+    begin
+      SearchStr := S;
+      Patt := OldPattern;
+    end;
+    NewStr := S;
+    Result := '';
+    if SearchStr.Length <> S.Length then
+    begin
+      I := FirstIndex;
+      L := OldPattern.Length;
+      while I <= High(S) do
       begin
-        Result := Result + NewPattern;
-        Inc(I, L);
-        if not (rfReplaceAll in Flags) then
+        if string.Compare(S, I - FirstIndex, OldPattern, 0, L, True) = 0 then
         begin
-          Result := Result + S.Substring(I - FirstIndex, MaxInt);
+          Result := Result + NewPattern;
+          Inc(I, L);
+          if not (rfReplaceAll in Flags) then
+          begin
+            Result := Result + S.Substring(I - FirstIndex, MaxInt);
+            Break;
+          end;
+        end
+        else
+        begin
+          Result := Result + S[I];
+          Inc(I);
+        end;
+      end;
+    end
+    else
+    begin
+      while SearchStr <> '' do
+      begin
+        Offset := PosIEx(Patt, SearchStr, FirstIndex);
+        if Offset = 0 then
+        begin
+          Result := Result + NewStr;
           Break;
         end;
-      end
-      else
-      begin
-        Result := Result + S[I];
-        Inc(I);
+        Result := Result + Copy(NewStr, 1, Offset - 1) + NewPattern;
+        NewStr := Copy(NewStr, Offset + Length(OldPattern), MaxInt);
+        if not (rfReplaceAll in Flags) then
+        begin
+          Result := Result + NewStr;
+          Break;
+        end;
+        SearchStr := Copy(SearchStr, Offset + Length(Patt), MaxInt);
       end;
     end;
   end
   else
   begin
-    while SearchStr <> '' do
-    begin
-      Offset := PosIEx(Patt, SearchStr, FirstIndex);
-      if Offset = 0 then
-      begin
-        Result := Result + NewStr;
-        Break;
-      end;
-      Result := Result + Copy(NewStr, 1, Offset - 1) + NewPattern;
-      NewStr := Copy(NewStr, Offset + Length(OldPattern), MaxInt);
-      if not (rfReplaceAll in Flags) then
-      begin
-        Result := Result + NewStr;
-        Break;
-      end;
-      SearchStr := Copy(SearchStr, Offset + Length(Patt), MaxInt);
-    end;
+    Result := S;
   end;
 end;
 
 function RespaceOverviewName(strText: string; blnAddTabs: boolean): string;
 var
   iPos: integer;
-
-  function posColonOrStart(strText: string): integer;
-  begin
-    Result := Max(pos(':', strText), low(string));
-  end;
 
 begin
   Result := trim(strText);
@@ -313,8 +315,8 @@ begin
   Result := StringReplace(Result, ', ', ',', [rfReplaceAll]);
   Result := StringReplace(Result, ' -', '-', [rfReplaceAll]);
   Result := StringReplace(Result, '- ', '-', [rfReplaceAll]);
-  Result := StringReplace(Result, 'en ', 'en', posColonOrStart(Result), [rfReplaceAll]);
-  Result := StringReplace(Result, ' en', 'en', posColonOrStart(Result), [rfReplaceAll]);
+  Result := StringReplace(Result, 'en ', 'en', pos(':', Result), [rfReplaceAll]);
+  Result := StringReplace(Result, ' en', 'en', pos(':', Result), [rfReplaceAll]);
 
   if blnAddTabs then begin
     iPos := FindLastDelimiter(' ', Result);
@@ -334,7 +336,7 @@ begin
 
   Result := StringReplace(Result, ',', ', ', [rfReplaceAll]);
   Result := StringReplace(Result, '-', ' - ', [rfReplaceAll]);
-  Result := StringReplace(Result, 'en', ' en ', posColonOrStart(Result), [rfReplaceAll]);
+  Result := StringReplace(Result, 'en', ' en ', pos(':', Result), [rfReplaceAll]);
 
   if Length(Result) > 0 then begin
     Result[1] := UpCase(Result[1]);
