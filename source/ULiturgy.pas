@@ -4,7 +4,7 @@ interface
 
 uses
   System.Generics.Collections, System.Generics.Defaults, Data.DBXJSON, System.JSON, Classes,
-  UFastKeysSS, UProject, UUtilsJSON;
+  UFastKeysSS, UProject, UUtilsJSON, USlideTemplate;
 
 type
   TLiturgy = class(TJSONPersistent)
@@ -20,7 +20,9 @@ type
     constructor Create(strName: string); virtual;
     destructor Destroy; override;
 
-    procedure FillProject(project: TProject);
+    procedure FillProjectProperties(project: TProject);
+    procedure FillProjectSlides(project: TProject; AFilterSlideTypeOptions: TSlideTypeOptions);
+    function GetSlideTypeOptions: TSlideTypeOptions;
 
     property Name: string read FName;
     property MenuOrder: integer read FMenuOrder write FMenuOrder;
@@ -52,7 +54,7 @@ implementation
 
 uses
   SysUtils,
-  USlideTemplate, USlide, USettings, UUtils;
+  USlide, USettings, UUtils;
 
 var
   gl_Liturgies: TLiturgies = nil;
@@ -83,13 +85,14 @@ begin
   liturgy.ProjectProperties['collecte1'] := '';
   liturgy.ProjectProperties['collecte2'] := '';
 
-
   //// Orde van dienst A morgendienst
   liturgy := GetLiturgies.Add('Orde van dienst A morgendienst', 10);
   liturgy.ProjectProperties['speaker'] := 'Voorganger: ds A.J. van Zuijlekom';
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+
+  liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -116,6 +119,7 @@ begin
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+  liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -142,6 +146,11 @@ begin
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+  liturgy.SlideTemplates.Add('AED in geval van nood');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 vanmorgen');
+  liturgy.SlideTemplates.Add('Kompas 7-8 vanmorgen');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas vanmorgen');
+
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -151,11 +160,19 @@ begin
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   // dienst van het woord
   liturgy.SlideTemplates.Add('Gebed');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 naar de zalen');
+  liturgy.SlideTemplates.Add('Kompas 7-8 naar de zalen');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas naar de zalen');
+
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
+  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
+
   // Dienst van de Tafel / Dienst van de Dankbaarheid
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
@@ -172,6 +189,7 @@ begin
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+  liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -197,6 +215,11 @@ begin
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+  liturgy.SlideTemplates.Add('AED in geval van nood');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 vanmorgen');
+  liturgy.SlideTemplates.Add('Kompas 7-8 vanmorgen');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas vanmorgen');
+
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -205,11 +228,19 @@ begin
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   // dienst van het woord
   liturgy.SlideTemplates.Add('Gebed');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 naar de zalen');
+  liturgy.SlideTemplates.Add('Kompas 7-8 naar de zalen');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas naar de zalen');
+
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
+  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
+
   // Dienst van de Tafel / Dienst van de Dankbaarheid
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
@@ -229,6 +260,7 @@ begin
   liturgy.ProjectProperties['collecte1'] := 'Eredienst';
   liturgy.ProjectProperties['collecte2'] := 'Diaconaal doel';
   // aanvang
+  liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
   liturgy.SlideTemplates.Add('Stilte moment');
@@ -328,18 +360,24 @@ begin
   inherited;
 end;
 
-procedure TLiturgy.FillProject(project: TProject);
+procedure TLiturgy.FillProjectProperties(project: TProject);
+var
+  i: integer;
+begin
+  for i := 0 to ProjectProperties.Count -1 do begin
+    project.Properties[ProjectProperties.KeyOfIndex[i]] := ProjectProperties.ValueOfIndex[i];
+  end;
+end;
+
+procedure TLiturgy.FillProjectSlides(project: TProject; AFilterSlideTypeOptions: TSlideTypeOptions);
 var
   i: integer;
   template: TSlideTemplate;
   slide: TSlide;
 begin
-  for i := 0 to ProjectProperties.Count -1 do begin
-    project.Properties[ProjectProperties.KeyOfIndex[i]] := ProjectProperties.ValueOfIndex[i];
-  end;
   for i := 0 to SlideTemplates.Count -1 do begin
     template := GetSlideTemplates.FindByName(SlideTemplates[i]);
-    if Assigned(template) then begin
+    if Assigned(template) and (template.TypeOption in AFilterSlideTypeOptions) then begin
       slide := template.DoOnAdd(false);
       try
         if Assigned(slide) then begin
@@ -359,6 +397,22 @@ begin
   Result.AddPair('MenuOrder', TJSONNumber.Create(FMenuOrder));
   Result.AddPair('ProjectProperties', FProjectProperties.AsJSonObject);
   Result.AddPair(CreateStringListPair('SlideTemplates', FSlideTemplates));
+end;
+
+function TLiturgy.GetSlideTypeOptions: TSlideTypeOptions;
+var
+  i: integer;
+  template: TSlideTemplate;
+begin
+  Result := [];
+  for i := 0 to SlideTemplates.Count -1 do
+  begin
+    template := GetSlideTemplates.FindByName(SlideTemplates[i]);
+    if Assigned(template) then
+    begin
+      include(Result, template.TypeOption);
+    end;
+  end;
 end;
 
 procedure TLiturgy.SetAsJSonObject(const Value: TJSONObject);

@@ -53,7 +53,9 @@ uses
   UfrmEditBook in '..\..\source\UfrmEditBook.pas' {frmEditBook},
   USourceBook in '..\..\source\USourceBook.pas',
   UfrmBrowseBook in '..\..\source\UfrmBrowseBook.pas' {frmBrowseBook},
-  RegExpr in '..\..\source\RegExpr.pas';
+  RegExpr in '..\..\source\RegExpr.pas',
+  UfrmNewProjectOptions in '..\..\source\UfrmNewProjectOptions.pas' {frmNewProjectOptions},
+  UframeProjectProperties in '..\..\source\UframeProjectProperties.pas' {FrameProjectProperties: TFrame};
 
 {$R *.res}
 

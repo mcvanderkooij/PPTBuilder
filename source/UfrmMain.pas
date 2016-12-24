@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ButtonGroup, Vcl.Menus,
-  UProject, Vcl.ExtCtrls, Vcl.AppEvnts, UFastKeysSO, USnapshot;
+  UProject, Vcl.ExtCtrls, Vcl.AppEvnts, UFastKeysSO, USnapshot, USlideTemplate,
+  UframeProjectProperties;
 
 type
   TfrmMain = class(TForm)
@@ -19,34 +20,23 @@ type
     mniFileBuildPPT: TMenuItem;
     lbSlides: TListBox;
     Label1: TLabel;
-    Label2: TLabel;
-    edtSpeaker: TEdit;
     OpenDialogProject: TOpenDialog;
     SaveDialogProject: TSaveDialog;
     SaveDialogPPT: TSaveDialog;
     ppmSlides: TPopupMenu;
     mniSlidesDelete: TMenuItem;
-    Label3: TLabel;
-    edtCollecte1: TEdit;
-    Label4: TLabel;
-    edtCollecte2: TEdit;
     mniSlidesCopy: TMenuItem;
     CategoryPanelGroup1: TCategoryPanelGroup;
     CategoryPanel1: TCategoryPanel;
     ApplicationEvents1: TApplicationEvents;
     mniSettings: TMenuItem;
     N2: TMenuItem;
-    btnSpeakerAdd: TButton;
-    btnSpeakerSelect: TButton;
-    btnCollecte1Add: TButton;
-    btnCollecte1Select: TButton;
-    btnCollecte2Add: TButton;
-    btnCollecte2Select: TButton;
     mniFileRecentlyUsed: TMenuItem;
     mniEdit: TMenuItem;
     mniEditUndo: TMenuItem;
     mniEditRedo: TMenuItem;
     lblVersion: TLabel;
+    FrameProjectProperties1: TFrameProjectProperties;
 
     procedure FormCreate(Sender: TObject);
     procedure ButtonGroupNewSlideButtonClicked(Sender: TObject; Index: Integer);
@@ -73,12 +63,6 @@ type
     procedure mniSettingsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure btnSpeakerAddClick(Sender: TObject);
-    procedure btnCollecte1AddClick(Sender: TObject);
-    procedure btnCollecte2AddClick(Sender: TObject);
-    procedure btnSpeakerSelectClick(Sender: TObject);
-    procedure btnCollecte1SelectClick(Sender: TObject);
-    procedure btnCollecte2SelectClick(Sender: TObject);
     procedure mniFileClick(Sender: TObject);
     procedure mniEditUndoClick(Sender: TObject);
     procedure mniEditRedoClick(Sender: TObject);
@@ -148,8 +132,9 @@ implementation
 
 uses
   PNGImage, GR32, GR32_Misc2,
-  GnuGetText, UUtils, UUtilsForms, USlide, USlideTemplate, UBuildPowerpoint, UMRUList,
-  ULiturgy, USourceInfo, UfrmSettings, USettings, UfrmSelectString, UfrmQuickStart;
+  GnuGetText, UUtils, UUtilsForms, USlide, UBuildPowerpoint, UMRUList,
+  ULiturgy, USourceInfo, UfrmSettings, USettings, UfrmSelectString,
+  UfrmQuickStart, UfrmNewProjectOptions;
 
 procedure TfrmMain.AddSnapshot;
 var
@@ -170,73 +155,12 @@ procedure TfrmMain.ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
 begin
   HasChanged := FLastProjectHash <> FSavedProjectHash;
 
-  btnSpeakerAdd.Enabled := (edtSpeaker.Text <> '') and (GetSettings.Speakers.IndexOf(edtSpeaker.Text) = -1);
-  btnCollecte1Add.Enabled := (edtCollecte1.Text <> '') and (GetSettings.Collecte1.IndexOf(edtCollecte1.Text) = -1);
-  btnCollecte2Add.Enabled := (edtCollecte2.Text <> '') and (GetSettings.Collecte2.IndexOf(edtCollecte2.Text) = -1);
-
   mniEditUndo.Enabled := GetHasUndo;
   mniEditRedo.Enabled := GetHasRedo;
 
   if FShowQuickstart then begin
     FShowQuickstart := False;
     DoShowQuickStart;
-  end;
-end;
-
-procedure TfrmMain.btnCollecte1AddClick(Sender: TObject);
-begin
-  GetSettings.Collecte1.Add(edtCollecte1.Text);
-  GetSettings.Save;
-end;
-
-procedure TfrmMain.btnCollecte1SelectClick(Sender: TObject);
-var
-  strSelected: string;
-  blnStringsChanged: boolean;
-begin
-  strSelected := edtCollecte1.Text;
-  if SelectString(GetSettings.Collecte1, _('Select Collecte 1'), strSelected, blnStringsChanged) then begin
-    edtCollecte1.Text := strSelected;
-    if blnStringsChanged then
-      GetSettings.Save;
-  end;
-end;
-
-procedure TfrmMain.btnCollecte2AddClick(Sender: TObject);
-begin
-  GetSettings.Collecte2.Add(edtCollecte2.Text);
-  GetSettings.Save;
-end;
-
-procedure TfrmMain.btnCollecte2SelectClick(Sender: TObject);
-var
-  strSelected: string;
-  blnStringsChanged: boolean;
-begin
-  strSelected := edtCollecte2.Text;
-  if SelectString(GetSettings.Collecte2, _('Select Collecte 2'), strSelected, blnStringsChanged) then begin
-    edtCollecte2.Text := strSelected;
-    if blnStringsChanged then
-      GetSettings.Save;
-  end;
-end;
-
-procedure TfrmMain.btnSpeakerAddClick(Sender: TObject);
-begin
-  GetSettings.Speakers.Add(edtSpeaker.Text);
-  GetSettings.Save;
-end;
-
-procedure TfrmMain.btnSpeakerSelectClick(Sender: TObject);
-var
-  strSelected: string;
-  blnStringsChanged: boolean;
-begin
-  strSelected := edtSpeaker.Text;
-  if SelectString(GetSettings.Speakers, _('Select Speaker'), strSelected, blnStringsChanged) then begin
-    edtSpeaker.Text := strSelected;
-    if blnStringsChanged then
-      GetSettings.Save;
   end;
 end;
 
@@ -330,6 +254,7 @@ function TfrmMain.DoProjectCreate(strLiturgy: string): string;
 var
   project: TProject;
   liturgy: TLiturgy;
+  LSlideTypeOptions: TSlideTypeOptions;
 begin
 //  if FFileName <> '' then begin
 //    DoSave(FFileName);
@@ -339,7 +264,17 @@ begin
     try
       liturgy := GetLiturgies.FindByName(strLiturgy);
       if Assigned(liturgy) then begin
-        liturgy.FillProject(project);
+        liturgy.FillProjectProperties(project);
+        LSlideTypeOptions := liturgy.GetSlideTypeOptions;
+        if (LSlideTypeOptions <> []) and (LSlideTypeOptions <> [stNone]) then
+        begin
+          if not GetProjectInfo(project, LSlideTypeOptions) then
+          begin
+            Result := '';
+            Exit;
+          end;
+        end;
+        liturgy.FillProjectSlides(project, LSlideTypeOptions);
       end;
       ProjectToForm(project);
       FSavedProjectHash := project.CreateHash;
@@ -372,8 +307,6 @@ begin
 end;
 
 function TfrmMain.DoOpen(strFileName: string): string;
-var
-  project: TProject;
 begin
   if CheckChanged then begin
     OpenDialogProject.InitialDir := extractFilePath(strFileName);
@@ -474,6 +407,7 @@ begin
   FPictos := TFastKeyValuesSO.Create;
   FSnapshotList := TSnapshotList.Create;
   FSnapshotList.Clear;
+  FrameProjectProperties1.OnChanged := edtCollecte1Exit;
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -814,17 +748,17 @@ begin
   if not Assigned(project) then begin
     project := TProject.Create;
   end;
-  project.Properties['speaker'] := edtSpeaker.Text;
-  project.Properties['collecte1'] := edtCollecte1.Text;
-  project.Properties['collecte2'] := edtCollecte2.Text;
+  project.Properties['speaker'] := FrameProjectProperties1.Speaker;
+  project.Properties['collecte1'] := FrameProjectProperties1.Collecte1;
+  project.Properties['collecte2'] := FrameProjectProperties1.Collecte2;
   project.Slides.Text := SlidesToString;
 end;
 
 procedure TfrmMain.ProjectToForm(project: TProject);
 begin
-  edtSpeaker.Text := project.Properties['speaker'];
-  edtCollecte1.Text := project.Properties['collecte1'];
-  edtCollecte2.Text := project.Properties['collecte2'];
+  FrameProjectProperties1.Speaker := project.Properties['speaker'];
+  FrameProjectProperties1.Collecte1 := project.Properties['collecte1'];
+  FrameProjectProperties1.Collecte2 := project.Properties['collecte2'];
   SlidesFromString(project.Slides.Text);
 end;
 
@@ -919,7 +853,6 @@ end;
 
 constructor TPictoObject.Create(strPictoFileName: string);
 var
-  png: TPngImage;
   bmp32, bmp32Dest: TBitmap32;
   bAlphaChannelUsed: boolean;
 begin

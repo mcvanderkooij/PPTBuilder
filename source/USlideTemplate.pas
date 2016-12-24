@@ -29,6 +29,9 @@ type
     epMemoMulti, epSlideVariables, epFooterEdit);
   TEditPossibilities = set of TEditPossibility;
 
+  TSlideTypeOption = (stNone, stEAD, stKidsclub06, stKompas78, stKidsclub06AndKompas78);
+  TSlideTypeOptions = set of TSlideTypeOption;
+
   TSlideTemplate = class(TJSONPersistent)
   private
     FName: string;
@@ -46,6 +49,7 @@ type
     FVariableDefaults: TFastKeyValuesSS;
     FMenuOrder: integer;
     FIsSubOverview: boolean;
+    FTypeOption: TSlideTypeOption;
     function GetName: string;
     function GetSlideLayoutName: string;
     function GetVariableOptions: TFastKeyValuesSS;
@@ -63,6 +67,7 @@ type
     property Name: string read GetName;
     property MenuOrder: integer read FMenuOrder write FMenuOrder;
     property CategoryName: string read FCategoryName;
+    property TypeOption: TSlideTypeOption read FTypeOption write FTypeOption;
     property SlideLayoutName: string read GetSlideLayoutName;
     property EditPossibilities: TEditPossibilities read FEditPossibilities write FEditPossibilities;
     property OverviewType: TOverviewType read FOverviewType write FOverviewType;
@@ -202,6 +207,7 @@ begin
     oSources.Add(source);
   end;
   template := gl_SlideTemplates.Add('AED in geval van nood', 'Algemeen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stEAD;
   template.AreaData.AddSlideItem('content', ctExtSlide, oSources);
   template.PictoName := TSourceInfo.CreateAsFileName('');
   template.FollowedByOverview := False;
@@ -698,6 +704,7 @@ begin
   source.SlideName := 'Slide2';
   source.ShapeName := '';
   template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.PictoName := TSourceInfo.CreateAsFileName('');
@@ -709,6 +716,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide4';
   template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -719,6 +727,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
   template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -746,6 +755,7 @@ begin
   source.SlideName := 'Slide1';
   source.ShapeName := '';
   template := gl_SlideTemplates.Add('Kompas 7-8 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.PictoName := TSourceInfo.CreateAsFileName('');
@@ -757,6 +767,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide2';
   template := gl_SlideTemplates.Add('Kompas 7-8 naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -767,6 +778,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
   template := gl_SlideTemplates.Add('Kompas 7-8 terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -795,6 +807,7 @@ begin
   source.SlideName := 'Slide2';
   source.ShapeName := '';
   template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06AndKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.PictoName := TSourceInfo.CreateAsFileName('');
@@ -806,6 +819,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
   template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06AndKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -816,6 +830,7 @@ begin
   source := source.DeepCopy;
   source.SlideName := 'Slide4';
   template := gl_SlideTemplates.Add('Kidsbijbelclub en Kompas terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template.TypeOption := stKidsclub06AndKompas78;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
@@ -1164,6 +1179,7 @@ begin
   inherited Create;
   FName := strName;
   FCategoryName := strCategoryName;
+  FTypeOption := stNone;
   FSlideLayoutName := strSlideLayoutName;
   FEditPossibilities := [epFixed];
   FAreaData := TSlideItems.Create;
@@ -1361,6 +1377,7 @@ begin
   Result.AddPair('Name', EscapeString(FName));
   Result.AddPair('MenuOrder', TJSONNumber.Create(FMenuOrder));
   Result.AddPair('CategoryName', EscapeString(FCategoryName));
+  Result.AddPair('TypeOption', TJSONNumber.Create(ord(FTypeOption)));
   Result.AddPair('SlideLayoutName', EscapeString(FSlideLayoutName));
   Result.AddPair('AreaData', FAreaData.AsJSonObject);
   Result.AddPair('SelectContentSubDir', EscapeString(FSelectContentSubDir));
@@ -1405,7 +1422,7 @@ begin
   FName := UUtilsJSON.GetAsString(Value, 'Name');
   FMenuOrder := UUtilsJSON.GetAsInteger(Value, 'MenuOrder');
   FCategoryName := UUtilsJSON.GetAsString(Value, 'CategoryName');
-
+  FTypeOption := TSlideTypeOption(UUtilsJSON.GetAsInteger(Value, 'TypeOption'));
   FSlideLayoutName := UUtilsJSON.GetAsString(Value, 'SlideLayoutName');
   FAreaData.AsJSonObject := UUtilsJSon.GetAsObject(Value, 'AreaData');
   FSelectContentSubDir := UUtilsJSON.GetAsString(Value, 'SelectContentSubDir');

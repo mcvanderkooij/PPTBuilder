@@ -32,33 +32,6 @@ object frmMain: TfrmMain
     Caption = 'Add Slide'
     ExplicitLeft = 327
   end
-  object Label2: TLabel
-    Left = 8
-    Top = 436
-    Width = 43
-    Height = 13
-    Anchors = [akLeft, akBottom]
-    Caption = 'Speaker:'
-    ExplicitTop = 472
-  end
-  object Label3: TLabel
-    Left = 8
-    Top = 463
-    Width = 51
-    Height = 13
-    Anchors = [akLeft, akBottom]
-    Caption = 'Collecte 1:'
-    ExplicitTop = 499
-  end
-  object Label4: TLabel
-    Left = 8
-    Top = 490
-    Width = 51
-    Height = 13
-    Anchors = [akLeft, akBottom]
-    Caption = 'Collecte 2:'
-    ExplicitTop = 526
-  end
   object lblVersion: TLabel
     Left = 903
     Top = 495
@@ -92,37 +65,6 @@ object frmMain: TfrmMain
     OnDragOver = lbSlidesDragOver
     OnDrawItem = lbSlidesDrawItem
     OnMouseDown = lbSlidesMouseDown
-    ExplicitHeight = 439
-  end
-  object edtSpeaker: TEdit
-    Left = 112
-    Top = 433
-    Width = 360
-    Height = 21
-    Anchors = [akLeft, akBottom]
-    TabOrder = 2
-    OnExit = edtCollecte1Exit
-    ExplicitTop = 459
-  end
-  object edtCollecte1: TEdit
-    Left = 112
-    Top = 460
-    Width = 360
-    Height = 21
-    Anchors = [akLeft, akBottom]
-    TabOrder = 5
-    OnExit = edtCollecte1Exit
-    ExplicitTop = 486
-  end
-  object edtCollecte2: TEdit
-    Left = 112
-    Top = 487
-    Width = 360
-    Height = 21
-    Anchors = [akLeft, akBottom]
-    TabOrder = 8
-    OnExit = edtCollecte1Exit
-    ExplicitTop = 513
   end
   object CategoryPanelGroup1: TCategoryPanelGroup
     Left = 666
@@ -138,7 +80,6 @@ object frmMain: TfrmMain
     HeaderFont.Name = 'Tahoma'
     HeaderFont.Style = []
     TabOrder = 1
-    ExplicitHeight = 420
     object CategoryPanel1: TCategoryPanel
       Top = 0
       Height = 169
@@ -146,107 +87,15 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
   end
-  object btnSpeakerAdd: TButton
-    Left = 478
-    Top = 432
-    Width = 23
-    Height = 23
+  inline FrameProjectProperties1: TFrameProjectProperties
+    Left = 8
+    Top = 427
+    Width = 542
+    Height = 87
     Anchors = [akLeft, akBottom]
-    Caption = '+'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 3
-    OnClick = btnSpeakerAddClick
-    ExplicitTop = 458
-  end
-  object btnSpeakerSelect: TButton
-    Left = 507
-    Top = 432
-    Width = 23
-    Height = 23
-    Anchors = [akLeft, akBottom]
-    Caption = '...'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 4
-    OnClick = btnSpeakerSelectClick
-    ExplicitTop = 458
-  end
-  object btnCollecte1Add: TButton
-    Left = 478
-    Top = 459
-    Width = 23
-    Height = 23
-    Anchors = [akLeft, akBottom]
-    Caption = '+'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 6
-    OnClick = btnCollecte1AddClick
-    ExplicitTop = 485
-  end
-  object btnCollecte1Select: TButton
-    Left = 507
-    Top = 459
-    Width = 23
-    Height = 23
-    Anchors = [akLeft, akBottom]
-    Caption = '...'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 7
-    OnClick = btnCollecte1SelectClick
-    ExplicitTop = 485
-  end
-  object btnCollecte2Add: TButton
-    Left = 478
-    Top = 486
-    Width = 23
-    Height = 23
-    Anchors = [akLeft, akBottom]
-    Caption = '+'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 9
-    OnClick = btnCollecte2AddClick
-    ExplicitTop = 512
-  end
-  object btnCollecte2Select: TButton
-    Left = 507
-    Top = 486
-    Width = 23
-    Height = 23
-    Anchors = [akLeft, akBottom]
-    Caption = '...'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 10
-    OnClick = btnCollecte2SelectClick
-    ExplicitTop = 512
+    TabOrder = 2
+    ExplicitLeft = 8
+    ExplicitTop = 427
   end
   object MainMenu1: TMainMenu
     AutoHotkeys = maManual
