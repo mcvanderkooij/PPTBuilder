@@ -186,6 +186,15 @@ begin
   template.EditPossibilities := [epSinglePage];
 
   inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Afscheid - 15.00', 'Algemeen', 'Titlepage-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanmiddag 15.00 uur D.V.');
+  template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');
+  template.SelectContentSubDir := 'pictures';
+  template.FollowedByOverview := False;
+  template.EditPossibilities := [epSinglePage];
+
+  inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Afscheid - 19.00', 'Algemeen', 'Titlepage-layout', iMenuOrder);
   template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanavond 19.00 uur D.V.');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
