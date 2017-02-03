@@ -24,3 +24,5 @@
 __history/
 *.~*
 *.bak
+*.cbk
+source/__recovery/
