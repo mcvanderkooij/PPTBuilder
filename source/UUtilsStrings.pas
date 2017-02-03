@@ -315,8 +315,8 @@ begin
   Result := StringReplace(Result, ', ', ',', [rfReplaceAll]);
   Result := StringReplace(Result, ' -', '-', [rfReplaceAll]);
   Result := StringReplace(Result, '- ', '-', [rfReplaceAll]);
-  Result := StringReplace(Result, 'en ', 'en', pos(':', Result), [rfReplaceAll]);
-  Result := StringReplace(Result, ' en', 'en', pos(':', Result), [rfReplaceAll]);
+  Result := StringReplace(Result, 'en ', 'en'#8, pos(':', Result), [rfReplaceAll]);
+  Result := StringReplace(Result, ' en', #8'en', pos(':', Result), [rfReplaceAll]);
 
   if blnAddTabs then begin
     iPos := FindLastDelimiter(' ', Result);
@@ -334,9 +334,31 @@ begin
   end else
     Result := StringReplace(Result, ':', ' : ', [rfReplaceAll]);
 
+  Result := StringReplace(Result, 'en'#8, 'en ', pos(':', Result), [rfReplaceAll]);
+  Result := StringReplace(Result, #8'en', ' en', pos(':', Result), [rfReplaceAll]);
+
   Result := StringReplace(Result, ',', ', ', [rfReplaceAll]);
   Result := StringReplace(Result, '-', ' - ', [rfReplaceAll]);
-  Result := StringReplace(Result, 'en', ' en ', pos(':', Result), [rfReplaceAll]);
+
+  iPos := PosIEx('en', Result, pos(':', Result));
+  while iPos > 0 do
+  begin
+    if IsDigit(Result[iPos -1]) then
+    begin
+      insert(' ', Result, iPos);
+      inc(iPos);
+    end;
+    inc(iPos, 2);
+    if iPos <= Length(Result) then
+    begin
+      if IsDigit(Result[iPos]) then
+      begin
+        insert(' ', Result, iPos);
+        inc(iPos);
+      end;
+    end;
+    iPos := PosIEx('en', Result, iPos);
+  end;
 
   if Length(Result) > 0 then begin
     Result[1] := UpCase(Result[1]);
