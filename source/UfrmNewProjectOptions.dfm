@@ -36,8 +36,6 @@ object frmNewProjectOptions: TfrmNewProjectOptions
     Default = True
     ModalResult = 1
     TabOrder = 0
-    ExplicitLeft = 167
-    ExplicitTop = 320
   end
   object btnCancel: TButton
     Left = 466
@@ -49,8 +47,6 @@ object frmNewProjectOptions: TfrmNewProjectOptions
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 1
-    ExplicitLeft = 248
-    ExplicitTop = 320
   end
   inline FrameProjectProperties1: TFrameProjectProperties
     Left = 8
@@ -58,8 +54,6 @@ object frmNewProjectOptions: TfrmNewProjectOptions
     Width = 542
     Height = 87
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 8
   end
   object lbSlideOptions: TCheckListBox
     Left = 120

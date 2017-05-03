@@ -103,7 +103,7 @@ begin
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
@@ -112,6 +112,8 @@ begin
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 15.00');
+  liturgy.SlideTemplates.Add('Afscheid - 16.30');
+  liturgy.SlideTemplates.Add('Afscheid - 19.00');
 
   //// Orde van dienst A middagdienst
   liturgy := GetLiturgies.Add('Orde van dienst A middagdienst', 20);
@@ -176,12 +178,14 @@ begin
   // Dienst van de Tafel / Dienst van de Dankbaarheid
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 15.00');
+  liturgy.SlideTemplates.Add('Afscheid - 16.30');
+  liturgy.SlideTemplates.Add('Afscheid - 19.00');
 
   //// Orde van dienst B middagdienst
   liturgy := GetLiturgies.Add('Orde van dienst B middagdienst', 40);
@@ -247,12 +251,14 @@ begin
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
 //  liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
   liturgy.SlideTemplates.Add('Afscheid - 15.00');
+  liturgy.SlideTemplates.Add('Afscheid - 16.30');
+  liturgy.SlideTemplates.Add('Afscheid - 19.00');
 
   //// Orde van dienst C middagdienst
   liturgy := GetLiturgies.Add('Orde van dienst C middagdienst', 60);

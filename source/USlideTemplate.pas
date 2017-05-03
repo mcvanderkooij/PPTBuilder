@@ -29,7 +29,7 @@ type
     epMemoMulti, epSlideVariables, epFooterEdit);
   TEditPossibilities = set of TEditPossibility;
 
-  TSlideTypeOption = (stNone, stEAD, stKidsclub06, stKompas78, stKidsclub06AndKompas78);
+  TSlideTypeOption = (stNone, stEAD, stKidsclub06, stKompas78, stKidsclub06AndKompas78, stAfscheid1500, stAfscheid1630, stAfscheid1900);
   TSlideTypeOptions = set of TSlideTypeOption;
 
   TSlideTemplate = class(TJSONPersistent)
@@ -178,6 +178,7 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Afscheid - 16.30', 'Algemeen', 'Titlepage-layout', iMenuOrder);
+  template.TypeOption := stAfscheid1630;
   template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanmiddag 16.30 uur D.V.');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');
@@ -187,6 +188,7 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Afscheid - 15.00', 'Algemeen', 'Titlepage-layout', iMenuOrder);
+  template.TypeOption := stAfscheid1500;
   template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanmiddag 15.00 uur D.V.');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');
@@ -196,6 +198,7 @@ begin
 
   inc(iMenuOrder, 10);
   template := gl_SlideTemplates.Add('Afscheid - 19.00', 'Algemeen', 'Titlepage-layout', iMenuOrder);
+  template.TypeOption := stAfscheid1900;
   template.AreaData.AddSlideItemString('footer', ctText, 'Tot vanavond 19.00 uur D.V.');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');

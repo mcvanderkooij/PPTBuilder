@@ -100,6 +100,14 @@ begin
     lbSlideOptions.Items.AddObject(_('Kidsclub groep 0-6'), TObject(ord(stKidsclub06)));
   if (stKompas78 in ASlideTypeOptions) or (stKidsclub06AndKompas78 in ASlideTypeOptions) then
     lbSlideOptions.Items.AddObject(_('Kompas groep 7-8'), TObject(ord(stKompas78)));
+
+  if (stAfscheid1500 in ASlideTypeOptions) then
+    lbSlideOptions.Items.AddObject(_('Afscheid 1500 uur'), TObject(ord(stAfscheid1500)));
+  if (stAfscheid1500 in ASlideTypeOptions) then
+    lbSlideOptions.Items.AddObject(_('Afscheid 1630 uur'), TObject(ord(stAfscheid1630)));
+  if (stAfscheid1500 in ASlideTypeOptions) then
+    lbSlideOptions.Items.AddObject(_('Afscheid 1900 uur'), TObject(ord(stAfscheid1900)));
+
 end;
 
 procedure TfrmNewProjectOptions.ProjectToForm(project: TProject);
