@@ -161,7 +161,7 @@ begin
   //Algemeen
   iMenuOrder := 10000;
   template := gl_SlideTemplates.Add('Welkom', 'Algemeen', 'Titlepage-layout', iMenuOrder);
-  template.AreaData.AddSlideItemString('footer', ctText, 'Welkom in de Kandelaarkerk te Stadskanaal');
+  template.AreaData.AddSlideItemString('footer', ctText, 'Welkom in "De Lichtbron" te Stadskanaal');
   template.AreaData.AddSlideItemFileName('content', ctPicture, '<content>pictures\kerk-zon.jpg');
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kerkenraad.png');
   template.SelectContentSubDir := 'pictures';
