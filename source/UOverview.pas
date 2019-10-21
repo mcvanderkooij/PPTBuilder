@@ -150,6 +150,7 @@ begin
                     strOverviewLine := strOverviewLine + ',';
                   strOverviewLine2 := strOverviewLine + ' ';
                 end;
+                inc(iLinePart);
               end;
               if strOverviewLine <> '' then
                 slOverView[slide.OverviewType].Add(strColor + strPrefix + strOverviewLine + strColor);

@@ -712,10 +712,10 @@ begin
   source.SourceType := sitPPT;
   source.Description := '';
   source.Text := '';
-  source.FileName := '<content>ppts\Kindmoment_Groep_0-6.ppt';
+  source.FileName := '<content>ppts\Kindmoment_Groep_1-6.ppt';
   source.SlideName := 'Slide2';
   source.ShapeName := '';
-  template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Kidsbijbelclub 1-6 vanmorgen', 'Kinderen', 'Content-layout', iMenuOrder);
   template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   //template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
@@ -727,7 +727,7 @@ begin
   inc(iMenuOrder, 10);
   source := source.DeepCopy;
   source.SlideName := 'Slide4';
-  template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Kidsbijbelclub 1-6 naar de zalen', 'Kinderen', 'Content-layout', iMenuOrder);
   template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
@@ -738,7 +738,7 @@ begin
   inc(iMenuOrder, 10);
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
-  template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 terug', 'Kinderen', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Kidsbijbelclub 1-6 terug', 'Kinderen', 'Content-layout', iMenuOrder);
   template.TypeOption := stKidsclub06;
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
@@ -749,7 +749,7 @@ begin
   inc(iMenuOrder, 10);
   source := source.DeepCopy;
   source.SlideName := 'Slide3';
-  template := gl_SlideTemplates.Add('Kidsbijbelclub 0-6 terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
+  template := gl_SlideTemplates.Add('Kidsbijbelclub 1-6 terug (avondmaal)', 'Kinderen', 'Content-layout', iMenuOrder);
   template.AreaData.AddSlideItem('content', ctExtSlide, source);
   template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\kinderen.png');
   template.OverviewType := otIgnore;
