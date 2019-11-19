@@ -162,7 +162,7 @@ begin
       end;
     end;
 
-    iFontSizeNeeded := 32;
+    iFontSizeNeeded := 32 * 2;
     strSize := '';//'<b>';
     iMaxRows := slideOverview.Layout.Values['content'].GetMaxRows(iFontSizeNeeded);
     iRowsNeeded := slOverView[otSong].Count + slOverView[otReading].Count + slOverView[otText].Count + 1;

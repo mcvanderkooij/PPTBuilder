@@ -148,14 +148,14 @@ begin
     LayoutTextRange( txtRange, '<white>', taColor, TColors.White, 0 );
     LayoutTextRange( txtRange, '<grey>', taColor, TColors.Grey, 0 );
     LayoutTextRange( txtRange, '<green>', taColor, TColors.Green, 0 );
-    LayoutTextRange( txtRange, '<14>', taSize, 0, 14 );
-    LayoutTextRange( txtRange, '<28>', taSize, 0, 28 );
-    LayoutTextRange( txtRange, '<32>', taSize, 0, 32 );
-    LayoutTextRange( txtRange, '<36>', taSize, 0, 36 );
-    LayoutTextRange( txtRange, '<40>', taSize, 0, 40 );
-    LayoutTextRange( txtRange, '<44>', taSize, 0, 44 );
-    LayoutTextRange( txtRange, '<48>', taSize, 0, 48 );
-    LayoutTextRange( txtRange, '<52>', taSize, 0, 52 );
+    LayoutTextRange( txtRange, '<14>', taSize, 0, 14 * 2 );
+    LayoutTextRange( txtRange, '<28>', taSize, 0, 28 * 2 );
+    LayoutTextRange( txtRange, '<32>', taSize, 0, 32 * 2 );
+    LayoutTextRange( txtRange, '<36>', taSize, 0, 36 * 2 );
+    LayoutTextRange( txtRange, '<40>', taSize, 0, 40 * 2 );
+    LayoutTextRange( txtRange, '<44>', taSize, 0, 44 * 2 );
+    LayoutTextRange( txtRange, '<48>', taSize, 0, 48 * 2 );
+    LayoutTextRange( txtRange, '<52>', taSize, 0, 52 * 2 );
     LayoutTextRange( txtRange, '<+>', taBullet, 0, 0 );
 //    inc(i);
     //txtRange := txtframe.TextRange.Lines(i, 1);
@@ -308,12 +308,7 @@ begin
                 dScaleWidth := rectSource.Width / rectDestination.Width;
                 dScaleHeight := rectSource.Height / rectDestination.Height;
 
-                if (dScaleWidth < 1) and (dScaleHeight < 1) then begin
-                  rectDestination.Left := layoutItem.Area.CenterPoint.X - trunc((rectSource.Width) / 2);
-                  rectDestination.Right := rectDestination.Left + trunc((rectSource.Width) );
-                  rectDestination.Top := layoutItem.Area.CenterPoint.Y - trunc((rectSource.Height) / 2);
-                  rectDestination.Bottom := rectDestination.Top + trunc((rectSource.Height) );
-                end else if dScaleWidth < dScaleHeight then begin
+                if dScaleWidth < dScaleHeight then begin
                   rectDestination.Left := layoutItem.Area.CenterPoint.X - trunc((rectSource.Width / dScaleHeight) / 2);
                   rectDestination.Right := rectDestination.Left + trunc((rectSource.Width / dScaleHeight) );
                 end else if dScaleWidth > dScaleHeight then begin
@@ -469,9 +464,9 @@ begin
     project.AfterCollecte := '$$$';
 
   //  presentation.PageSetup.SlideSize := ppSlideSizeCustom;
-  //  presentation.PageSetup.SlideWidth := 800;
-  //  presentation.PageSetup.SlideHeight := 600;
-    presentation.PageSetup.SlideSize := ppSlideSizeOnScreen; // 720x540
+    presentation.PageSetup.SlideSize := ppSlideSizeOnScreen16x9; // 720x540
+    presentation.PageSetup.SlideWidth := 1920;
+    presentation.PageSetup.SlideHeight := 1080;
 
     presentation.PageSetup.FirstSlideNumber := 1;
     presentation.PageSetup.SlideOrientation := msoOrientationHorizontal;

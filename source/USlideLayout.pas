@@ -7,15 +7,20 @@ uses
   UFastKeysSO;
 
 const
-  CScreenWidth = 720;
-  CScreenHeight = 540;
-  CViewMarge = 10;
-  CRibbonWidth = 45;
-  CFooterHeight = 40;
-  CFooterLeftWidth = 200;
-  CRemarkHeight = 40;
-  CRemarkMarge = 5;
-  CTABSTOP1 = 100;
+  CScreenWidth = 1920;
+  CScreenHeight = 1080;
+  CViewMarge = 10 * 2;
+  CRibbonWidth = 45 * 2;
+  CFooterHeight = 40 * 2;
+  CFooterLeftWidth = 200 * 2;
+  CRemarkHeight = 40 * 2;
+  CRemarkMarge = 5 * 2;
+  CTABSTOP1 = 100 * 2;
+
+  CFontSizeFooter = 26 * 2;
+  CFontSizeRemark = 28 * 2;
+  CFontSizeContent = 28 * 2;
+  CFontSizeTitle = 36 * 2;
 
   CFooterColor = TColor($0C0CB1);
 
@@ -125,7 +130,7 @@ begin
   else
     layout['footer'].AreaAlignment := alLeft;
   layout['footer'].FontColor := TColors.White;
-  layout['footer'].FontSize := 26;
+  layout['footer'].FontSize := CFontSizeFooter;
   layout['footer'].UseBackground := true;
   layout['footer'].BackgroundColor := CFooterColor;
 end;
@@ -138,7 +143,7 @@ begin
   layout['footer-left'].Area := Rect(0, CScreenHeight-CFooterHeight, CFooterLeftWidth, CScreenHeight);
   layout['footer-left'].AreaAlignment := alLeft;
   layout['footer-left'].FontColor := TColors.White;
-  layout['footer-left'].FontSize := 26;
+  layout['footer-left'].FontSize := CFontSizeFooter;
   layout['footer-left'].UseBackground := true;
   layout['footer-left'].BackgroundColor := CFooterColor;
 end;
@@ -159,7 +164,7 @@ begin
   layout['remark'].Area := Rect(0, CScreenHeight-CFooterHeight - CRemarkHeight -CRemarkMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight - CRemarkMarge);
   layout['remark'].AreaAlignment := alRight;
   layout['remark'].FontColor := TColors.White;
-  layout['remark'].FontSize := 28;
+  layout['remark'].FontSize := CFontSizeRemark;
   layout['remark'].UseBackground := true;
   layout['remark'].BackgroundColor := CFooterColor;
   layout['remark'].Autosize := true;
@@ -175,7 +180,7 @@ begin
   layout['content'].Visible := true;
   layout['content'].Area := Rect(0, 0, CScreenWidth, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 36;
+  layout['content'].FontSize := CFontSizeTitle;
 
   layout := gl_SlideLayouts.AddName('Content-layout');
   AddRibbon(layout);
@@ -184,7 +189,7 @@ begin
   layout['content'].Visible := true;
   layout['content'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
 
   layout := gl_SlideLayouts.AddName('Form-layout');
   AddFooter(layout, 0);
@@ -192,7 +197,7 @@ begin
   layout['content'].Visible := true;
   layout['content'].Area := Rect(CViewMarge*2, CViewMarge, CScreenWidth-CViewMarge*2, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
 
   layout := gl_SlideLayouts.AddName('Songs-layout');
   AddRibbon(layout);
@@ -202,7 +207,7 @@ begin
   layout['content'].Visible := true;
   layout['content'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
   AddRemark(layout);
 
   layout := gl_SlideLayouts.AddName('Center-layout');
@@ -213,7 +218,7 @@ begin
   layout['content'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content'].AreaAlignment := alCenter;
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
 
   layout := gl_SlideLayouts.AddName('Content2-layout');
   AddRibbon(layout);
@@ -222,12 +227,12 @@ begin
   layout['content1'].Visible := true;
   layout['content1'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CViewMarge + CContent2Height);
   layout['content1'].FontColor := TColors.White;
-  layout['content1'].FontSize := 28;
+  layout['content1'].FontSize := CFontSizeContent;
   layout['content'] := TLayoutItem.Create;
   layout['content'].Visible := true;
   layout['content'].Area := Rect(CViewMarge, CViewMarge + CContent2Height, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
 
   layout := gl_SlideLayouts.AddName('Content3-layout');
   AddRibbon(layout);
@@ -236,17 +241,17 @@ begin
   layout['content1'].Visible := true;
   layout['content1'].Area := Rect(CViewMarge, CViewMarge, CScreenWidth-CViewMarge-CRibbonWidth, CViewMarge + CContent3Height);
   layout['content1'].FontColor := TColors.White;
-  layout['content1'].FontSize := 28;
+  layout['content1'].FontSize := CFontSizeContent;
   layout['content'] := TLayoutItem.Create;
   layout['content'].Visible := true;
   layout['content'].Area := Rect(CViewMarge, CViewMarge + CContent3Height, CScreenWidth-CViewMarge-CRibbonWidth, CViewMarge + CContent3Height + CContent3Height);
   layout['content'].FontColor := TColors.White;
-  layout['content'].FontSize := 28;
+  layout['content'].FontSize := CFontSizeContent;
   layout['content3'] := TLayoutItem.Create;
   layout['content3'].Visible := true;
   layout['content3'].Area := Rect(CViewMarge, CViewMarge + CContent3Height + CContent3Height, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content3'].FontColor := TColors.White;
-  layout['content3'].FontSize := 28;
+  layout['content3'].FontSize := CFontSizeContent;
 end;
 
 { TSlideLayout }
