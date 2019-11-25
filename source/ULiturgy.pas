@@ -95,9 +95,10 @@ begin
   liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
+  liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Lezen');
@@ -124,15 +125,16 @@ begin
   liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
-  liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
+  liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
@@ -155,9 +157,10 @@ begin
 
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
+  liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   // dienst van het woord
@@ -171,14 +174,14 @@ begin
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
-  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
-  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
-  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
 
   // Dienst van de Tafel / Dienst van de Dankbaarheid
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
+  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
@@ -196,18 +199,20 @@ begin
   liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
+  liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Lezen');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
@@ -226,10 +231,11 @@ begin
 
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
   liturgy.SlideTemplates.Add('Schuldbelijdenis en Genadeverkondiging');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
+  liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   // dienst van het woord
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 naar de zalen');
@@ -241,9 +247,6 @@ begin
   liturgy.SlideTemplates.Add('Tekst');
   liturgy.SlideTemplates.Add('Preek');
   liturgy.SlideTemplates.Add('Zingen-zit-PPT');
-  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
-  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
-  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
 
   // Dienst van de Tafel / Dienst van de Dankbaarheid
   liturgy.SlideTemplates.Add('Wet - 10 geboden');
@@ -252,6 +255,9 @@ begin
   liturgy.SlideTemplates.Add('Gebed');
 //  liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
   liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
+  liturgy.SlideTemplates.Add('Kidsbijbelclub 0-6 terug');
+  liturgy.SlideTemplates.Add('Kompas 7-8 terug');
+  liturgy.SlideTemplates.Add('Kidsbijbelclub en Kompas terug');
 //  liturgy.SlideTemplates.Add('Avondmaal picto');
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
@@ -269,9 +275,10 @@ begin
   liturgy.SlideTemplates.Add('AED in geval van nood');
   liturgy.SlideTemplates.Add('Welkom');
   liturgy.SlideTemplates.Add('Mededelingen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Stilte moment');
   liturgy.SlideTemplates.Add('Votum en zegengroet Lb 416');
-  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
+  liturgy.SlideTemplates.Add('Zingen-zit-PPT');
   // dienst van het woord
   liturgy.SlideTemplates.Add('Gebed');
   liturgy.SlideTemplates.Add('Lezen');
@@ -283,8 +290,9 @@ begin
   // Dienst van de Tafel / Dienst van de Dankbaarheid
 //  liturgy.SlideTemplates.Add('Doop picto');
   liturgy.SlideTemplates.Add('Geloofsbelijdenis lezen');
+  liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Gebed');
-  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE_CHILDREN);
+  liturgy.SlideTemplates.Add(CTEMPLATE_COLLECTE);
   // Zending en zege
   liturgy.SlideTemplates.Add('Zingen-staan-PPT');
   liturgy.SlideTemplates.Add('Zegen Amen Lb 416');
