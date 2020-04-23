@@ -102,7 +102,8 @@ begin
       slideItemContent.ContentSources.Clear;
       case slideItemContent.ContentType of
         ctText: slideItemContent.ContentSources.Add(TSourceInfo.CreateAsString(edtContent.Text));
-        ctTextMemo: slideItemContent.ContentSources.Add(TSourceInfo.CreateAsString(mmoContent.Lines.Text));
+        ctTextMemo,
+        ctSubtitle: slideItemContent.ContentSources.Add(TSourceInfo.CreateAsString(mmoContent.Lines.Text));
         ctPicture,
         ctPictureFit: slideItemContent.ContentSources.Add(FPictureName.DeepCopy);
       end;
@@ -165,7 +166,7 @@ begin
             if slideItemContent.ContentType = ctText then begin
               edtContent.text := source.Text;
               PageControlContent.ActivePage := tsText;
-            end else if slideItemContent.ContentType = ctTextMemo then begin
+            end else if slideItemContent.ContentType in [ctTextMemo, ctSubtitle] then begin
               mmoContent.Lines.Text := source.Text;
               PageControlContent.ActivePage := tsMemo;
             end;
@@ -179,7 +180,7 @@ begin
           end;
         end;
       end;
-      PageControlContent.Visible := slideItemContent.ContentType in [ctText, ctTextMemo, ctPicture, ctPictureFit];
+      PageControlContent.Visible := slideItemContent.ContentType in [ctText, ctTextMemo, ctPicture, ctPictureFit, ctSubtitle];
     end;
   finally
     slide.Free;

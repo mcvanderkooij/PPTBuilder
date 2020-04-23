@@ -253,20 +253,26 @@ begin
     slide.Variables.LoadFromString(FSlideVariables.SaveToString);
 
     slideItemFooter := slide['footer'];
-    slideItemFooter.ContentSources.Clear;
-    case slide.OverviewType of
-      otIgnore: ;
-      otSong: strPrefix := _('Singing') + ': ';
-      otReading: strPrefix := _('Reading') + ': ';
-      otText: strPrefix := _('Text') + ': ';
+    if Assigned(slideItemFooter) then
+    begin
+      slideItemFooter.ContentSources.Clear;
+      case slide.OverviewType of
+        otIgnore: ;
+        otSong: strPrefix := _('Singing') + ': ';
+        otReading: strPrefix := _('Reading') + ': ';
+        otText: strPrefix := _('Text') + ': ';
+      end;
+      slideItemFooter.ContentSources.Add(TSourceInfo.CreateAsString(strPrefix + RespaceOverviewName(edtOverviewName.Text, false)));
     end;
-    slideItemFooter.ContentSources.Add(TSourceInfo.CreateAsString(strPrefix + RespaceOverviewName(edtOverviewName.Text, false)));
 
     slideItemContent := slide['content'];
-    slideItemContent.ContentSources.Clear;
-    aContentStrings := split(mmoText.Lines.Text, CNEWSLIDE);
-    for i := 0 to Length(aContentStrings) -1 do begin
-      slideItemContent.ContentSources.Add(SourceInfoFromMemoText(trim(aContentStrings[i])));
+    if Assigned(slideItemContent) then
+    begin
+      slideItemContent.ContentSources.Clear;
+      aContentStrings := split(mmoText.Lines.Text, CNEWSLIDE);
+      for i := 0 to Length(aContentStrings) -1 do begin
+        slideItemContent.ContentSources.Add(SourceInfoFromMemoText(trim(aContentStrings[i])));
+      end;
     end;
     Result := slide.AsJSon;
   finally

@@ -501,6 +501,13 @@ begin
   template.OverviewType := otSong;
   template.EditPossibilities := [epSongIsMemo, epIsSong];
 
+  inc(iMenuOrder, 10);
+  template := gl_SlideTemplates.Add('Ondertitel', 'Zingen', 'Subtitle-layout', iMenuOrder);
+  template.AreaData.AddSlideItemString('content', ctSubTitle, '');
+  template.PictoName := TSourceInfo.CreateAsFileName('<content>pictos\zingen uit kerkboek zittend.png');
+  template.OverviewType := otSong;
+  template.EditPossibilities := [epSongIsMemo, epMemoMulti];
+
   // Bijbel
   iMenuOrder := 50000;
   template := gl_SlideTemplates.Add('Lezen', 'Schriftlezing en tekst', 'Content-layout', iMenuOrder);
@@ -1265,8 +1272,9 @@ var
   var
     iContentIndex: integer;
   begin
+    Result := True;
     areaTemplate := AreaData['footer'];
-    if Result and Assigned(areaTemplate) and (areaTemplate.ContentType = ctText) then begin
+    if Assigned(areaTemplate) and (areaTemplate.ContentType = ctText) then begin
       for iContentIndex := 0 to slide['footer'].ContentSources.Count -1 do begin
         strText := slide['footer'].ContentSources[iContentIndex].Text;
         Result := InputQuery('Voettekst', _('Enter text'), strText);
@@ -1368,7 +1376,7 @@ begin
           end;
         end;
       end;
-      if Result and Assigned(areaTemplate) and (areaTemplate.ContentType = ctTextMemo) then begin
+      if Result and Assigned(areaTemplate) and (areaTemplate.ContentType in [ctTextMemo, ctSubtitle]) then begin
         for iContentIndex := 0 to slide[strAreaName].ContentSources.Count -1 do begin
           strText := slide[strAreaName].ContentSources[iContentIndex].Text;
           Result := ShowMemoDlg(strAreaName, strText, 'Enter text', '', '');

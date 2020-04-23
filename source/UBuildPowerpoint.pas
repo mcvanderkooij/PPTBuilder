@@ -321,7 +321,7 @@ begin
                   rectDestination.Left, rectDestination.Top,
                   rectDestination.Width, rectDestination.Height);
               end;
-            end else if slideItemArea.ContentType in [ctText, ctTextMemo, ctOverview, ctOverviewSubs] then begin
+            end else if slideItemArea.ContentType in [ctText, ctTextMemo, ctOverview, ctOverviewSubs, ctSubtitle] then begin
 
               if sourceInfo.SourceType = sitBook then begin
                 strContentText := GetCachedBooks.GetVerse(sourceInfo);
@@ -360,11 +360,10 @@ begin
                 pptShape := pptSlide.Shapes.AddTextbox(msoTextOrientationHorizontal,
                   rcArea.Left, rcArea.Top,
                   rcArea.Width, rcArea.Height);
-                if layoutItem.Autosize then begin
-                  Assert(false, 'not tested');
-                  pptShape.TextFrame.AutoSize := msoTrue
-                end else
-                  pptShape.TextFrame.AutoSize := msoFalse;
+//                if layoutItem.Autosize then begin
+//                  pptShape.TextFrame.AutoSize := ppAutoSizeShapeToFitText
+//                end else
+                  pptShape.TextFrame.AutoSize := ppAutoSizeNone;
               end;
               if slideItemArea.ContentType in [ctOverview, ctOverviewSubs] then begin
 

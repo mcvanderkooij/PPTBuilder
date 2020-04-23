@@ -10,7 +10,7 @@ const
   CNEWSLIDE = '<---';
 
 type
-  TContentType = (ctNo, ctText, ctTextMemo, ctPicture, ctPictureFit, ctOverview, ctRibbon, ctExtSlide, ctOverviewSubs);
+  TContentType = (ctNo, ctText, ctTextMemo, ctPicture, ctPictureFit, ctOverview, ctRibbon, ctExtSlide, ctOverviewSubs, ctSubtitle);
   TOverviewType = (otIgnore, otSong, otReading, otText);
 
   ISlideEditForm = interface

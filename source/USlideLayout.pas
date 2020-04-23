@@ -20,6 +20,7 @@ const
   CFontSizeFooter = 26 * 2;
   CFontSizeRemark = 28 * 2;
   CFontSizeContent = 28 * 2;
+  CFontSizeSubtitle = 34 * 2;
   CFontSizeTitle = 36 * 2;
 
   CFooterColor = TColor($0C0CB1);
@@ -252,6 +253,14 @@ begin
   layout['content3'].Area := Rect(CViewMarge, CViewMarge + CContent3Height + CContent3Height, CScreenWidth-CViewMarge-CRibbonWidth, CScreenHeight-CFooterHeight);
   layout['content3'].FontColor := TColors.White;
   layout['content3'].FontSize := CFontSizeContent;
+
+  layout := gl_SlideLayouts.AddName('Subtitle-layout');
+  layout['content'] := TLayoutItem.Create;
+  layout['content'].Visible := true;
+  layout['content'].AreaAlignment := alCenter;
+  layout['content'].Area := Rect(CViewMarge, CScreenHeight - 3 * CFooterHeight, CScreenWidth-CViewMarge, CScreenHeight-CViewMarge);
+  layout['content'].FontColor := TColors.White;
+  layout['content'].FontSize := CFontSizeSubtitle;
 end;
 
 { TSlideLayout }

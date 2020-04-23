@@ -101,10 +101,6 @@ object frmEditSinglePage: TfrmEditSinglePage
     object tsText: TTabSheet
       Caption = 'tsText'
       TabVisible = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object edtContent: TEdit
         Left = 3
         Top = 3
@@ -117,10 +113,6 @@ object frmEditSinglePage: TfrmEditSinglePage
       Caption = 'tsMemo'
       ImageIndex = 1
       TabVisible = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object mmoContent: TMemo
         Left = 0
         Top = 0
